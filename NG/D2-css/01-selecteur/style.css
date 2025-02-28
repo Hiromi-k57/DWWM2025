@@ -1,0 +1,159 @@
+h1 
+{
+    background-color: aqua;
+}
+/* Enfant direct ou indirect */
+/* selectionne tout p dans un main */
+main p 
+{
+    background-color: lightsalmon;
+}
+/*selectionne tout p, directement enfant du main, sans autre balise les séparents */
+main > p 
+{
+background-color: olive;
+}
+/* frère direct ou indirect *
+/* selectionne tous les p après un H1 */
+h1 ~ p
+{
+ background-color: burlywood;
+}
+/* Selectionne tout p juste après un h1 */
+h1 + p
+{
+    background-color: crimson;
+}
+/* Les pseudo classes*/
+/* Elles se reconnaissent à la syntaxe suivante ": nomPseudoClasse"*/
+/* Au survol de l'élément */
+li:hover 
+{
+    background-color: chartreuse;
+}
+/* Selectionne le second enfant, si c'est un p*/
+header p:nth-child(2)
+{
+    color: skyblue;
+}
+/* selectionne le second p enfant de header*
+header p:nth-of-type(2)
+{
+    color: peachpuff;
+}
+/* Existe aussi en comptant despuis la fin, avec nth-last-child() et nth-last-of-type()*/
+/* Les balises a n'héritent pas des propriétés de couleur de leurs parents, il faut les cibler directement*/
+h1 a
+{
+    color: red;
+}
+/ couleur du lien si visité/
+h1 a:visited
+{
+    color: gold;
+}
+/* couleur du lien quand on clique dessus*/
+h1 a:active
+{
+    color:darkmagenta ;
+}
+/* couleur du lien quand il a le focus*/
+h1 a:focus 
+{
+    color: steelblue;
+}
+/* tous les span dans un p, sauf le second*/
+p span:not(:nth-child(2))
+{
+    color: magenta;
+}
+/* toute les balises, sauf h1 et a*/
+*:not(h1, a)
+{
+    font-size: 20px;
+}
+/*article p, header p */
+:where(article, header) p
+{
+    background-color: gray !important;
+}
+/* Recconnaissable à la synntaxe suivant "::persudoElement"*/
+article p::first-letter
+{
+    font-size: 50px;
+}
+/*modifie la première ligne*/
+main > p::first-line
+{
+    font-weight: bold;
+}
+/*crée un element à la debut du h1*/
+h1::before
+{
+    /*Cree un élément à la fin du h1*/
+    content: "C'est faux ->;"
+}
+{/*la propriété content est obligatoire sur un before ou un after*/
+    content:"C'est faux ->" ;
+}
+/**/
+h1::after
+{
+
+}
+/**/
+/**/
+#MenuImpoirant
+{
+    font-size: 42px;
+    font-weight: bold;
+    color: red;
+}
+/*selectionne tous les éléments avec la classe "peuImportant"*/
+.peuImportant
+{
+    font-size: 8px;
+    font-weight: 100;
+    color: gainsboro;
+}
+/*tous a qui possèd un attribut "target"*/
+a[target]
+{
+    font-style: italic;
+}
+/*tous a dont l'attribut href contient le mot "amazon" */
+a[href*="amazon"]
+{
+    font-family: monospace;
+}
+/*tous a dont l'attribut href se termine par "fr."*/
+a[href$=]
+{
+    background-color: blue;
+}
+/*tous a dont l'attribut href commence par "https"*/
+a[href^="https"]::before
+{
+    content:"✔"
+}
+/*priorité et spécificique*/
+/* la priorité spécifique des selecteurs est représenté par 3 schiffres 
+    (0,0,1)
+chaque shifre à la ^rioorité sur le suivant :
+    1,0,0 aura la priorité sur 0,18,9
+    0,1,0 aura la priorité sur 0,0,5
+    0,0,3 aura la ^roproté sir 0,0,1
+Ces chiffres sont définies par les selecteurs:
+    une balise (div, main...) fera évoluer le dernier chiffre.
+        main > pvaudra 0,0,2
+    une classe, ou pseudo-classe fera évolué le second chiffre.
+        div.classeCool vaudra 0,1,1
+    un id fera évoluer le premier chiffre
+        div#idImportant vaudra 1,0,1
+    
+    */
+
+li:nth-child(1)
+{
+    color: gold;
+}
