@@ -1,0 +1,70 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h1
+{
+    display: flex;
+    justify-content: center; 
+    padding: 2rem;  
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.card_container
+{
+    display:grid;
+    grid-template-rows: 1fr;
+}
+
+.card
+{
+    display: grid;
+    border: 1px solid black;
+    box-shadow: inset 0px -10px  gray;
+    margin: 2rem;  
+}
+
+img
+{
+    width: 100%;
+    margin:0;
+}
+
+h2
+{
+    padding: 1rem;
+}
+
+p
+{
+    padding: 0rem 1rem 2rem; 
+}
+
+@media screen and (min-width: 500px) 
+{
+.card_container
+{
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: 2fr 2fr;
+}
+}
+
+.card
+{
+    margin: 2rem 1rem 2rem 2rem;
+}
+
+@media screen and (min-width: 992px)
+{
+.card_container
+{
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: 3fr 3fr 3fr;
+}
+
+}
