@@ -5,20 +5,15 @@
     box-sizing: border-box;
 }
 section
-{
-    
+{    
     display:flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 100vw;
-    
+    width: 100vw;   
 }
-
-div
-{
-    width: 100vw;
-    height: 11vh;
-    padding: 4px;
+div{
+    height: calc(100vh / 9);
 }
 .d1
 {
@@ -26,7 +21,7 @@ div
 }
 .d2
 {
-    background-color: greenyellow;  
+    background-color: greenyellow;
 }
 .d3
 {
@@ -57,20 +52,27 @@ div
     background-color: darkslategrey;
 }
 
-@media screen and (min-width:768px)
+@media screen and (min-width: 500px)
 {
-    selection{
+    section{
         flex-direction: row;
-        flex-wrap: wrap; 
     }
-
-    div{
-        width: 45vw;
-        height: 10vh;
-
+    div{    
+    width: 50%;
+    height: calc(100vh / 5);
     }
-
+    .d5{
+    width: 100%;
+    }
 }
 
-@media screen and (min-width:900px)
-
+@media screen and (min-width: 992px)
+{
+    div{    
+        width: 25%;
+        height: calc(100vh / 3);
+        }
+        .d5{
+        width: 100%;
+        } 
+}
