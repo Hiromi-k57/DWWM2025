@@ -4,8 +4,56 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
+
+/*  <weight>: Use a value from 100 to 900 */
+/*  <uniquifier>: Use a unique and descriptive class name */
+/* 
+  .lexend-deca-<uniquifier> {
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+*/
+
 body
 {
-    background-color: black;
+    /* background-color: black; */
     font-family: "Lexend Deca", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    width: 100vw;
+    height: 100vh;
 }
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    width: 100%;
+    padding: 1rem;
+}
+
+.hLogo{
+    width: 5px;
+    height: auto;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    background-color: blue;
+}
+.nav_list{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    color: rgb(5, 5, 5);
+}
+.earth_logo{
+    width: 1rem;
+    height: auto;
+}
+
+    
