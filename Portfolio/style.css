@@ -20,40 +20,29 @@ body
 {
     /* background-color: black; */
     font-family: "Lexend Deca", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     color: white;
     width: 100vw;
     height: 100vh;
-}
-
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between ;
-    width: 100%;
     padding: 1rem;
 }
 
-.hLogo{
-    width: 5px;
-    height: auto;
+.top
+{
+    background-color: black;
 }
-
-ul{
-    list-style: none;
+.top_container
+{
     display: flex;
-    background-color: blue;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    & img{
+        width: 1rem;
+        padding-top: 1em;
+    }
 }
-.nav_list{
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    color: rgb(5, 5, 5);
+.propos
+{
 }
-.earth_logo{
-    width: 1rem;
-    height: auto;
-}
-
-    
