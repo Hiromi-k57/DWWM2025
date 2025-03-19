@@ -1,0 +1,8 @@
+zen logo color
+
+tekkon #17184b c100% m99 y54 k24
+koniro #223a70 c95 m88 y38 k4
+aiiro  #145E83 c70 m20 y0 k55
+ajiiro #ebf6f7 c10 m1 y5 k0
+wasurenagusa #89c3eb c49 m 14 y4 k0
+unohana #f7fcfe c3 m1 y1 k0%

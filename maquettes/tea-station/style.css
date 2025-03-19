@@ -1,46 +1,52 @@
 *, ::before, ::after{
 margin: 0;
 box-sizing: border-box;
-box-sizing: border-box;
-font-family: "Catamaran", sans-serif;
 }
-/* @font-face {
+@font-face {
     font-family: 'Catamaran';
-    src: url('Catamaran/Catamaran-VariableFont_wght.ttf') format('truetype');
-    src: url();
-    font-weight: 100 900;
-} */
+    src: url('./assets/font/Catamaran/Catamaran-VariableFont_wght.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Grand Hotel";
+    src: url("./assets/font/Grand_Hotel/GrandHotel-Regular.ttf");
+}
 
-/* 
-// <weight>: Use a value from 100 to 900
-// <uniquifier>: Use a unique and descriptive class name 
-*/
-body {
-    font-family: "Catamaran", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-  }
 .grand-hotel-regular {
     font-family: "Grand Hotel", cursive;
     font-weight: 400;
     font-style: normal;
     color: green;
 }
-  
+
+.fa-solid 
+{
+    color: green;
+}
+
+body {
+    font-family: "Catamaran", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
 
 header
 {
     padding: 1rem;
     width: 100vw;
-    height: 100wh;
+    height: 150vh;
     background-image: url(/maquettes/tea-station/assets/image/main-bcg.jpeg);
-    object-fit: cover;
-    
+    opacity: 0.8;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-color: greenyellow;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
 }
 nav
 {
-    background-color: red;
     width: 20px;
     height: 20px;
 }
@@ -89,7 +95,7 @@ nav
 }
 .bcg_gy
 {
-    background-color: lightcyan;
+    background-color: lightgray;
     
 }
 .bcg_wh
