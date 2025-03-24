@@ -1,7 +1,8 @@
 "use strict";
 /* 
-    Math.random() génère un chiffre entre 0 et 1
-    Math.floor() arrondi à l'inferieur
+    Math.random() génère un chiffre entre 0 et 1 
+        0〜1未満（1は入らない）までの小数によるランダムな乱数を生成
+    Math.floor() arrondi à l'inferieur　小数点以下を切り捨てる
 */
 const x = Math.floor(Math.random()*100);
 // const x = 50;
@@ -11,7 +12,8 @@ console.log(x);
     Une condition commencera forcément par un "if" suivi de parenthèses.
     Dans ces parenthèses se trouverons la condition à vérifier.
     Si elle est vrai, alors ce qui se trouve entre accolade sera exécuté
-    sinon il ne se passera rien.
+    sinon il ne se passera rien. 
+    trueの場合、弧内の内容が実行されますが。そうでなければ何も起こりません。
 */
 if(x < 50)
 {
@@ -31,29 +33,31 @@ else if(x > 50)
 */
 else
 {
-    console.log("x vaut 50");
+    console.log("x vaut 50"); //xは50に等しい
 }
 
 /* 
     Si la condition, n'a qu'une seule instruction à réaliser.
     On peut ne pas mettre les accolades.
+    //条件に実行する命令が 1 つだけある場合、中括弧{}は省略できる
 */
 if(x<50)
     console.log("x est plus petit que 50");    
 else if(x > 50)
     console.log("x est plus grand que 50");
 else
-    console.log("x vaut 50");
+    console.log("x vaut 50"); 
 
 /* 
-    Une ternaire est une condition sur une seule ligne.
+    Une ternaire三項演算子 est une condition sur une seule ligne.
     Elle s'écrit :
         condition ? valeurSiTrue : valeurSiFalse
 */
 const message1 = x<=50?"x est plus petit ou égale à 50":"x est plus grand que 50";
 console.log(message1);
 /* 
-    On peut imbriquer des ternaires, mais si on perd en lisibilité, c'est plutôt déconseillé
+    On peut imbriquer des ternaires, mais si on perd en lisibilité, c'est plutôt déconseillé 
+    三項演算子をネストすることはできますが、可読性が失われる場合はお勧めできません。
 */
 const message2 = 
     x < 50 ?
@@ -67,7 +71,7 @@ console.log(message2);
 let a, b = undefined, c = null, d = "J'aime la pizza";
 /* 
     Il permet de vérifier si une variable contient une valeur.
-    Et dans le cas où la variable est vide, de prendre la valeur qui suis les "??".
+    Et dans le cas où la variable est vide, de prendre la valeur qui suis les "??".変数に値が含まれているかどうかを確認できます。変数が空の場合は「??」に続く値を取得します。
 */
 console.log(
     a ?? "Coucou de a",
@@ -91,7 +95,7 @@ console.log(
 );
 
 // ? Switch 
-// prompt permet d'afficher une modale invitant l'utilisateur à rentrer une information, cette dernière sera retourné et peut être utilisée par exemple dans une variable.
+// prompt permet d'afficher une modale invitant l'utilisateur à rentrer une information, cette dernière sera retourné et peut être utilisée par exemple dans une variable. prompt を使用すると、ユーザーに情報の入力を促すモーダルを表示できます。入力された情報は返され、たとえば変数で使用できます。
 let ville = prompt("De quelle ville venez-vous?");
 // if(ville === "" || ville === null) {ville = "sans réponse}";
 ville = ville??"sans réponse";
@@ -102,7 +106,12 @@ console.log(ville);
     Puis de déclarer plusieurs cas possibles.
     chacun de ces cas doit être terminé par un "break";
     Si plusieurs cas s'enchainent sans break, alors ils réaliseront les mêmes actions.
-    On peut ajouter un "default" qui sera lancé si aucun cas ne correspond
+    On peut ajouter un "default" qui sera lancé si aucun cas ne correspond.
+    スイッチを使用すると、括弧内の値を取得できます。
+    次に、いくつかの可能性のあるケースを宣言します。
+    これらの各ケースは「break」で終了する必要があります。
+    複数のケースが途切れることなく続く場合、同じアクションが実行されます。
+    ケースが一致しない場合に起動される「デフォルト」を追加できます
 */
 switch(ville.toLowerCase())
 {

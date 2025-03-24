@@ -172,7 +172,7 @@ console.log(n, n.toString());
 // Il peut aussi changer sa base mathématique :
 console.log(n, n.toString(2));
 
-// Et à l'inverse on utilisera parseInt();
+// Et à l'inverse on utilisera parseInt(); 文字列の整数を数値型の整数に変換する
 let s = "10011101";
 console.log(s, parseInt(s));
 // On peut aussi changer la base mathématique :

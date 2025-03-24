@@ -1,12 +1,17 @@
 "use strict";
 /* 
-    Une fonction est un morceau de code nommé, 
-    que l'on peut appeler où l'on souhaite dans notre code.
+    Une fonction est un morceau de code nommé, que l'on peut appeler où l'on souhaite dans notre code.
     Une fonction se déclare avec le mot clef "function" suivi d'un nom au choix, de parenthèses puis d'accolades.
 
     Tant que la fonction n'est pas appelé, le code ne sera pas exécuté.
     Une fonction peut être appelé avant ou après sa déclaration.
+
+    fonctionは、コード内のどこからでも呼び出すことができる名前付きのコードです。
+    fonctionは、キーワード「function」に続いて任意の名前、括弧、中括弧で宣言されます。
+
+    関数が呼び出されるまで、コードは実行されません。関数は宣言の前後に呼び出すことができます。
 */
+
 salut();
 function salut()
 {
@@ -18,6 +23,10 @@ salut();
     Mais les façons suivantes, ne peuvent être appelé qu'après leurs déclarations.
 
     On pourra déclarer une fonction dite "anonyme" et la ranger dans une variable, un objet, ou un tableau (bien que celui ci, ne se voit jamais).
+
+    関数を宣言する方法は他にもあります。
+    ただし、次の方法は宣言後にのみ呼び出すことができます。
+    いわゆる「匿名」関数を宣言し、それを変数、オブジェクト、または配列（ただし、配列は表示されません）に格納できます。
 */
 const salut2 = function()
 {
@@ -25,8 +34,7 @@ const salut2 = function()
 }
 salut2();
 /* 
-    Il existe une version raccourci de la fonction anonyme,
-    on appelle cela une fonction fléché
+    Il existe une version raccourci de la fonction anonyme, on appelle cela une fonction fléché. 匿名関数の短縮版があります。これは矢印関数と呼ばれる
 */
 const salut3 = ()=>{
     console.log("Salut fléché !");
@@ -39,8 +47,7 @@ monObjet.salut();
 // ? Les paramètres des fonctions
 
 /* 
-    Lorsqu'on déclare une fonction, nous pouvons indiquer à celle ci,
-    qu'elle doit recevoir des paramètres.
+    Lorsqu'on déclare une fonction, nous pouvons indiquer à celle ci, qu'elle doit recevoir des paramètres.
     Ce sont des valeurs qui devront lui être transmise durant son appel.
 
     Ces paramètres peuvent être utilisé comme variables interne à la fonction.
@@ -59,9 +66,11 @@ bonsoir("Maurice", "Pierre");
 function bonneNuit(nom1, nom2)
 {
     // ajouter %c au début d'un console.log permet que le second paramètre soit utilisé comme CSS
+    //console.log の先頭に %c を追加すると、2 番目のパラメータを CSS として使用できるようになります。
     console.log("%cBonne nuit " + nom1+ " et "+nom2,"background: blue; color: yellow;font-size:40px;");
 }
 // La première valeur, va au premier paramètre, la seconde, au second et ainsi de suite
+// 最初の値は最初のパラメータに、2 番目の値は 2 番目のパラメータに、というように続きます。
 bonneNuit("Maurice", "Pierre");
 /* 
     Il est possible d'ajouter une valeur par défaut à un paramètre.
@@ -104,6 +113,7 @@ function insulte(nom)
         return;
     }
     // Si le mot clef "return" est suivi d'une valeur, celle ci sera renvoyé au code lors de l'appel de la fonction
+    //キーワード「return」の後に値が続く場合、関数が呼び出されたときにこの値がコードに返されます。
     return nom + " Le Poltron !";
     console.log("fin fonction");
 }
@@ -113,16 +123,18 @@ console.log(newName);
 console.log(insulte("Bil"));
 
 /* 
-    Il est possible d'écrire une fonction fléché sans accolade si elle n'a qu'une seule instruction à réaliser.
+    Il est possible d'écrire une fonction fléché sans accolade{} si elle n'a qu'une seule instruction à réaliser.
     Dans ce cas là, elle possède un "return" implicite. C'est à dire non visible.
 */
 const add = (a,b)=>a+b;
 console.log(add(7,8));
 
-// ? Fonction récurcive
+// ? Fonction récurcive 再帰関数
 /* 
     Une fonction récurcive est une fonction qui s'appelle elle-même.
     Il est important dans ce genre de cas, de prévoir une fin à cet enchaînement.
+    再帰関数は、自分自身を呼び出す関数です。
+    このようなケースでは、一連の出来事を終わらせる計画を立てることが重要です。
 */
 /**
  * Fonction qui affiche un décompte dans la console.
@@ -141,12 +153,13 @@ decompte(10);
 
 /* 
     Une fonction callback, est une fonction donné en paramètre d'une autre fonction afin que cette dernière utilise elle même la nouvelle fonction.
+    コールバック関数は、別の関数にパラメータとして渡され、後者の関数自体がその新しい関数を使用する関数です。
 
     Plein de fonctions JS utilisent des callback.
     Et on peut aussi créer les notres.
 */
 const pr = ["Alice", "Ariel", "Mulan", "Belle"];
-// La fonction forEach, va appeler la fonction donné en paramètre, en utilisant les différents éléments du tableau en paramètre.
+// La fonction forEach, va appeler la fonction donné en paramètre, en utilisant les différents éléments du tableau en paramètre. forEach関数は、配列のさまざまな要素をパラメーターとして使用して、パラメーターとして指定された関数を呼び出します。
 pr.forEach(bonsoir);
 /*  
     Ici cela reviendrait à faire: 
@@ -164,6 +177,7 @@ pr.forEach(function(nom){
 
 /**
  * Appel la fonction en premier paramètre et lui donne comme argument, le nom en second paramètre agrémenté d'un compliment.
+  関数を最初のパラメータとして呼び出し、それを引数として、名前を 2 番目のパラメータとして補完語とともに渡します。
  * @param {CallableFunction} maFonction fonction callback
  * @param {string} nom un nom
  */
@@ -173,4 +187,4 @@ function compliment(maFonction, nom)
 }
 compliment(bonsoir, "Greg");
 
-//! Lorsqu'on donne une fonction en callback, il ne faut surtout pas mettre les parenthèses. Ce n'est pas un appel que l'on fait, on se contente de donner le nom de notre fonction.
+//! Lorsqu'on donne une fonction en callback, il ne faut surtout pas mettre les parenthèses. Ce n'est pas un appel que l'on fait, on se contente de donner le nom de notre fonction. 関数をコールバックとして指定する場合は、括弧を含めないでください。これは私たちが行う呼び出しではなく、関数の名前を指定するだけです。
