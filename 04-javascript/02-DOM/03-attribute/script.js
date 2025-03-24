@@ -17,7 +17,8 @@ h1.style.backgroundColor = "rgb(123, 45, 98)";
 h1.style.fontStyle = "italic";
 h1.style.textShadow = "5px 5px rgba(0,0,0,0.3)";
 h1.style.fontSize = "5rem";
-// ! ATTENTION, Si on se trompe sur le nom d'une propriété, ou sur une valeur, JS ne provoquera pas d'erreur, mais n'appliquera aucun effet.プロパティ名または値を間違って入力した場合、JS はエラーを発生しませんが、効果は適用されません。
+// ! ATTENTION, Si on se trompe sur le nom d'une propriété, ou sur une valeur, JS ne provoquera pas d'erreur, mais n'appliquera aucun effet.
+// プロパティ名または値を間違って入力した場合、JS はエラーを発生しませんが、効果は適用されません。
 h1.style.couleur = "red";
 h1.style.color = "rgbaaa(255,255,255,0.8)";
 
@@ -67,8 +68,10 @@ h1.id += "2";
 
 const a = document.querySelector('footer ul li a');
 console.log(a);
-// Le premier paramètre, c'est l'attribut que l'on souhaite modifier最初のパラメータは変更したい属性です
-// Le second paramètre, c'est la valeur que l'on donne à cet attribut 2番目のパラメータはこの属性に与える値です 
+// Le premier paramètre, c'est l'attribut que l'on souhaite modifier
+    // 最初のパラメータは変更したい属性です
+// Le second paramètre, c'est la valeur que l'on donne à cet attribut 
+    // 2番目のパラメータはこの属性に与える値です 
 a.setAttribute("target", "_blank");
 
 /* 
@@ -81,6 +84,7 @@ console.log(a.dataset.color);
 // pour le modifier :
 a.dataset.color = "Je ne suis pas une couleur";
 // Pour ajouter un data-attribute qui n'existe pas encore, il suffit d'utiliser un nouveau nom :
+//まだ存在しないデータ属性を追加するには、新しい名前を使用します。
 a.dataset.bidule = "je ne sert à rien";
 
 /* 

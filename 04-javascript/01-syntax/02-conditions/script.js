@@ -13,7 +13,7 @@ console.log(x);
     Dans ces parenthèses se trouverons la condition à vérifier.
     Si elle est vrai, alors ce qui se trouve entre accolade sera exécuté
     sinon il ne se passera rien. 
-    trueの場合、弧内の内容が実行されますが。そうでなければ何も起こりません。
+    trueの場合、弧内の内容が実行されますがそうでなければ何も起こりません。
 */
 if(x < 50)
 {
@@ -22,6 +22,9 @@ if(x < 50)
 /* 
     Si on a plusieurs conditions à vérifier, on peut faire suivre un if,
     de un ou plusieurs "else if" qui ne seront vérifié, que si toute les conditions précédentes sont fausses.
+
+    チェックする条件が複数ある場合は、if文に従うことができます。
+    1つ以上の「else if」は、前の条件がすべて falseの場合にのみチェックされます。
 */
 else if(x > 50)
 {
@@ -30,6 +33,8 @@ else if(x > 50)
 /* 
     Si on le souhaite, on peut ajouter un "else" qui ne prend aucune condition,
     Il sera executé, si toute les conditions précédentes sont fausses.
+    必要に応じて、条件を取らない「else」を追加することもできます。
+    前の条件がすべてfalseの場合に実行されます。
 */
 else
 {
@@ -71,7 +76,9 @@ console.log(message2);
 let a, b = undefined, c = null, d = "J'aime la pizza";
 /* 
     Il permet de vérifier si une variable contient une valeur.
-    Et dans le cas où la variable est vide, de prendre la valeur qui suis les "??".変数に値が含まれているかどうかを確認できます。変数が空の場合は「??」に続く値を取得します。
+    Et dans le cas où la variable est vide, de prendre la valeur qui suis les "??".
+
+    変数に値が含まれているかどうかを確認できます。変数が空の場合は「??」に続く値を取得します。
 */
 console.log(
     a ?? "Coucou de a",
@@ -85,6 +92,7 @@ const   obj = {info: "cet objet est un exemple", superinfo: {a:"rien à dire"}},
         obj3 = null;
 /* 
     L'opérateur de chaînage optionnelle permet de vérifier l'existence de l'objet qui précède l'opérateur, avant de tenter de demander une propriété sur celui ci.
+    オプションの連鎖演算子を使用すると、そのオブジェクトのプロパティを要求する前に、演算子の前のオブジェクトの存在を確認できます。
 */
 console.log(
     obj.info,
@@ -95,7 +103,8 @@ console.log(
 );
 
 // ? Switch 
-// prompt permet d'afficher une modale invitant l'utilisateur à rentrer une information, cette dernière sera retourné et peut être utilisée par exemple dans une variable. prompt を使用すると、ユーザーに情報の入力を促すモーダルを表示できます。入力された情報は返され、たとえば変数で使用できます。
+// prompt permet d'afficher une modale invitant l'utilisateur à rentrer une information, cette dernière sera retourné et peut être utilisée par exemple dans une variable. 
+    // prompt を使用すると、ユーザーに情報の入力を促すモーダルを表示できます。入力された情報は返され、たとえば変数で使用できます。
 let ville = prompt("De quelle ville venez-vous?");
 // if(ville === "" || ville === null) {ville = "sans réponse}";
 ville = ville??"sans réponse";

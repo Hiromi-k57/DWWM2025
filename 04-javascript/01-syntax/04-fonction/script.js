@@ -51,6 +51,10 @@ monObjet.salut();
     Ce sont des valeurs qui devront lui être transmise durant son appel.
 
     Ces paramètres peuvent être utilisé comme variables interne à la fonction.
+
+    関数を宣言するときに、パラメータを受け取るように指示することができます。
+    これらは、呼出しに伝えなければならない価値観です。
+    これらのパラメータは関数内の内部変数として使用できます。
 */
 function bonsoir(nom)
 {
@@ -91,6 +95,8 @@ goodBye();
 /* 
     le rest operator (...nomParamètre) se met sur le paramètre le plus à droite. (le dernier)
     Et va créer un tableau contenant tout les paramètres supplémentaires fournis à la fonction.
+    残り演算子 (...parameterName) は右端のパラメータに配置されます。（最後）
+    そして、関数に提供されるすべての追加パラメータを含む配列を作成します。
 */
 function goodMorning(...noms)
 {
@@ -125,6 +131,8 @@ console.log(insulte("Bil"));
 /* 
     Il est possible d'écrire une fonction fléché sans accolade{} si elle n'a qu'une seule instruction à réaliser.
     Dans ce cas là, elle possède un "return" implicite. C'est à dire non visible.
+    実行する命令が 1 つだけの場合は、中括弧 {} なしで矢印関数を記述できます。
+    この場合、暗黙的に「戻り」があります。つまり、見えないのです。
 */
 const add = (a,b)=>a+b;
 console.log(add(7,8));
@@ -159,7 +167,8 @@ decompte(10);
     Et on peut aussi créer les notres.
 */
 const pr = ["Alice", "Ariel", "Mulan", "Belle"];
-// La fonction forEach, va appeler la fonction donné en paramètre, en utilisant les différents éléments du tableau en paramètre. forEach関数は、配列のさまざまな要素をパラメーターとして使用して、パラメーターとして指定された関数を呼び出します。
+// La fonction forEach, va appeler la fonction donné en paramètre, en utilisant les différents éléments du tableau en paramètre. 
+// forEach関数は、配列のさまざまな要素をパラメーターとして使用して、パラメーターとして指定された関数を呼び出します。
 pr.forEach(bonsoir);
 /*  
     Ici cela reviendrait à faire: 
@@ -187,4 +196,5 @@ function compliment(maFonction, nom)
 }
 compliment(bonsoir, "Greg");
 
-//! Lorsqu'on donne une fonction en callback, il ne faut surtout pas mettre les parenthèses. Ce n'est pas un appel que l'on fait, on se contente de donner le nom de notre fonction. 関数をコールバックとして指定する場合は、括弧を含めないでください。これは私たちが行う呼び出しではなく、関数の名前を指定するだけです。
+//! Lorsqu'on donne une fonction en callback, il ne faut surtout pas mettre les parenthèses. Ce n'est pas un appel que l'on fait, on se contente de donner le nom de notre fonction. 
+// 関数をコールバックとして指定する場合は、括弧を含めないでください。これは私たちが行う呼び出しではなく、関数の名前を指定するだけです。

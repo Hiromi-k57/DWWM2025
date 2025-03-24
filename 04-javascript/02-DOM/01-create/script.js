@@ -7,7 +7,8 @@ console.log(document.body);
 
 // createElement permet de créer un élément HTML
 const span1 = document.createElement("span");
-// textContent est une des propriétés permettant de changer le texte d'un élément HTML   textContentはHTML要素のテキストを変更できるプロパティの1つです。
+// textContent est une des propriétés permettant de changer le texte d'un élément HTML   
+// textContentはHTML要素のテキストを変更できるプロパティの1つです。
 span1.textContent = "Coucou";
 
 console.log(span1);
@@ -27,7 +28,8 @@ document.body.append(span1, "test");
 span1.innerHTML = "<b>COUCOU mais en gras</b>";
 // innerHTML gère les balises HTML alors que textContent.
 span1.textContent = "<b>COUCOU mais en gras</b>";
-// ! Pour des raisons de sécurité, si des informations textuelles viennent des utilisateurs, il faudra privilégié "textContent"; セキュリティ上の理由から、テキスト情報がユーザーから提供される場合は、「textContent」が優先されます。
+// ! Pour des raisons de sécurité, si des informations textuelles viennent des utilisateurs, il faudra privilégié "textContent"; 
+// セキュリティ上の理由から、テキスト情報がユーザーから提供される場合は、「textContent」が優先されます。
 
 // Affiche le texte avec les indentations et sauts à la ligne
 //インデントと改行を含むテキストを表示します

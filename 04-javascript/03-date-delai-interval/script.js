@@ -9,6 +9,7 @@ const progress = document.querySelector('.progress');
     le mot clef "new" devant une classe comme "Date" permet de créer un nouvel objet à partir de cette classe.
     L'objet date contient la date et l'heure de sa création.
     Il possède tout un tas de méthode permettant de récupérer ces informations.
+    
     「Date」のようなクラスの前にキーワード「new」を付けると、このクラスから新しいオブジェクトを作成できます。
     日付オブジェクトには、作成日時が含まれます。この情報を取得するためのさまざまな方法があります。
 */

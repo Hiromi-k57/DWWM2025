@@ -60,13 +60,14 @@ h1.addEventListener("click", function(e)
 /* 
     Il est possible d'ajouter autant d'écouteur d'évènement sur un même évènement que l'on souhaite avec addEventListener.
     Par contre, avec ".onclick", on ne peut mettre qu'une seule fonction.
-    "addEventListener"を使用すると、同じイベントに任意の数のイベント リスナーを追加できます。
-    一方、「.onclick」では、1つの関数しか置くことができません。
+
+    "addEventListener"を使用すると、同じイベントに任意の数のイベント リスナーを追加できます。一方、「.onclick」では、1つの関数しか置くことができません。
     
 */
 // ? Input et change event
 /* 
     Lorsque vous créer votre code, la première chose à faire, est de réfléchir à quel sont les éléments avec lesquels vous allez interragir, et de les sélectionner
+
     コードを作成するときに最初に行うことは、どの要素と対話するかを考えて、それらを選択することです。
 */
 const input1 = document.querySelector('.div1 input');
@@ -82,10 +83,10 @@ const btn1 = document.querySelector('.div1 button');
 
     そうすると、どんな種類のイベントを聞きたいか考えることができます。
     たとえば、ここでは、ユーザーが入力する内容を聞きたいとします。
-    ここでは、「入力」イベントまたは「変更」イベントの2つの選択肢があります。
+    ここでは、「input」イベントまたは「change」イベントの2つの選択肢があります。
 
-    input」は、入力されたキーごとに実行されます（テキストフィールドの場合）
-    フィールドが検証されると（フィールドを離れるときに）「変更」がトリガーされます。
+    inputは、入力されたキーごとに実行されます（テキストフィールドの場合）
+    フィールドが検証されると（フィールドを離れるときに）「change」がトリガーされます。
 */
 input1.addEventListener("input", e=>{
 // input1.addEventListener("change", e=>{
@@ -154,6 +155,7 @@ menu5.addEventListener("click", event=>{
     le texte du bouton change de couleur, 
     et lors de l'appuie sur le bouton, 
     le background de la div change de couleur.
+    
     div 2 の入力で色を選択するとボタンのテキストの色が変わり、ボタンを押すと div の背景の色が変わるようにします。
 */
 const div2 = document.getElementsByClassName("div2")[0];

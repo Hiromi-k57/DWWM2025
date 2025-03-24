@@ -2,7 +2,8 @@
 
 let a = true;
 /* 
-    la boucle while() répètera ce qui se trouve entre accolade, tant que la condition entre parenthèse est vrai. 括弧内の条件が真である限り、中括弧内の内容を繰り返します。
+    la boucle while() répètera ce qui se trouve entre accolade, tant que la condition entre parenthèse est vrai. 
+    括弧内の条件が真である限り、中括弧内の内容を繰り返します。
 */
 while(a)
 {
