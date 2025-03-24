@@ -20,7 +20,10 @@ const h1 = document.querySelector('header > h1');
     Les écouteurs d'évènement passent toujours en paramètre de la fonction callback, un objet correspondant à l'évènement écouté.
     On pourra y récupérer plusieurs informations correspondant à cet évènement.
     Par exemple sur un clique, la position de la souris, l'élément cliqué...
-*/
+    イベント リスナーは常に、リッスンされているイベントに対応するオブジェクトをパラメーターとしてコールバック関数に渡します。
+    このイベントに対応するいくつかの情報を取得できます。
+    たとえば、クリックすると、マウスの位置、クリックされた要素などが表示されます。
+    */
 h1.addEventListener("click", test);
 
 h1.onclick = test;
@@ -38,23 +41,33 @@ h1.addEventListener("click", function(e)
     /* 
         le ".target" de l'objet "Event" permet de récupérer la cible de l'évènement.
         Attention, pour un click, la cible est l'élément cliqué.
-        Si il y avait un span dans mon H1, si je clique dessus, la ligne suivante s'appliquerait au span et non au H1
+        Si il y avait un span dans mon H1, si je clique dessus, la ligne suivante s'appliquerait au span et non au H1.
+        「Event」オブジェクトの「.target」を使用すると、イベントのターゲットを取得できます。
+        クリックの場合、ターゲットはクリックされた要素になることに注意してください。
+        H1にspanがあった場合、それをクリックすると、次の行はH1ではなくspanに適用されます。
     */
     e.target.style.transform = `rotate(${r}deg)`;
     // h1.style.transform = `rotate(${r}deg)`;
     /* 
-        this, représente par défaut, l'élément HTML sur lequel a été placé l'écouteur d'évènement, ici H1.
+        this, représente par défaut, l'élément HTML sur lequel a été placé l'écouteur d'évènement, ici H1. 
+        this,デフォルトでは、イベント リスナーが配置された HTML 要素 (ここでは H1) を表します。
         !attention, this ne fonctionne pas, si il est dans une fonction fléché ()=>{}
+            これは矢印関数 ()=>{} 内にある場合は機能しません。
+        
     */
     // this.style.transform = `rotate(${r}deg)`;
 });
 /* 
     Il est possible d'ajouter autant d'écouteur d'évènement sur un même évènement que l'on souhaite avec addEventListener.
-    Par contre, avec ".onclick", on ne peut mettre qu'une seule fonction
+    Par contre, avec ".onclick", on ne peut mettre qu'une seule fonction.
+    "addEventListener"を使用すると、同じイベントに任意の数のイベント リスナーを追加できます。
+    一方、「.onclick」では、1つの関数しか置くことができません。
+    
 */
 // ? Input et change event
 /* 
     Lorsque vous créer votre code, la première chose à faire, est de réfléchir à quel sont les éléments avec lesquels vous allez interragir, et de les sélectionner
+    コードを作成するときに最初に行うことは、どの要素と対話するかを考えて、それらを選択することです。
 */
 const input1 = document.querySelector('.div1 input');
 const btn1 = document.querySelector('.div1 button');
@@ -66,6 +79,13 @@ const btn1 = document.querySelector('.div1 button');
 
     "input" se déclenchera à chaque touche entré (dans le cas d'un champ textuel)
     "change" se déclenchera une fois le champ validé (lorsqu'on le quitte)
+
+    そうすると、どんな種類のイベントを聞きたいか考えることができます。
+    たとえば、ここでは、ユーザーが入力する内容を聞きたいとします。
+    ここでは、「入力」イベントまたは「変更」イベントの2つの選択肢があります。
+
+    input」は、入力されたキーごとに実行されます（テキストフィールドの場合）
+    フィールドが検証されると（フィールドを離れるときに）「変更」がトリガーされます。
 */
 input1.addEventListener("input", e=>{
 // input1.addEventListener("change", e=>{
@@ -97,6 +117,14 @@ const en = div4.querySelector('.enfant');
     Puis remonter en déclenchant les évènements.
 
     On peut indiquer au navigateur d'activer un évènement lors de la phase de capture avec l'option "capture: true"
+
+    同じアクションによって複数のイベント リスナーをトリガーする必要がある場合。
+    最初は最も深い子となり、次に最も高い親へと上がっていきます。
+
+    ブラウザはまず、親から子までトリガーする必要があるイベントをキャプチャしてリストします。
+    次に、イベントをトリガーして上に戻ります。
+
+    「capture: true」オプションを使用すると、キャプチャフェーズ中にイベントをアクティブ化するようにブラウザに指示できます。
 */
 div4.addEventListener("click", ()=>{console.log("div4")}, {capture: true});
 gp.addEventListener("click", ()=>{console.log("gp")});
@@ -112,6 +140,8 @@ menu5.addEventListener("click", event=>{
     /* 
         preventDefault() permet d'annuler l'effet par défaut d'un évènement.
         le changement de page d'un lien, la soumission d'un formulaire...
+        preventDefault() を使用すると、イベントのデフォルトの効果をキャンセルできます。
+        リンクページの変更、フォームの送信など...
     */
     event.preventDefault();
     console.log("Coucou le monde !");    
@@ -124,6 +154,7 @@ menu5.addEventListener("click", event=>{
     le texte du bouton change de couleur, 
     et lors de l'appuie sur le bouton, 
     le background de la div change de couleur.
+    div 2 の入力で色を選択するとボタンのテキストの色が変わり、ボタンを押すと div の背景の色が変わるようにします。
 */
 const div2 = document.getElementsByClassName("div2")[0];
 const input2 = div2.getElementsByTagName("input")[0];
@@ -147,6 +178,8 @@ button2.addEventListener("click",function(e)
     Lors du clique sur le bouton de la div 3,
     faire apparaître la modale
     Cette modale doit contenir un élément permettant de la faire disparaître.
+    div3のボタンをクリックするとモーダルが表示されるようにする
+    このモーダルには、モーダルを消すことができる要素が含まれている必要があります。
 */
 
 const div3 = document.getElementsByClassName("div3")[0];
@@ -172,6 +205,8 @@ mInput1.addEventListener("click",function(e)
 
     Faites que tous nos li dans la nav double de taille lorsque l'on clique dessus.
     puis retournent à leurs tailles d'origine si on clique de nouveau dessus.
+    ナビゲーション内のすべてのリンクをクリックしたときにサイズが 2 倍になるようにします。
+    もう一度クリックすると元のサイズに戻ります。
 */
 
 // - menu5 only -

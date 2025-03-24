@@ -1,0 +1,40 @@
+*, ::before, ::after
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    padding: 5rem;
+}
+fieldset
+{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div
+{
+    padding: 0.5rem;
+    width: 100%;
+}
+
+input
+{
+    width: 40vw;
+}
+
+input:invalid {
+    background-color: red;
+  }
+    
+.mdp
+{
+    width:  40vw;
+    height: 1vh;
+    border: 1px solid black;
+    margin: 0.5rem;
+}

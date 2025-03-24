@@ -8,11 +8,16 @@ const lis = document.getElementsByTagName("li");
     Ici j'ai cherché dans tout mon document, mais il est possible de préciser une recherche dans un élément précis.
     Imaginons que j'ai une variable "footer" qui contient mon footer, je peux écrire :
         footer.getElementsByTagName("li");
+    要求されたすべてのタグを含む「HTMLCollection」オブジェクトを取得します。
+    ここではドキュメント全体を検索しましたが、特定の要素で検索を指定することも可能です。
+    フッターを含む変数「footer」があると仮定すると、次のように記述できます。
+    フッターにタグ名で要素を追加します。
 */
 console.log(lis);
 /* 
     !ATTENTION, je ne peux pas modifier tous les li d'un seul coup,
     Il me faudra préciser lequel je modifie :
+    一度にすべてのリンクを変更することはできません。どれを変更するかを指定する必要があります:
 */
 lis.textContent = "Coucou";
 // Ceci fonctionnera :
@@ -21,6 +26,7 @@ lis[0].textContent = "Coucou";
 /* 
     Permet de récupéré des éléments HTML via leurs nom de classe
     Pour le reste, il fonctionne comme getElementsByTagName
+    クラス名を使用して HTML 要素を取得できます。残りはgetElementsByTagNameのように動作します
 */
 const ps = document.getElementsByClassName("step");
 const p1 = document.getElementsByClassName("marche1");
@@ -29,6 +35,7 @@ console.log(ps,p1);
 /* 
     Selectionne un élément HTML via son ID.
     Un id devant être unique, ici pas de HTMLCollection, mais directement l'élément HTML
+    ID で HTML 要素を選択します。 IDは一意である必要があります。ここではHTMLCollectionではなく、直接HTML要素です。
 */
 const h1 = document.getElementById("mainTitle");
 console.log(h1);
@@ -36,6 +43,8 @@ console.log(h1);
 /* 
     Prend en paramètre, les même selecteurs qu'en CSS.
     Il selectionnera le premier élément correspondant à ce selecteur.
+    CSS と同じセレクターをパラメータとして受け取ります。
+    そのセレクターに一致する最初の項目が選択されます。
 */
 const p2 = document.querySelector(".marche2");
 // const p2 = document.querySelector("main > p:nth-of-type(2)");
@@ -46,6 +55,8 @@ console.log(p2);
     Fonctionne comme le querySelector
     Mais ne s'arrêtera pas au premier résultat,
     Il rangera la totalité des balises correspondante dans un tableau nommé "NodeList"
+    querySelectorのように動作します
+    しかし、最初の結果で止まることはありません。一致するタグはすべて「NodeList」という配列に保存されます。
 */
 const lis2 = document.querySelectorAll("footer li");
 console.log(lis2);
@@ -57,7 +68,7 @@ const h = header.querySelector('h1');
 
 // Sélectionne l'élément HTML suivant (ici le main)
 console.log(header.nextElementSibling);
-// Sélectionne ce qui suis (ici du text consistant à un saut à la ligne et de l'indentation)
+// Sélectionne ce qui suis (ici du text consistant à un saut à la ligne et de l'indentation)以下を選択してください（ここでは改行とインデントを含むテキスト）
 console.log(header.nextSibling);
 // On trouvera aussi "previousElementSibling"
 console.log(header.previousElementSibling);
@@ -70,12 +81,16 @@ console.log(lis[2].closest("footer"));
 
 // ? déplacer ou supprimer.
 // Si je demande d'ajouter un élément déjà présent, il sera déplacé :
+//すでに存在する要素を追加するように要求すると、その要素は移動されます。
 // header.append(lis[2]);
 // retirer l'élément indiqué :
 // lis2[2].remove();
+
 /* 
     Si l'élément est présent directent en variable ou dans une nodeList, il sera toujours présent.
     Mais dans un HTMLCollection, il sera retiré.
+    要素が変数内または nodeList 内に直接存在する場合、その要素は常に存在します。
+    ただし、HTMLCollection では削除されます。
 */
 console.log(lis2, lis);
 // Il existe une autre façon de retirer :

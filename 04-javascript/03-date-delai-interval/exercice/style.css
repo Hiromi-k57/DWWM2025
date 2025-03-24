@@ -37,7 +37,7 @@ body {
   .second {
     position: absolute;
     background: transparent;
-    transform-origin: bottom;
+    transform-origin: bottom center;
   }
   
   .hour {

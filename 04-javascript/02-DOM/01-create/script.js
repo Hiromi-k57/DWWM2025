@@ -7,29 +7,35 @@ console.log(document.body);
 
 // createElement permet de créer un élément HTML
 const span1 = document.createElement("span");
-// textContent est une des propriétés permettant de changer le texte d'un élément HTML
+// textContent est une des propriétés permettant de changer le texte d'un élément HTML   textContentはHTML要素のテキストを変更できるプロパティの1つです。
 span1.textContent = "Coucou";
 
 console.log(span1);
 
 // appendChild ajoute à la fin de l'élément qui le précède, l'élément mis en paramètre. (ici on ajoute notre span à la fin du body)
+//appendChild は、パラメータとして指定された要素を、その前の要素の末尾に追加します。 (ここで、ボディの最後にスパンを追加します)
 document.body.appendChild(span1);
 // prepend permet de placer un élément HTML au début de son parent.
 // * Si on tente d'ajouter un élément HTML qui est déjà présent, il sera juste déplacé.
+// prepend を使用すると、HTML 要素をその親の先頭に配置できます。
+// * すでに存在する HTML 要素を追加しようとすると、要素は移動されるだけです。
 document.body.prepend(span1);
 // append fonctionne comme appendChild, mais peut prendre plusieurs paramètres et accepte aussi du texte
+//append は appendChild と同じように動作しますが、複数のパラメータを取ることができ、テキストも受け入れます
 document.body.append(span1, "test");
 
 span1.innerHTML = "<b>COUCOU mais en gras</b>";
 // innerHTML gère les balises HTML alors que textContent.
 span1.textContent = "<b>COUCOU mais en gras</b>";
-// ! Pour des raisons de sécurité, si des informations textuelles viennent des utilisateurs, il faudra privilégié "textContent";
+// ! Pour des raisons de sécurité, si des informations textuelles viennent des utilisateurs, il faudra privilégié "textContent"; セキュリティ上の理由から、テキスト情報がユーザーから提供される場合は、「textContent」が優先されます。
 
 // Affiche le texte avec les indentations et sauts à la ligne
+//インデントと改行を含むテキストを表示します
 console.log(document.body.textContent);
 // Affiche toute les balises et code HTML
 console.log(document.body.innerHTML);
 // Affiche le texte sans indentations et sauts à la ligne supplémentaires
+//追加のインデントや改行なしでテキストを表示します
 console.log(document.body.innerText);
 // kaita code wo zenbu kesu
 document.body.textContent = "";
@@ -45,6 +51,7 @@ f.innerHTML = /* html */ `<ul><li>MENU 1</li><li>MENU 2</li><li>MENU 3</li></ul>
 if(document.body)
 {
     // Si le CSS indique des règles pour des éléments qui n'existent pas au chargement de la page. Les nouveaux éléments prendrons bien en compte le CSS lors de leur ajout
+    //ページの読み込み時に存在しない要素のルールを CSS で指定する場合。新しい要素を追加するときは、CSS が考慮されます。
     document.body.append(h, m, f);
 }
 
