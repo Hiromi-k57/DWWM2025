@@ -12,17 +12,19 @@
     4. アクションが完了したら要素の検出を無効にします。
     （ボーナス）。段落を横から取り込みます。
  */
-    let mainP = main.getElementsByTagName("p");
-    main.style.display = "none";
     
+    const mainP = document.querySelectorAll("main p");
+    option = {
+    root:main,
+    rootMargin: "0px",
+    threshold: 1.0,
+}
+    console.log(mainP);
+
+    main.style.display = 'none';
     console.log(mainP);
 
     
-    mainP = {
-
-        rootMargin: "0px",
-        threshold: 1.0,
-    };
 
     const callback = (entries,observer) =>{
         entries.forEach((entry) => {
