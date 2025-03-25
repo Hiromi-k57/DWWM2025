@@ -81,7 +81,7 @@ section
         padding-top: 4rem;
     }
 }
-.propos_container, .compétence_container, .projets_container
+.propos_container, .compétence_container, .projets_container, .autre_p_container, .contact_container
 {
     padding: 0.5rem;
 }
