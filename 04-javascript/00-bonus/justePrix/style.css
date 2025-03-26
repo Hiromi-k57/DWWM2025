@@ -1,122 +1,48 @@
-*, ::before, ::after
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+*, ::before, ::after{
+  margin: 0;
+  box-sizing: border-box;
+  box-sizing: border-box;
   }
   
- 
-.container {
-    width: 100vw;
-    height: 100vh;
-    background: transparent;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;  
-  }
-
-.card {
-    height: 300px;
-    width: 200px;
-    margin-bottom: 2rem;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    transform-origin: center; /* 中心を基準に回転 */
-}
-
-.card.is-flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: centre;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* 裏面が透けないようにする */
-    top: 0;
-    left: 0;
-}
-
-.card-front {
-    background-color: lightblue;
-}
-
-.card-back {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: lightpink;
-    transform: rotateY(180deg);
-}
-
-
-  
-p {
-   
-    font-size: large;
-    padding-bottom: 3rem;
-    color:black;
-    display: block;
+  body {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
   
-input {
-    width: 150px;
-    height: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
+  .card{
+      margin: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content:space-evenly;
+      width: 200px;
+      height: 250px;
+      background-color: aqua;
+  
   }
   
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 1px;
+  .form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem;
+     
+  }
+  .form input[type="number"] {
+      width: 200px;
+      margin: 3rem;
   }
   
-#submit {
-    width: 10rem;
-    height: auto;
-    margin-bottom: 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: large;
-    background: lightgray;
-    color: black;
-    border: 1px solid gray;
-    margin-top: 2rem;
+  .lastResult {
+      color: white;
+      padding: 3px;
   }
   
-#reset {
-    width: 10rem;
-    height: auto;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: large;
-    color: black;
-    border: 1px solid lightgray;
-  }  
-  
+  .lastResult2{
+      font-style: bold 2rem black;
+      padding: 3px;
+      display: none;
+  }
   
