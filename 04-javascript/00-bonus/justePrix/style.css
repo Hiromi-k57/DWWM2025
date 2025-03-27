@@ -41,7 +41,7 @@
   }
   
   .lastResult2{
-      font-style: bold 2rem black;
+      font: bold 2rem black;
       padding: 3px;
       display: none;
   }

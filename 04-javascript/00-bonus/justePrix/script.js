@@ -24,6 +24,7 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
 "use strict"
 
   let randomNumber = Math.floor(Math.random() * 100) + 1;
+  const def = document.querySelector('.default');
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
   const lastResult2 = document.querySelector('.lastResult2');
@@ -40,9 +41,8 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
      if (userGuess === randomNumber) {
       lastResult.textContent = 'Bien joué ! Vous avez trouvé en 7 tours';
       lastResult.style.backgroundColor = 'green';
-    //   lastResult2.style.display = 'block', randomNumber;
-    //   appendChild(randomNumber);
       lowOrHi.textContent = '';
+      def.textContent = '';
       setGameOver();
      } 
      
@@ -50,16 +50,18 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
       lastResult.textContent = 'C\'est perdu !';
       lastResult.style.backgroundColor = 'red';
       lowOrHi.textContent = '';
+      def.textContent = '';
       setGameOver();
      } else {
-    //   lastResult.textContent = '間違いです!';
-    //   lastResult.style.backgroundColor = 'red';
       if(userGuess < randomNumber) {
         lowOrHi.textContent = `C\'est plus grand que ${userGuess} !` ;
+        def.textContent = '';
       } else if(userGuess > randomNumber) {
         lowOrHi.textContent = `C\'est plus petit que ${userGuess} !` ;
+        def.textContent = '';
       }
     }
+    
     guessCount++;
     guessField.value = '';
     guessField.focus();
@@ -68,12 +70,14 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
    guessSubmit.addEventListener('click', checkGuess);
 
     function setGameOver() {
-    guessField.disabled = true;
-    guessSubmit.disabled = true;
-    resetButton = document.createElement('button');
-    resetButton.textContent = 'Recommencer';
-    card.appendChild(resetButton);
-    resetButton.addEventListener('click', resetGame);
+      lastResult2.style.display = 'block';
+      lastResult2.append(randomNumber);
+      guessField.disabled = true;
+      guessSubmit.disabled = true;
+      resetButton = document.createElement('button');
+      resetButton.textContent = 'Recommencer';
+      card.appendChild(resetButton);
+      resetButton.addEventListener('click', resetGame);
     
 
   }
@@ -89,6 +93,8 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
     guessSubmit.disabled = false;
     guessField.value = '';
     guessField.focus();
+    lastResult2.textContent = "";
+    def.textContent = 'Vouillez choisir un nombre entre 1 et 100, vous avez 7 essais';
     lastResult.style.backgroundColor = 'white';
     // lastResult.textContent = 'Vouillez choisir un nombre entre 1 et 100, vous avez 7 essais';
     // lastResult.style.fontColor = 'black';
