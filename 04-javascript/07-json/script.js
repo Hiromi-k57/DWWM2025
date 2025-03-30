@@ -14,7 +14,7 @@ function saveData(e)
     /* 
         l'objet FormData prend en paramètre un HTMLFormElement (une balise form)
         Il permet de traiter tout un formulaire et ses données sous la forme d'un objet.
-        FormDataオブジェクトはHTMLFormElement（フォームタグ）をパラメータとして受け取ります。フォーム全体とそのデータをオブジェクトとして処理できます。
+            FormDataオブジェクトはHTMLFormElement（フォームタグ）をパラメータとして受け取ります。フォーム全体とそのデータをオブジェクトとして処理できます。
     */
     const data = new FormData(form);
     // console.log(data);

@@ -7,20 +7,20 @@ function test(event)
 
 const h1 = document.querySelector('header > h1');
 /* 
-    Pour ajouter un écouteur d'évènement, nous avons deux possibilités :
+    Pour ajouter un écouteur d'évènement, nous avons deux possibilités : イベント書き方:
     Soit elementHTML.addEventListener("nomEvent", fonction)
     Soit elementHTML.onNomEvent = fonction
 
     Le nom des évènements sont toujours en minuscule.
 
-    Pour retirer un évènement, on pourra utiliser :
+    Pour retirer un évènement, on pourra utiliser :　イベントを削除:
         elementHTML.removeEventListener("nomEvent", fonction);
         elementHTML.onNomEvent = "";
 
     Les écouteurs d'évènement passent toujours en paramètre de la fonction callback, un objet correspondant à l'évènement écouté.
     On pourra y récupérer plusieurs informations correspondant à cet évènement.
     Par exemple sur un clique, la position de la souris, l'élément cliqué...
-    イベント リスナーは常に、リッスンされているイベントに対応するオブジェクトをパラメーターとしてコールバック関数に渡します。
+        イベント リスナーは常に、リッスンされているイベントに対応するオブジェクトをパラメーターとしてコールバック関数に渡します。
     このイベントに対応するいくつかの情報を取得できます。
     たとえば、クリックすると、マウスの位置、クリックされた要素などが表示されます。
     */
@@ -34,6 +34,7 @@ h1.onclick = "";
 /* 
     Si une fonction anonyme est placé en paramètre d'un addEventListener.
     Il n'est pas possible d'utiliser "removeEventListener"
+        匿名関数が addEventListener のパラメータとして配置されている場合「removeEventListener」は使用できません
 */
 h1.addEventListener("click", function(e) 
 {
@@ -42,7 +43,7 @@ h1.addEventListener("click", function(e)
         le ".target" de l'objet "Event" permet de récupérer la cible de l'évènement.
         Attention, pour un click, la cible est l'élément cliqué.
         Si il y avait un span dans mon H1, si je clique dessus, la ligne suivante s'appliquerait au span et non au H1.
-        「Event」オブジェクトの「.target」を使用すると、イベントのターゲットを取得できます。
+            「Event」オブジェクトの「.target」を使用すると、イベントのターゲットを取得できます。
         クリックの場合、ターゲットはクリックされた要素になることに注意してください。
         H1にspanがあった場合、それをクリックすると、次の行はH1ではなくspanに適用されます。
     */
@@ -50,7 +51,8 @@ h1.addEventListener("click", function(e)
     // h1.style.transform = `rotate(${r}deg)`;
     /* 
         this, représente par défaut, l'élément HTML sur lequel a été placé l'écouteur d'évènement, ici H1. 
-        this,デフォルトでは、イベント リスナーが配置された HTML 要素 (ここでは H1) を表します。
+            this,デフォルトでは、イベント リスナーが配置された HTML 要素 (ここでは H1) を表します。
+    
         !attention, this ne fonctionne pas, si il est dans une fonction fléché ()=>{}
             これは矢印関数 ()=>{} 内にある場合は機能しません。
         

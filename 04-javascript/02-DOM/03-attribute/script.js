@@ -2,6 +2,7 @@
 
 const h1 = document.querySelector('#mainTitle');
 // console.dir(h1);
+//console.dirは指定されたオブジェクトのプロパティをすべてコンソール上で見る方法
 
 // ? Attribut style 
 
@@ -57,9 +58,8 @@ console.log(h1.classList.contains("banane"));
 /* 
     Pour la plupart des autres attributs,
     Il est possible de les modifier soit directement par leurs noms.
-    Soit via les méthodes "getAttribute" et "setAttribute"
-    他のほとんどの属性については、名前で直接変更することも可能です。
-    「getAttribute」メソッドと「setAttribute」メソッドのいずれかを介して
+    Soit via les méthodes "getAttribute" et "setAttribute".
+    // 他のほとんどの属性については、名前で直接変更することも可能です。「getAttribute」メソッドと「setAttribute」メソッドのいずれかを介して.
 */
 // Par exemple si je veux connaître l'id de mon élément :
 console.log(h1.id, h1.getAttribute("id"));

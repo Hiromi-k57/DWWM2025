@@ -59,7 +59,7 @@ const rose = themes.querySelectorAll('option')[0];
 const bleu = themes.querySelectorAll('option')[1];
 const tourtue = themes.querySelectorAll('option')[2];
 
-console.log(rose,bleu,tourtue); //console.dir()は1つ目しか表示しない
+console.log(rose,bleu,tourtue); //console.dir()は指定された JavaScript オブジェクトのプロパティをすべてコンソール上で見る方法
 
 themes.addEventListener("change", changeThemeColor);
 /* 

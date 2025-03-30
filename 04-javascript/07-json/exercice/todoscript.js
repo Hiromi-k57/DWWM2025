@@ -24,8 +24,9 @@
     const text = document.getElementById("text");
     const btn = document.getElementsByTagName("button");
     const listSet = document.getElementsByClassName("listSet");
-    const check = listSet.getElementsByClassName("fa-check");
-    const xmark = listSet.getElementsByClassName("fa-xmark");
+    const li = document.querySelectorAll("li");
+    const check = listSet.getElementsByClassName("check");
+   
 
-    console.log(text,btn,listSet,check,xmark);
+    console.log(text,btn,listSet,li,check);
     

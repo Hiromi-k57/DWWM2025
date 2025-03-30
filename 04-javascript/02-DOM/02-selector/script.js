@@ -67,14 +67,17 @@ const h = header.querySelector('h1');
 // ? Selecteurs Bonus :
 
 // Sélectionne l'élément HTML suivant (ici le main)
+//同じ親要素を持って隣接する次の要素です。テキストノード、コメントノードは含みません。次の要素がない場合、nullが返ります。
 console.log(header.nextElementSibling);
-// Sélectionne ce qui suis (ici du text consistant à un saut à la ligne et de l'indentation)以下を選択してください（ここでは改行とインデントを含むテキスト）
+// Sélectionne ce qui suis (ici du text consistant à un saut à la ligne et de l'indentation)
+// 同じ親要素を持って隣接する次の要素（ここでは改行とインデントを含むテキスト）
 console.log(header.nextSibling);
 // On trouvera aussi "previousElementSibling"
+//指定した要素の1つ前の要素を取得
 console.log(header.previousElementSibling);
 // retourne un objet HTMLCollection contenant tous les enfants
 console.log(header.children);
-// retourne le parent de l'élément.
+// retourne le parent de l'élément.要素の親
 console.log(lis[2].parentElement);
 // retourne le parent le plus proche qui correspond au selecteur CSS
 console.log(lis[2].closest("footer"));

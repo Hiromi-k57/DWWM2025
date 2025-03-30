@@ -15,6 +15,7 @@ console.log(span1);
 
 // appendChild ajoute à la fin de l'élément qui le précède, l'élément mis en paramètre. (ici on ajoute notre span à la fin du body)
 //appendChild は、パラメータとして指定された要素を、その前の要素の末尾に追加します。 (ここで、ボディの最後にスパンを追加します)
+//appendChild は、要素を追加し（親要素の中の子要素の最後に追加される）それを表示するとき使う
 document.body.appendChild(span1);
 // prepend permet de placer un élément HTML au début de son parent.
 // * Si on tente d'ajouter un élément HTML qui est déjà présent, il sera juste déplacé.
@@ -27,6 +28,7 @@ document.body.append(span1, "test");
 
 span1.innerHTML = "<b>COUCOU mais en gras</b>";
 // innerHTML gère les balises HTML alors que textContent.
+//innerHTMLは指定した要素に含まれるすべてのコンテンツを取得、その後内容を書き換えることが出来る
 span1.textContent = "<b>COUCOU mais en gras</b>";
 // ! Pour des raisons de sécurité, si des informations textuelles viennent des utilisateurs, il faudra privilégié "textContent"; 
 // セキュリティ上の理由から、テキスト情報がユーザーから提供される場合は、「textContent」が優先されます。
