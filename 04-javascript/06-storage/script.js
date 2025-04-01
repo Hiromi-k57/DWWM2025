@@ -13,18 +13,27 @@ function changeTheme()
         /* 
             localStorage et sessionStorage fonctionnent exactement de la même façon. Même fonctionnalités et propriétés.
             La seule différence est le temps de stockage.
-                localStorage garde l'information jusqu'à ce qu'on décide de la supprimer.
-                sessionStorage garde l'information pour la session, donc jusqu'à ce qu'on ferme le navigateur.
+            localStorage garde l'information jusqu'à ce qu'on décide de la supprimer.
+            sessionStorage garde l'information pour la session, donc jusqu'à ce qu'on ferme le navigateur.
 
             setItem permet de sauvegarder une information,
             seul des strings peuvent être sauvegarder.
-                Le premier paramètre est un nom qui servira à retrouver l'information.
-                Le second est l'information à stocker.
+            Le premier paramètre est un nom qui servira à retrouver l'information.
+            Le second est l'information à stocker.
+
+                localStorage と sessionStorage はまったく同じように動作します。同じ機能とプロパティ。唯一の違いは保存期間です。
+                localStorage は、削除するまで情報を保持します。
+                sessionStorage は、ブラウザを閉じるまでセッションの情報を保持します。
+
+                setItemを使用すると情報を保存できます。保存できるのは文字列のみです。
+                最初のパラメータは、情報を取得するために使用される名前です。
+                2つ目は保存する情報です。
         */
         localStorage.setItem("theme", "dark");
     }else
     {
         // removeItem permet de supprimer un élément du storage, il prendra en paramètre, la clef de l'élément à supprimer.
+        //removeItem を使用すると、ストレージからアイテムを削除できます。削除するアイテムのキーをパラメーターとして受け取ります。
         localStorage.removeItem("theme");
     }
     // ? Solution 2 : changer les variables du css 
@@ -41,8 +50,10 @@ function changeTheme()
     }
 }
 // getItem permet de récupérer un élément dans le storage. il prend en paramètre la clef de l'élément à récupérer. (si il ne trouve rien, il retourne "null")
+// getItem を使用すると、ストレージからアイテムを取得できます。取得する要素のキーをパラメータとして受け取ります。 (何も見つからない場合は「null」を返します)
 dark.checked = localStorage.getItem("theme") === "dark";
 // ma fonction changeTheme change le thème selon si la case est coché ou non.
+// テーマ変更関数は、ボックスがチェックされているかどうかに応じてテーマを変更します。
 changeTheme();
 
 

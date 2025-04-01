@@ -38,7 +38,7 @@ function handleRequest ()
     }
 }
 
-// const optionName = document.querySelector("select");
+
 const Molecule = document.getElementsByClassName("Molecule")
 const Madamme = document.getElementsByClassName("Madamme");
 const Eternal = document.getElementsByClassName("Eternal");
