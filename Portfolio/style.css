@@ -62,7 +62,6 @@ nav
     &>.language_jp{
         color: white;
         font-weight: 300;
-        font-family: "Lexend Deca", sans-serif;
     }
 }
 
@@ -163,12 +162,14 @@ form
     &>input, textarea{
         margin:10px 5px;
         width: 95%;
-        height: 150%;
+       
         height: auto;
         font-family: "Lexend Deca", sans-serif;
         font-weight: 400;
         color: black;
         background-color:white;
+        border-radius: 8px;
+        font-size: 1rem;
         
     }
 }
