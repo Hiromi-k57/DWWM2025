@@ -21,6 +21,7 @@ function saveData(e)
     // je déclare un objet vide
     const user = {};
     // je boucle sur les différentes données du formulaire :
+    // 次の形式でさまざまなデータをループします。
     data.forEach(function(value, name){
         // j'obtien en premier paramètre, la valeur de chaque champs du formulaire, et en second, son nom.
         //最初のパラメータとしてフォームの各フィールドの値を取得し、2番目にその名前を取得します。
