@@ -1,8 +1,7 @@
 "use strict";
 const p_rightToLeft =document.getElementsByClassName("p_rightToLeft")
 const p_leftToRight =document.getElementsByClassName('p_leftToRight')
-const border =document.querySelectorAll('border')
-console.log(p_leftToRight,border,p_rightToLeft);
+console.log(p_leftToRight,p_rightToLeft);
 
 const keyframes = new KeyframeEffect(
     p_rightToLeft[0], 
