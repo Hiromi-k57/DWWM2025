@@ -211,6 +211,38 @@ h2
 }
 
 
+.compétence_bg_slider
+{
+    background-color: rgb(37, 37, 37);
+    border-radius: 20px;
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    display: flex;
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* align-content: space-evenly; */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.p_card_slider
+{
+    flex:  0 0 auto; /*none*/
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    height: 100%;
+    margin-right: 20px;
+    padding: 1.5rem 1rem;
+}
+.p_card_imgSlider{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+}
 
 form
 {
