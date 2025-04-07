@@ -155,6 +155,7 @@ h2
     justify-content: center;
     padding: 0.5rem 1rem;
     display: flex;
+   
     & > img{
         width: 100%;
         height: auto;
@@ -164,19 +165,10 @@ h2
 
 .p_card_back
 {
-    display: none;
+    transform: rotateY(180deg); /*回転用 */
 }
 
-/* .p_card_front
-{
-    position: absolute;
-    display: flex;
-    & > img{
-        width: 100%;
-        height: auto;
-        
-    }
-} */
+
 
 .p_card
 {
@@ -190,9 +182,18 @@ h2
     }
 }
 
+.flip_card /*回転用 */
+{
+    perspective: 1000px; /* 3D効果を与える */
+}
+
 .compétence_bg_flip
 {
-    position: relative;
+    position: relative; /*回転用 */
+    transition: transform 0.8s;  /*回転用 */
+    transform-style: preserve-3d; /*回転用 */
+    transform-origin: center; /* 中心を基準に回転 */
+
     background-color: rgb(37, 37, 37);
     border-radius: 20px;
     width: 100%;
@@ -205,7 +206,9 @@ h2
     flex-wrap: wrap;
 }
 
-
+.flip_card.is-flipped .compétence_bg_flip {  /*回転用 */
+    transform: rotateY(180deg);
+}
 
 
 

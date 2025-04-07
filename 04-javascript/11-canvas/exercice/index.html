@@ -19,7 +19,7 @@
         {
         width: 80%; 
         height: 80vh;
-        border: 1px solid black;
+        border: 3px solid gray;
         position: relative;;
         }
 
@@ -34,6 +34,17 @@
 <body>
     <div id="container">
         <canvas id="paintCanvas"></canvas>
+        <input type="color" id="color" value="#000000">
+        <input type="range" id="lineWidth" min="1px" max="20px" value="5px">
+        
+        <button id="clearBtn">Clear</button>
+        <button onclick="undo()">Annuler</button>
+        <button onclick="redo()">Refaire</button>
+        <button id="saveBtn">Sauvegarder</button>
+        <input type="file" id="loadImage" accept=".jpg, .png, .gif">
+
+
     </div>
+
 </body>
 </html>
