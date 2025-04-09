@@ -1,33 +1,31 @@
-"use strict";
-import { slider, startSlider } from "./exemple/slider.js";
-const imgs = ["./img/candy-1.jpg","./img/candy-2.jpg","./img/candy-3.jpg","./img/candy-4.jpg",];
+import paint from "./paint.js";
+import Slider from "./Slider-v2.js";
+import justePrix from './justeprix.js';
 
+// 初期状態で「justePrix」を表示
+document.body.innerHTML = ''; 
+document.body.appendChild(justePrix.create());
 
+const appliDiv = document.querySelector(".appli");
+const select = document.querySelector("#appli");
 
-console.log(imgs);
+select.addEventListener("change", () => {
+    appliDiv.innerHTML = ""; // 前の要素をクリア
 
-const select = document.getElementById("appli");
-const container = document.getElementsByClassName("appli");
-console.log(select, container);
-
-select.addEventListener('change',() =>{
-    container.innerHTML ='';
-
-    let selectedProjet;
-    
-    switch(selectProjet, value){
-        case 'justePrix' :
-            selectedProjet = justePrix;
+    switch(select.value) {
+        case "justePrix":
+            appliDiv.append(justePrix.create());
             break;
-        case 'paint' :
-            selectedProjet = paint;
+        case "paint":
+            appliDiv.append(paint.create());
             break;
-        case 'slider' :
-            selectedProjet = slider;
-        
-    }
-    if (selectProjet && selectedProjet.create){
-        const element =selectedProjet.create();
-        container.appendChild(element);
+        case "slider":
+            const imgs = [
+                "./exemple/img/slider1.jpg",
+                "./exemple/img/slider2.jpg",
+                "./exemple/img/slider3.jpg",
+            ]; // 実際の画像パスに合わせて修正
+            appliDiv.append(Slider.create(imgs, true));
+            break;
     }
 });

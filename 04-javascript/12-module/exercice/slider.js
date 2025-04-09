@@ -42,24 +42,7 @@ export function startSlider ()
         sliderElement.scrollLeft = size.width * imgIndex
         console.dir(sliderElement);
 
-        const img = imgs.querySelectorAll("imgs");
 
-        if (img === imgs[0]){
-        sliderElement.style.backgroundColor = "pink"
-        }
-        if(img === imgs[1]){
-        sliderElement.style.backgroundColor = "orange"
-        }
-        if (img === imgs[2]){
-        sliderElement.style.backgroundColor = "red"
-        }
-        if(img === imgs[3]){
-        sliderElement.style.backgroundColor = "chocolate"
-        }
-
-        
-        
-        // btnNext.style.background = colors[Math.floor(Math.random() * colors.length)];
       });
 
     btnBack.addEventListener('click', () => {
@@ -72,8 +55,7 @@ export function startSlider ()
         }
         sliderElement.scrollLeft = size.width * imgIndex
 
-        btnBack.style.background = colors[Math.floor(Math.random() * colors.length)]; //ボタン色
+        
 
     });
 }
-

@@ -427,3 +427,10 @@ function checkDisabled()
     btnUndo.disabled = !undoList.length
     btnRedo.disabled = !redoList.length
 }
+
+export default {
+    create() {
+        init();
+        return document.body;
+    }
+};
