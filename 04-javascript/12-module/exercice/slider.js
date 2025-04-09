@@ -29,12 +29,6 @@ export function startSlider ()
     const btnNext = document.getElementsByClassName("btn_next")[0];
     const btnBack = document.getElementsByClassName("btn_back")[0];
 
-    const colors = [
-        "pink",
-        "orange",
-        "red",
-        "chocolate",
-    ];
     
     
     btnNext.addEventListener('click', () => {
