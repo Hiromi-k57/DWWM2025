@@ -1,21 +1,21 @@
-import paint from "./paint.js";
-import Slider from "./Slider-v2.js";
-import justePrix from './justeprix.js';
+import paint from "./exemple/paint.js";
+import Slider from "./exemple/Slider-v2.js";
+// import justePrix from "./exemple/justprix.js";
 
 // 初期状態で「justePrix」を表示
-document.body.innerHTML = ''; 
-document.body.appendChild(justePrix.create());
+// document.body.innerHTML = ''; 
+// document.body.appendChild(justePrix.create());
 
 const appliDiv = document.querySelector(".appli");
 const select = document.querySelector("#appli");
 
 select.addEventListener("change", () => {
-    appliDiv.innerHTML = ""; // 前の要素をクリア
+    // appliDiv.innerHTML = ""; // 前の要素をクリア
 
     switch(select.value) {
-        case "justePrix":
-            appliDiv.append(justePrix.create());
-            break;
+        // case "justePrix":
+        //     appliDiv.append(justePrix.create());
+        //     break;
         case "paint":
             appliDiv.append(paint.create());
             break;
@@ -29,3 +29,11 @@ select.addEventListener("change", () => {
             break;
     }
 });
+
+
+// function test(){
+//     console.log(this);
+    
+// }
+
+// window.addEventListener("click", test.bind(appliDiv));
