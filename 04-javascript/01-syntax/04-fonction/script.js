@@ -44,7 +44,7 @@ salut3();
 const monObjet = {salut:()=>{console.log("coucou depuis objet")}};
 monObjet.salut();
 
-// ? Les paramètres des fonctions
+// ? Les paramètres des fonctions 
 
 /* 
     Lorsqu'on déclare une fonction, nous pouvons indiquer à celle ci, qu'elle doit recevoir des paramètres.
@@ -53,7 +53,7 @@ monObjet.salut();
     Ces paramètres peuvent être utilisé comme variables interne à la fonction.
 
     関数を宣言するときに、パラメータを受け取るように指示することができます。
-    これらは、呼出しに伝えなければならない価値観です。
+    これらは、呼出しに伝えなければならない値です。
     これらのパラメータは関数内の内部変数として使用できます。
 */
 function bonsoir(nom)
@@ -74,11 +74,14 @@ function bonneNuit(nom1, nom2)
     console.log("%cBonne nuit " + nom1+ " et "+nom2,"background: blue; color: yellow;font-size:40px;");
 }
 // La première valeur, va au premier paramètre, la seconde, au second et ainsi de suite
-// 最初の値は最初のパラメータに、2 番目の値は 2 番目のパラメータに、というように続きます。
+// 1番目の値は1番目のパラメータに、2番目の値は 2番目のパラメータに、というように続きます。
 bonneNuit("Maurice", "Pierre");
 /* 
     Il est possible d'ajouter une valeur par défaut à un paramètre.
     Celle ci sera utilisé dans le cas où le paramètre est laissé vide.
+
+    パラメータにデフォルト値を追加することができます。
+    パラメータが空の場合にこれが使用されます。
 */
 function goodBye(nom1, nom2="les autres") 
 {
@@ -108,7 +111,7 @@ function goodMorning(...noms)
 }
 goodMorning("Maurice", "Pierre", "Charles");
 
-// ? mettre fin à fonction et retourner une valeur.
+// ? mettre fin à fonction et retourner une valeur. 関数を終了し、値を返します
 
 function insulte(nom)
 {
@@ -116,6 +119,7 @@ function insulte(nom)
     {
         console.error("Veuillez entrer un nom");
         // le mot clef "return" peut être utilisé pour mettre fin à une fonction
+        //キーワード「return」は関数を終了するために使用できます。
         return;
     }
     // Si le mot clef "return" est suivi d'une valeur, celle ci sera renvoyé au code lors de l'appel de la fonction
@@ -171,7 +175,7 @@ const pr = ["Alice", "Ariel", "Mulan", "Belle"];
 // forEach関数は、配列のさまざまな要素をパラメーターとして使用して、パラメーターとして指定された関数を呼び出します。
 pr.forEach(bonsoir);
 /*  
-    Ici cela reviendrait à faire: 
+    Ici cela reviendrait à faire: ここでは次のようになります:
     bonsoir("Alice");
     bonsoir("Ariel");
     bonsoir("Mulan");

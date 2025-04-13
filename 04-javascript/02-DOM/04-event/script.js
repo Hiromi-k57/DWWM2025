@@ -7,7 +7,8 @@ function test(event)
 
 const h1 = document.querySelector('header > h1');
 /* 
-    Pour ajouter un écouteur d'évènement, nous avons deux possibilités : イベント書き方:
+    Pour ajouter un écouteur d'évènement, nous avons deux possibilités : 
+        イベントリスナーを追加するには2つの方法があります:
     Soit elementHTML.addEventListener("nomEvent", fonction)
     Soit elementHTML.onNomEvent = fonction
 
@@ -20,7 +21,7 @@ const h1 = document.querySelector('header > h1');
     Les écouteurs d'évènement passent toujours en paramètre de la fonction callback, un objet correspondant à l'évènement écouté.
     On pourra y récupérer plusieurs informations correspondant à cet évènement.
     Par exemple sur un clique, la position de la souris, l'élément cliqué...
-        イベント リスナーは常に、リッスンされているイベントに対応するオブジェクトをパラメーターとしてコールバック関数に渡します。
+        イベント リスナーは常に、イベントに対応するオブジェクトをパラメーターとしてコールバック関数に渡します。
     このイベントに対応するいくつかの情報を取得できます。
     たとえば、クリックすると、マウスの位置、クリックされた要素などが表示されます。
     */

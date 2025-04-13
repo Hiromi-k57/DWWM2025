@@ -18,11 +18,12 @@ while(true)
     if(b < 10)
     {
         // met fin à l'itération actuelle de la boucle, pour passer à la suivante
+        //ループの現在の繰り返しを終了し、次の繰り返しに進みます
         continue;
     }
     if(b === 20)
     {
-        // Met fin à la boucle.
+        // Met fin à la boucle. ループを終了します。
         break;
     }
     console.log(`b vaut ${b}`);
@@ -47,7 +48,7 @@ do
 
     for ループは、括弧内に「;」で区切られた 3 つのステートメントを取ります。
     最初のものはループの開始前に始まります。
-    2 番目はループを続行するかどうかをチェックする条件です。
+    2番目はループを続行するかどうかをチェックする条件です。
     3番目は各反復の最後に起動されます
 */
 for(let i = 0; i < 10;i++)

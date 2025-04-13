@@ -56,7 +56,7 @@ document.body.click();
     Mais dans laquelle, la valeur de "this" aura changé.
     Dans cette copie, "this" prendra comme valeur, le paramètre de "bind"
         「.bind()」メソッドは関数のコピーを作成し、
-        しかし、その中で「this」の価値は変化しているでしょう。
+        しかし、その中で「this」の値は変化しているでしょう。
         このコピーでは、「this」は「bind」のパラメータを値として受け取ります。
 */
 const bindedThis = showThis.bind("Coucou tout le monde !");

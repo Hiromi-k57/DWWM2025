@@ -12,32 +12,44 @@
 
         それぞれ独自の HTML や CSS を持つことができます。ただし、各クラスはモジュールによってインポートされた個別のファイルに存在する必要があります。
 
-        - 跳ねるボール
+      - 跳ねるボール
+    クリックでキャンバス上にボールを表示し、キャンバスの端で跳ね返るアニメーションを作成します。
+    ボールは大きさ、色、速度、初期位置がランダムになります。
 
-        クリックするとキャンバスの端で跳ねるボールが表示されるキャンバスを作成しましょう。サイズは
-        色、速度、位置はランダムです。
-        各ボールは、前述のプロパティを含むクラスから作成されます。
-        また、動きを管理するための方法とキャンバスでの描画を管理するための方法も用意されます。
+    各ボールはクラスから作成され、以下のようなプロパティを持ちます：
 
-        一般的なスクリプトは、ボールの作成とアニメーションでのメソッドの呼び出しのみを処理します。
+    -大きさ,色,速度,位置
+
+    また、以下のようなメソッドも持ちます：
+
+    -自身の移動を管理するメソッド
+    -自身をキャンバスに描画するメソッド
+
+    メインスクリプトは、ボールの生成と、アニメーション中にそれぞれのメソッドを呼び出すことだけを担当します。
 
 */
-
 "use strict";
-export default class balles
-{
-   
+export default class Balle {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
 
+    // 半径：30〜5のランダム Math.random() * (max - min) + min
+    this.radius = Math.random() * (30 - 5) + 5;
+
+    // キャンバス内に収まるように初期位置を決定
+    this.x = Math.random() * (canvas.width - this.radius * 2) + this.radius;
+    this.y = Math.random() * (canvas.height - this.radius * 2) + this.radius;
+
+    // 速度：-4〜+4のランダム（跳ねる用）
+    this.vx = (Math.random() - 0.5) * 8;
+    this.vy = (Math.random() - 0.5) * 8;
+
+    // RGB色でランダムに設定
+    const r = Math.floor(Math.random() * 256); // 0〜255
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.color = `rgb(${r}, ${g}, ${b})`;
+  }
 }
 
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext("2d");
-
-function resize()
-{
-    const snapshot = ctx.getImageData(0,0,canvas.width, canvas.height); //getImageData を使用すると、画像データを取得できます
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);

@@ -1,11 +1,14 @@
 "use strict";
 
 /* 
-    Les REGEX ou Regular Expression
+    Les REGEX ou Regular Expression 
     Permettent de rechercher la présence de caractères dans un string.
 
     Une regex commence et se termine par "/" (ou se termine par un flag, voir plus bas dans le cours)
-    文字列内の文字の存在を検索できます。正規表現は「/」で始まり、「/」で終わります
+    
+    //REGEXまたは正規表現
+    文字列内の文字の存在を検索できます。
+    正規表現は「/」で始まり、「/」で終わります
 */
 
 const r1 = /ou/;
@@ -23,7 +26,8 @@ const r2 = /[ou]/;
     最初の正規表現は文字列に「ou」が存在するかどうかをチェックします
 */
 console.log(r1, r1.test("Bonjour"), r1.test("Salut"));
-// r2 va vérifier la présence d'un des caractères  r2は文字の1つが存在するかどうかをチェックします
+// r2 va vérifier la présence d'un des caractères  
+// r2は文字の1つが存在するかどうかをチェックします
 console.log(r2, r2.test("Bonjour"), r2.test("Salut"));
 
 const r3 = /^ou/;
@@ -38,7 +42,7 @@ console.log(r4, r4.test("Bonjour"), r4.test("mou"));
 
 const r5 = /ou|oi/;
 // | est un "or", ici on veut soit "ou" soit "oi" 
-// |は「or」ですが、ここでは「ou」か「oi」のどちらかが必要です。
+// |は「or」ですが、ここでは「ou」か「oi」のどちらかを取得します。
 console.log(r5, r5.test("Bonjour"), r5.test("Bonsoir"));
 
 const r6 = /[a-z]/;

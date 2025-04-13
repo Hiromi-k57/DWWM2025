@@ -93,6 +93,7 @@ function setIndicator(entries)
     
 }
 // Cette fonction est juste liée à l'animation au scroll.
+// この関数はスクロールアニメーションにのみ関連します
 function indicatorAnimation() 
 {
     // console.log("SCROOOOLLLLL!!!", window.scrollY);

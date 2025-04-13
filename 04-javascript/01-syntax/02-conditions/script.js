@@ -13,6 +13,8 @@ console.log(x);
     Dans ces parenthèses se trouverons la condition à vérifier.
     Si elle est vrai, alors ce qui se trouve entre accolade sera exécuté
     sinon il ne se passera rien. 
+    条件は必ず「if」で始まり、その後に括弧が続きます。
+    これらの括弧内はチェックする条件になります。
     trueの場合、弧内の内容が実行されますがそうでなければ何も起こりません。
 */
 if(x < 50)
@@ -26,7 +28,7 @@ if(x < 50)
     チェックする条件が複数ある場合は、if文に従うことができます。
     1つ以上の「else if」は、前の条件がすべて falseの場合にのみチェックされます。
 */
-else if(x > 50)
+else if(x > 50) //もしifに当てはまらなければ、else ifを実行
 {
     console.log("x est plus grand que 50");
 }
@@ -36,7 +38,7 @@ else if(x > 50)
     必要に応じて、条件を取らない「else」を追加することもできます。
     前の条件がすべてfalseの場合に実行されます。
 */
-else
+else //それ以外の場合
 {
     console.log("x vaut 50"); //xは50に等しい
 }
@@ -104,7 +106,7 @@ console.log(
 
 // ? Switch 
 // prompt permet d'afficher une modale invitant l'utilisateur à rentrer une information, cette dernière sera retourné et peut être utilisée par exemple dans une variable. 
-    // prompt を使用すると、ユーザーに情報の入力を促すモーダルを表示できます。入力された情報は返され、たとえば変数で使用できます。
+    // prompt を使用すると、ユーザーに情報の入力を促すモーダルウィンドウ(pop-upの様なもの)を表示できます。入力された情報は返され、たとえば変数で使用できます。
 let ville = prompt("De quelle ville venez-vous?");
 // if(ville === "" || ville === null) {ville = "sans réponse}";
 ville = ville??"sans réponse";
