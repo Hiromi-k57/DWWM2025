@@ -11,3 +11,19 @@ function resize() {
 }
 resize();
 window.addEventListener("resize", resize);
+
+// クリックで新しいボールを追加
+canvas.addEventListener("click", () => {
+  balles.push(new Balle(canvas));
+});
+
+// アニメーションループ
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const b of balles) {
+    b.update();
+    b.draw();
+  }
+  requestAnimationFrame(animate);
+}
+animate();
