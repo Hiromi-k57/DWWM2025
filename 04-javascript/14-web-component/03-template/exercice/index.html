@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03template exo</title>
+    <script type="module" src="./script.js"></script>
+</head>
+<body>
+    <!-- exo1 sans shadowDom -->
+     <!-- <template id="formulaire">
+        <label for="nom">
+            <legend>Nom</legend>
+            <input type="text" name="nom" id="nom" placeholder="Nom">
+        </label>
+        
+        <label for="email">
+            <legend>Email</legend>
+            <input type="email" name="email" id="email" placeholder="Email">
+        </label>
+        
+        <label for="age">
+            <legend>Age</legend>
+            <input type="number" name="age" id="age" placeholder="Age">
+        </label>
+
+        <label for="button">
+            <legend></legend>
+            <input type="submit" name="button" id="btn" value="Envoyer">
+     </template> -->
+    <template id="formulaire">
+        <fieldset>
+            <legend></legend>
+            <label></label>
+            <input>
+        </fieldset>
+    </template>
+
+    <!-- exo2 avec shadowDom -->
+    <template id="DialogBox">
+        <h2 slot="title">Bienvenue !</h2>
+        <p>Merci de vous être connecté.</p>
+        <button slot="action">Fermer</button>
+    </template>
+    <dialog-box></dialog-box>
+
+    
+</body>
+</html>

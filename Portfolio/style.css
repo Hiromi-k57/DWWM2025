@@ -107,6 +107,35 @@ section
   }
 /*　ここまで */
 
+/* 左からふんわりin ここから*/
+.propos_container
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* .textFromLeft{ 
+    opacity: 0;
+}
+
+.propos_container:hover .textFromLeft{
+    animation: fadeup 1s ease-in-out forwards;
+    opacity: 1;
+}
+@keyframes fadeup {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  } */
+/*　ここまで */
+
 .propos_container, .compétence_container, .projets_container, .autres_container, .contact_container
 {
     padding: 0.5rem;
@@ -295,3 +324,4 @@ form
         font-size: 1rem;   
     }
 }
+
