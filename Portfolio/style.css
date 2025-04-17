@@ -70,7 +70,12 @@ section
 {
     padding: 2rem;
 }
-
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 /* 上からふんわりin ここから*/
 .top_container
@@ -79,14 +84,20 @@ section
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
+    padding: 3rem ;
+    &>h1{
+        padding: 0;
+    }
+    &>p{
+        padding: 1rem 0;
+    }
     &>img{
-        width: 1rem;
+        width: 1.5rem;
         padding-top: 4rem;
     }
 }
 
-.textFromTop{ 
+/* .textFromTop{ 
     opacity: 0;
 }
 
@@ -104,7 +115,7 @@ section
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } */
 /*　ここまで */
 
 /* 左からふんわりin ここから*/
@@ -112,7 +123,6 @@ section
 {
     display: flex;
     flex-direction: column;
-
 }
 
 /* .textFromLeft{ 
@@ -145,6 +155,10 @@ h2
 {
     padding-bottom: 2rem;
 }
+h3
+{
+    padding-bottom: 0.5rem;
+}
 
 .fa-solid{
     color: white;
@@ -173,11 +187,11 @@ h2
     flex-wrap: wrap;
     padding: 0.5rem 1rem;
     &>p{
-        font-size: 8px;
+        font-size: 9px;
         padding-bottom: 3px;
     }
     &>img{
-        width: 4rem;
+        width: 3rem;
         height: auto;
         
     }
@@ -191,11 +205,11 @@ h2
     flex-wrap: wrap;
     padding: 0.5rem 1rem;
     &>p{
-        font-size: 8px;
+        font-size: 9px;
         padding-bottom: 3px;
     }
     &>img{
-        width: 7rem;
+        width: 6rem;
         height: auto;
     }
 }
@@ -276,7 +290,7 @@ h2
     border-radius: 20px;
     width: 100%;
     min-height: 200px;
-    height: auto;
+    height: 15rem;
     display: flex;
     /* flex-direction: row; */
     /* justify-content: center; */
@@ -305,23 +319,128 @@ h2
 
 form
 {
-    display: none;
+    display: flex;
     flex-direction: column;
-    align-content: flex-start;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     
     &>input, textarea{
         margin:10px 5px;
-        width: 95%;
-       
-        height: auto;
+        width: 80%;
+        height: 2em;
         font-family: "Lexend Deca", sans-serif;
         font-weight: 400;
-        color: black;
-        background-color:white;
+        color: white;
+        background-color:rgba(0, 0, 0, 0.5);
+        border: none;
         border-radius: 8px;
         font-size: 1rem;   
+    &>.form_btn{
+        width: 60%;
+        
+    }
+    }
+    /* input placeholder 色を変える */
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: white;
+       }
+       :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: white;
+       }
+       ::placeholder{ /* Others */
+        color: white;
+       }
+}
+
+@media screen and (min-width: 500px) 
+{
+body{
+    font-weight: 400;
+  }
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+p{
+    font-size: 1.2rem;
+}
+.fa-solid{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.top_container{    
+    padding: 4rem ;
+    &>h1{
+        padding: 0;
+        font-size: 3rem;
+    }
+    &>p{
+        padding: 2rem 0;
+        font-size: 1.5rem;
+    }
+    &>img{
+        width: 2rem;
+        padding-top: 4rem;
     }
 }
 
+.propos_container, .compétence_container, .projets_container, .autres_container, .contact_container{
+    padding: 1rem;
+}
+.propos_container{
+    &>h2{
+        padding-bottom: 2rem;
+        font-size: 2rem;
+    }
+    &>p{
+        padding: 1rem 0;
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+}
+.compétence_bg
+{
+    height: 18rem;  
+}
+.compétence_logo
+{
+    padding: 0.5rem 1.5rem;
+    &>p{
+        font-size: 15px;
+        padding-bottom: 3px;
+    }
+    &>img{
+        width: 4rem;
+        height: auto;
+        
+    }
+}
+.compétence_logo_cms
+{
+    padding: 0.5rem 1rem;
+    &>p{
+        font-size: 15px;
+        padding-bottom: 3px;
+    }
+    &>img{
+        width: 8rem;
+        height: auto;
+    }
+}
+.compétence_bg_flip
+{
+    height: 18rem;  
+}
+.compétence_bg_slider
+{
+    height: 18rem;  
+}
+.p_card_imgSlider{
+    height: 15rem;
+}
+
+} /* @500 fin */
