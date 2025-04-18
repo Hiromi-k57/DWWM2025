@@ -325,96 +325,214 @@ form
     justify-content: space-between;
     width: 100%;
     
-    &>input, textarea{
+    &>.form, .textarea, .form_btn{
         margin:10px 5px;
         width: 80%;
-        height: 2em;
+        height: 2rem;
         font-family: "Lexend Deca", sans-serif;
         font-weight: 400;
         color: white;
         background-color:rgba(0, 0, 0, 0.5);
         border: none;
         border-radius: 8px;
-        font-size: 1rem;   
-    &>.form_btn{
+        font-size: 9px;   
+    }
+    .form_btn{
         width: 60%;
-        
     }
     }
+
     /* input placeholder 色を変える */
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         color: white;
+        padding: 1rem;
        }
        :-ms-input-placeholder { /* Internet Explorer 10-11 */
         color: white;
+        padding: 1rem;
        }
        ::placeholder{ /* Others */
         color: white;
+        padding: 1rem;
        }
+
+
+@media screen and (min-width: 500px) {
+    body{
+        font-weight: 400;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    h3{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    .fa-solid{
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .top_container{    
+        padding: 4rem ;
+        &>h1{
+            padding: 0;
+            font-size: 3rem;
+        }
+        &>p{
+            padding: 2rem 0;
+            font-size: 1.5rem;
+        }
+        &>img{
+            width: 2rem;
+            padding-top: 4rem;
+        }
+    }
+
+    .propos_container, .compétence_container, .projets_container, .autres_container, .contact_container{
+        padding: 1rem;
+    }
+    .propos_container{
+        &>h2{
+            padding-bottom: 2rem;
+            font-size: 2rem;
+        }
+        &>p{
+            padding: 1rem 0;
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+    }
+    .compétence_bg
+    {
+        height: 18rem;  
+    }
+    .compétence_logo
+    {
+        padding: 0.5rem 1.5rem;
+        &>p{
+            font-size: 15px;
+            padding-bottom: 3px;
+        }
+        &>img{
+            width: 4rem;
+            height: auto;
+            
+        }
+    }
+    .compétence_logo_cms
+    {
+        padding: 0.5rem 1rem;
+        &>p{
+            font-size: 15px;
+            padding-bottom: 3px;
+        }
+        &>img{
+            width: 8rem;
+            height: auto;
+        }
+    }
+    .compétence_bg_flip
+    {
+        height: 18rem;  
+    }
+    .compétence_bg_slider
+    {
+        height: 18rem;  
+    }
+    .p_card_imgSlider{
+        height: 15rem;
+    }
+    form{
+        display: flex;
+        &>.form, .textarea, .form_btn{
+            height: 3rem;
+            font-size: 1rem;   
+    }
+    } /* @500 fin */
 }
 
-@media screen and (min-width: 500px) 
-{
+/* @768 */
+@media screen and (min-width: 768px) {
 body{
-    font-weight: 400;
-  }
+    font-weight: 500;
+}
 h2{
-    font-size: 2rem;
+    font-size: 3rem;
 }
 h3{
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 p{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 .fa-solid{
-    font-size: 1.5rem;
-    padding: 0.5rem;
+    font-size: 2rem;
+    padding: 0.8rem;
+}
+
+nav{
+    padding: 4rem 6rem;
+}
+
+section{
+    padding: 4rem;
+}
+
+.language{
+    display: flex;
+    &>.language_logo{
+        font-size: 2rem;
+        height: 2rem;
+    }
+    &>.language_jp{
+        font-weight: 400;
+    }
 }
 
 .top_container{    
     padding: 4rem ;
     &>h1{
         padding: 0;
-        font-size: 3rem;
+        font-size: 4rem;
     }
     &>p{
         padding: 2rem 0;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
     &>img{
-        width: 2rem;
+        width: 3rem;
         padding-top: 4rem;
     }
 }
 
-.propos_container, .compétence_container, .projets_container, .autres_container, .contact_container{
-    padding: 1rem;
-}
 .propos_container{
     &>h2{
         padding-bottom: 2rem;
-        font-size: 2rem;
+        font-size: 3rem;
     }
     &>p{
         padding: 1rem 0;
-        font-size: 1.3rem;
-        line-height: 2rem;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
     }
 }
+
 .compétence_bg
 {
-    height: 18rem;  
+    height: 28rem;  
 }
 .compétence_logo
 {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 2rem;
     &>p{
-        font-size: 15px;
-        padding-bottom: 3px;
+        font-size: 18px;
+        padding-bottom: 6px;
     }
     &>img{
-        width: 4rem;
+        width: 6rem;
         height: auto;
         
     }
@@ -423,24 +541,36 @@ p{
 {
     padding: 0.5rem 1rem;
     &>p{
-        font-size: 15px;
-        padding-bottom: 3px;
+        font-size: 18px;
+        padding-bottom: 6px;
     }
     &>img{
-        width: 8rem;
+        width: 13rem;
         height: auto;
     }
 }
 .compétence_bg_flip
 {
-    height: 18rem;  
+    height: 28rem;  
 }
 .compétence_bg_slider
 {
-    height: 18rem;  
+    height: 28rem;  
 }
 .p_card_imgSlider{
-    height: 15rem;
+    height: 25rem;
 }
 
-} /* @500 fin */
+form{
+    display: flex;
+    &>.form, .textarea, .form_btn{
+        height: 5rem;
+        font-size: 1.3rem;   
+}
+}
+  
+} /* @768 fin */
+
+@media screen and (min-width: 960px) {
+  
+}/* @960 fin */
