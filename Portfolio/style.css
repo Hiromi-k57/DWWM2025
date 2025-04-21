@@ -36,6 +36,18 @@ body
     width: 100vw;
     height: 100vh;
 }
+
+footer
+{
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+    & > .footer{
+        font-size: smaller;
+    }
+}
 nav
 {
     display: flex;
@@ -64,7 +76,6 @@ nav
         font-weight: 300;
     }
 }
-
 
 section
 {
@@ -179,6 +190,7 @@ h3
     align-content: space-evenly;
     flex-wrap: wrap;
 }
+
 .compétence_logo
 {
     display: flex;
@@ -240,8 +252,9 @@ h3
 {
     transform: rotateY(180deg); /*回転用 */
 }
-
-
+.p_card_front_desc{
+    font-size: 0.9rem;
+}
 
 .p_card
 {
@@ -283,7 +296,6 @@ h3
     transform: rotateY(180deg);
 }
 
-
 .compétence_bg_slider
 {
     background-color: rgb(37, 37, 37);
@@ -300,11 +312,10 @@ h3
     overflow-x: auto;
 }
 
-.p_card_slider
+/* .p_card_slider
 {
-    flex:  0 0 auto; /*none*/
+    flex:  0 0 auto; 
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     height: 100%;
     margin-right: 20px;
@@ -315,7 +326,7 @@ h3
     height: 150px;
     object-fit: cover;
     border-radius: 20px;
-}
+} */
 
 form
 {
@@ -340,7 +351,7 @@ form
     .form_btn{
         width: 60%;
     }
-    }
+}
 
     /* input placeholder 色を変える */
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -358,103 +369,100 @@ form
 
 
 @media screen and (min-width: 500px) {
-    body{
-        font-weight: 400;
+body{
+    font-weight: 400;
     }
-    h2{
-        font-size: 2rem;
+h2{
+    font-size: 2rem;
     }
-    h3{
+h3{
         font-size: 1.5rem;
     }
-    p{
+p{
         font-size: 1.2rem;
     }
-    .fa-solid{
+.fa-solid{
         font-size: 1.5rem;
         padding: 0.5rem;
     }
-
-    .top_container{    
-        padding: 4rem ;
-        &>h1{
-            padding: 0;
-            font-size: 3rem;
-        }
-        &>p{
-            padding: 2rem 0;
-            font-size: 1.5rem;
-        }
-        &>img{
-            width: 2rem;
-            padding-top: 4rem;
-        }
+section{
+        padding: 3rem;
     }
 
-    .propos_container, .compétence_container, .projets_container, .autres_container, .contact_container{
-        padding: 1rem;
-    }
-    .propos_container{
-        &>h2{
-            padding-bottom: 2rem;
-            font-size: 2rem;
+.top_container{    
+    padding: 4rem ;
+    &>h1{
+        padding: 0;
+        font-size: 3rem;
         }
+    &>p{
+        padding: 2rem 0;
+        font-size: 1.5rem;
+        }
+    &>img{
+        width: 2rem;
+        padding-top: 4rem;
+        }
+}
+
+.propos_container, .compétence_container, .projets_container, .autres_container, .contact_container{
+    padding: 1rem;
+    }
+.propos_container{
+    &>h2{
+        padding-bottom: 2rem;
+        font-size: 2rem;
+    }
+    &>p{
+        padding: 1rem 0;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        }
+    }
+.compétence_bg{
+    height: 18rem;  
+    }
+.compétence_logo{
+    padding: 0.5rem 1.5rem;
+    &>p{
+        font-size: 15px;
+        padding-bottom: 3px;
+        }
+    &>img{
+        width: 4rem;
+        height: auto;
+        }
+    }
+.compétence_logo_cms{
+    padding: 0.5rem 1rem;
         &>p{
-            padding: 1rem 0;
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-    }
-    .compétence_bg
-    {
-        height: 18rem;  
-    }
-    .compétence_logo
-    {
-        padding: 0.5rem 1.5rem;
-        &>p{
-            font-size: 15px;
-            padding-bottom: 3px;
-        }
-        &>img{
-            width: 4rem;
-            height: auto;
-            
-        }
-    }
-    .compétence_logo_cms
-    {
-        padding: 0.5rem 1rem;
-        &>p{
-            font-size: 15px;
-            padding-bottom: 3px;
+        font-size: 15px;
+        padding-bottom: 3px;
         }
         &>img{
             width: 8rem;
             height: auto;
         }
     }
-    .compétence_bg_flip
-    {
-        height: 18rem;  
+
+.compétence_bg_flip{
+    height: 18rem;  
     }
-    .compétence_bg_slider
-    {
-        height: 18rem;  
+/* .compétence_bg_slider{
+    height: 18rem;  
     }
-    .p_card_imgSlider{
-        height: 15rem;
-    }
-    form{
-        display: flex;
-        &>.form, .textarea, .form_btn{
-            height: 3rem;
-            font-size: 1rem;   
+.p_card_imgSlider{
+    height: 15rem;
+} */
+form{
+    display: flex;
+    &>.form, .textarea, .form_btn{
+        height: 3rem;
+        font-size: 1rem;   
     }
     } /* @500 fin */
-}
+} /* @500 fin */
 
-/* @768 */
 @media screen and (min-width: 768px) {
 body{
     font-weight: 500;
@@ -479,6 +487,8 @@ nav{
 
 section{
     padding: 4rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .language{
@@ -520,19 +530,34 @@ section{
     }
 }
 
+.compétence_flex{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.compétence_flex_grp{
+    width: 48%;
+    div{
+        margin-bottom: 0.5rem;
+        padding-bottom: 1rem;
+    }  
+}
+
 .compétence_bg
 {
-    height: 28rem;  
+    height: 20rem;  
 }
 .compétence_logo
 {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     &>p{
-        font-size: 18px;
-        padding-bottom: 6px;
+        font-size: 10px;
+        padding-bottom: 4px;
     }
     &>img{
-        width: 6rem;
+        width: 3rem;
         height: auto;
         
     }
@@ -541,36 +566,282 @@ section{
 {
     padding: 0.5rem 1rem;
     &>p{
-        font-size: 18px;
-        padding-bottom: 6px;
+        font-size: 10px;
+        padding-bottom: 4px;
     }
     &>img{
-        width: 13rem;
+        width: 8rem;
         height: auto;
     }
 }
+
+.projets_container
+{
+   width: 100%; 
+}
+
+.p_card_front, .p_card_back{
+    padding: 2rem;
+}
+
+
 .compétence_bg_flip
 {
-    height: 28rem;  
+    height: 20rem;  
 }
-.compétence_bg_slider
+.p_card_front_desc{
+    font-size: 1rem;
+}
+
+/* .compétence_bg_slider
 {
-    height: 28rem;  
+    height: 20rem;
 }
 .p_card_imgSlider{
-    height: 25rem;
+    height: 20rem;
+} */
+
+.contact_container{
+    width: 100%;
+    &>div{
+        width: 100%;
+        height: 100%;
+    }
+}
+form{
+    display: flex;
+    &>.form, .textarea, .form_btn{
+        height: 3rem;
+        font-size: 1rem;
+    }
+    }  
+} /* @768 fin */
+
+@media screen and (min-width: 960px) {
+body{
+    font-weight: 500;
+}
+h2{
+    font-size: 3rem;
+}
+h3{
+    font-size: 2rem;
+}
+p{
+    font-size: 1.5rem;
+}
+.fa-solid{
+    font-size: 2rem;
+    padding: 0.8rem;
+}
+    
+nav{
+    padding: 4rem 8rem;
+}
+    
+section{
+    padding: 8rem;
+    display: flex;
+    flex-direction: row;
+}
+.top_container{    
+    padding: 4rem ;
+    &>h1{
+        padding: 0;
+        font-size: 4rem;
+    }
+    &>p{
+        padding: 2rem 0;
+        font-size: 2.5rem;
+    }
+    &>img{
+        width: 3rem;
+        padding-top: 4rem;
+    }
+}
+
+.propos_container{
+    &>h2{
+        padding-bottom: 2rem;
+        font-size: 3rem;
+    }
+    &>p{
+        padding: 1rem 0;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+.compétence_flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+.compétence_flex_grp{
+    width: 48%;
+    div{
+        margin-bottom: 0.5rem;
+        padding-bottom: 1rem;
+    }  
+}
+
+.compétence_bg
+{
+    height: 20rem;
+    width: 100%;
+}
+.compétence_logo
+{
+    padding: 0.5rem 1rem;
+    &>p{
+        font-size: 14px;
+        padding-bottom: 6px;
+    }
+    &>img{
+        width: 4rem;
+        height: auto;
+        
+    }
+}
+.compétence_logo_cms
+{
+    padding: 0.5rem 1rem;
+    &>p{
+        font-size: 14px;
+        padding-bottom: 6px;
+    }
+    &>img{
+        width: 8rem;
+        height: auto;
+    }
+}
+
+.projets_container
+{
+   width: 100%; 
+}
+
+.p_card_front, .p_card_back{
+    padding: 2rem;
+}
+
+.compétence_bg_flip
+{
+    height: 20rem;  
+}
+.p_card_front_desc{
+    font-size: 1rem;
+}
+
+.autres_container{
+    width: 100%;
+}
+
+/* .compétence_bg_slider
+{
+    height: 20rem;  
+}
+.p_card_imgSlider{
+    height: 20rem;
+} */
+
+.contact_container{
+    width: 100%;
+    &>div{
+        width: 100%;
+        height: 100%;
+        padding-right: 30%;
+        
+    }
 }
 
 form{
     display: flex;
+    align-items: center;
+    justify-content: center;
     &>.form, .textarea, .form_btn{
-        height: 5rem;
-        font-size: 1.3rem;   
-}
-}
-  
-} /* @768 fin */
-
-@media screen and (min-width: 960px) {
-  
+        height: 3rem;
+        font-size: 1rem;   
+    }
+    }
 }/* @960 fin */
+
+@media screen and (min-width: 1200px) {   
+nav{
+    padding: 4rem 10rem;
+    }
+    
+section{
+    padding: 10rem 10rem 0rem 10rem;
+    display: flex;
+    flex-direction: row;
+    }
+
+.compétence_bg{
+    height: 30rem;
+    width: 100%;
+    }
+
+.compétence_logo
+{
+padding: 1rem 3rem;
+    &>p{
+    font-size: 20px;
+    padding-bottom: 10px;
+    }
+    &>img{
+        width: 4rem;
+        height: auto;
+            
+    }
+}
+.compétence_logo_cms
+{
+    padding: 1rem 1.5rem;
+    &>p{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+    &>img{
+        width: 8rem;
+        height: auto;
+        }
+}
+
+.logo_img, .p_card_img{
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+    }
+
+
+.p_card_front, .p_card_back{
+    padding: 2rem;
+}
+
+.compétence_bg_flip
+{
+    height: 30rem;
+
+}
+.p_card_front_desc{
+    font-size: 1.5rem;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &>.form, .textarea, .form_btn{
+        height: 4rem;
+        font-size: 1rem;   
+    }
+    }
+  
+}/* @1200 fin */
+
+/* Défiロゴサイズが変、コンタクトの幅調整、縦のセクション間のスペース調整、回転カードをhoverにする？、日本語、全体の文字サイズ調整、文字のアニメーション*/
+
