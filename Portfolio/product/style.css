@@ -1,0 +1,82 @@
+/* 共通のスタイル */
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: cornflowerblue;
+  background-color: #fcf8ed;
+  margin: 0;
+  padding: 20px;
+}
+
+header, footer {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+footer p {
+  margin: 0;
+  color: #333;
+}
+
+/* 商品一覧とカートページのレイアウト */
+.container, .cart-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);  /* 一行に3列 */
+  margin-top: 20px;
+}
+
+.product {
+  background: bisque;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+}
+
+button {
+  padding: 10px;
+  background-color: rgb(43, 43, 235);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .container, .cart-container {
+      grid-template-columns: repeat(2, 1fr);  /* 小さい画面では2列 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container, .cart-container {
+      grid-template-columns: 1fr;  /* 更に小さい画面では1列 */
+  }
+}
+
+  /* display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr; */
+ 
