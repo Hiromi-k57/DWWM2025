@@ -20,7 +20,7 @@ html {
   font-style: normal;
 }
 */
-:root{
+/* :root{
     --tekkon : #17184b;
     --koniro : #223a70;
     --aiiro  : #145E83;
@@ -28,7 +28,7 @@ html {
     --ajiiro : #ebf6f7 ;
     --unohana : #f7fcfe;
     
-}
+} */
 
 a {
     text-decoration:none; 

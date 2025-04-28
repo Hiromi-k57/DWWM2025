@@ -8,7 +8,7 @@ document.querySelectorAll('.flip_card').forEach(card=>{
 })
 ;
 const textFromLeft = document.querySelectorAll(".textFromLeft");
-const ovserverFromLeft = new IntersectionObserver(fromLeft,{rootMargin: "-50%"});
+const ovserverFromLeft = new IntersectionObserver(fromLeft,{rootMargin: "-30%"});
 
 textFromLeft.forEach(text =>{
     ovserverFromLeft.observe(text)
@@ -19,6 +19,8 @@ textFromLeft.forEach(text =>{
  */
 function fromLeft (entres)
 {
+    console.log(entres);
+    
     entres.forEach((entree)=>{
         
         if(entree.isIntersecting){
