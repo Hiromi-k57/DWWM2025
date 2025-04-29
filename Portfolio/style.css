@@ -62,6 +62,7 @@ nav
     flex-direction: row;
     justify-content:space-between;
     justify-items: center;
+    align-content: center;
     padding: 2rem 3rem;
         &>p, .h_logo{
             color: white;
@@ -74,6 +75,7 @@ nav
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
     &>.language_logo{
         font-size: 1rem;
         color: white;
