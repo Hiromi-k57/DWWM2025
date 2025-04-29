@@ -85,6 +85,11 @@ nav
     }
 }
 
+.nav_a{
+    color: white;
+    text-decoration: none;
+}
+
 section
 {
     padding: 2rem;

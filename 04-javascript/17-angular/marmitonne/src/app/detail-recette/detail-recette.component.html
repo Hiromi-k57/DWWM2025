@@ -1,0 +1,48 @@
+<!-- <p>detail-recette works!</p> -->
+
+<section>
+@if (recette) {
+    
+    <div class="recetteCard"  >
+        <div class="imgTitleDiv">
+            <h2>{{recette.name|uppercase}}</h2>
+            <p> {{recette.type}}</p>  
+            <img [src]="'photos/'+recette.image">
+        </div>
+
+        <div class="text"> 
+            <h4>Description :</h4>
+            <p> &nbsp;{{recette.description}}</p>
+            <h4>Duration :</h4>
+            <p>&nbsp;{{recette.duration}} minutes</p>
+            <h4>Date :</h4>
+            <p>&nbsp;{{recette.createdAt|date:"dd/MM/yyyy"}}</p>
+
+            <h4>Ingredients :</h4>
+            <p>
+                @for(ingredient of recette.ingredients; track $index)
+                {
+                    &nbsp;{{ingredient}}
+                    <br>
+                }
+            </p>
+
+            <h4>Steps :</h4>
+            <p>
+                @for(ingredient of recette.steps; track $index)
+                {
+                    &nbsp;{{ingredient}}
+                <br>
+                }
+            </p>
+        </div>    
+        
+    </div>
+       
+}
+@else {
+    <app-page-not-found></app-page-not-found>
+}
+
+    <button (click)="goToRecetteListe()">Retour</button>
+</section>

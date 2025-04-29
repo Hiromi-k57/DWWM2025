@@ -1,0 +1,25 @@
+
+<section>
+
+    @for (recette of recetteListe; track $index) {
+   
+    <div class="card-wrapper" appBorderCard="{{recette.type|typeColor}}" (click)="goToRecette(recette)">
+      <img [src]="'photos/'+recette.image">
+  
+      <div class="title">
+        <h2>{{recette.name|uppercase}}</h2>
+        <p [style.backgroundColor]="recette.type|typeColor"> {{recette.type}}</p>  
+      </div>
+  
+      <div class="text"> 
+        <p>Description: <span class="normal">{{recette.description}}</span></p> 
+        <p>Duration: <span class="normal">{{recette.duration}} minutes</span></p>
+        <p>Date: <span class="normal">{{recette.createdAt|date:"dd/MM/yyyy"}}</span></p> 
+      </div>
+  
+   
+    </div>
+    
+    }
+      
+  </section>

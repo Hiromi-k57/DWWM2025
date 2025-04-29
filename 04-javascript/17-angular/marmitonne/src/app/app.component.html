@@ -1,6 +1,6 @@
 <!--サイトの確認はいつも http://localhost:4200/ -->
 
-<h1>Bienvenue sur {{title}} !</h1>
+<h1 appBorderCard="red">Bienvenue sur {{title}} !</h1>
 <h2>{{recetteListe[1].name}}</h2>
 <!-- Trois façon de modifier un attribut : -->
 <a href="{{title}}">Lien 1</a><br>
@@ -59,29 +59,5 @@
   })
 </script> -->
 
-<section>
-
-  @for (recette of recetteListe; track $index) {
- 
-  <div class="card-wrapper">
-    <img [src]="'photos/'+recette.image">
-
-    <div class="title">
-      <h2>{{recette.name}}</h2>
-      <p>{{recette.type}}</p>  
-    </div>
-
-    <div class="text"> 
-      <p>Description: <span class="normal">{{recette.description}}</span></p> 
-      <p>Duration: <span class="normal">{{recette.duration}} minutes</span></p>
-      <p>Date: <span class="normal">{{recette.createdAt}}</span></p> 
-    </div>
-
- 
-  </div>
-  
-  }
-    
-</section>
 
 
