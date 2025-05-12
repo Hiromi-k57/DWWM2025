@@ -1,0 +1,29 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav{
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+ul{
+  display: flex;
+  flex-direction: row;
+}
+
+ul li{
+  list-style: none;
+  text-decoration-line: none;
+  margin: 20px 20px;
+}
+
+.hamburger{
+  width: 20px;
+  height: 20px;
+  background-color: lightblue;
+}

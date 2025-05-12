@@ -1,22 +1,22 @@
 -- Récupérer la BDD dans les ressources.
 --  1. Quels sont les tickets qui comportent l’article d’ID 500, afficher le numéro de  ticket uniquement ? (24 résultats attendus)
-
+    SELECT * FROM `ventes` WHERE ID_ARTICLE = "500";
 --  2. Afficher les tickets du 15/01/2014. (1 résultat attendu)
-
+    SELECT * FROM `ticket` WHERE DATE_VENTE = "2014-01-15";
 --  3. Afficher les tickets émis du 15/01/2014 au 17/01/2014.(4 résultats attendus)
-
+    SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-01-15" AND "2014-01-17";
 --  4. Afficher la liste des articles apparaissant à 50 et plus exemplaires sur un ticket.(1274 résultats attendus)
 
 --  5. Quelles sont les tickets émis au mois de mars 2014.(78 résultats attendus)
-
+    SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-03-01" AND "2014-03-31";
 --  6. Quelles sont les tickets émis entre les mois de mars et avril 2014 ? (166 résultats attendus)
-
+    SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-03-01" AND "2014-04-31";
 --  7. Quelles sont les tickets émis au mois de mars et juin 2014 ? (174 résultats attendus)
-
+    SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-03-01" AND "2014-03-31" OR DATE_VENTE BETWEEN "2014-06-01" AND "2014-06-31";
 --  8. Afficher l’id et le nom des bières classée par couleur. (3922 résultats attendus, vous pouvez afficher la couleur pour vérifier votre résultat)
-
+    SELECT ID_ARTICLE,NOM_ARTICLE,ID_Couleur FROM `article` ORDER BY ID_Couleur;
 --  9. Afficher l’id et le nom des bières n’ayant pas de couleur. (706 résultats attendus)
-
+SELECT ID_ARTICLE,NOM_ARTICLE FROM `article` WHERE ID_Couleur = "none";
 --  10. Lister pour chaque ticket la quantité totale d’articles vendus classée par quantité décroissante. (4502 résultats attendus)
 
 --  11. Lister chaque ticket pour lequel la quantité totale d’articles vendus est supérieure
@@ -29,7 +29,7 @@
 --  13. Lister l'id, le nom de la bière, le volume et le titrage des bières de type ‘Trappiste’. (48 résultats attendus.)
 
 --  14. Lister les marques de bières du continent ‘Afrique’ (3 résultats attendus)
-
+    SELECT * FROM `pays` WHERE ID_CONTINENT = "1";
 --  15. Lister les bières du continent ‘Afrique’ (6 résultats attendus)
 
 --  16. Lister les tickets (année, numéro de ticket, montant total payé). En sachant que le
