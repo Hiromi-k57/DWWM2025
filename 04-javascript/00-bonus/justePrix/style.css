@@ -10,18 +10,25 @@
       flex-direction: column;
       align-items: center;
   }
+  p{
+    font-family: cursive;
+    color: forestgreen;
+  }
   
   .card{
-      margin: 3rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content:space-evenly;
-      width: 200px;
-      height: 250px;
-      background-color: aqua;
-  
+    background-image: url('./pineapple.jpg');
+    background-size: cover;
+    border-radius: 20px;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    width: 200px;
+    height: 250px;
+    
   }
+  
   
   .form{
       display: flex;
@@ -33,8 +40,15 @@
   .form input[type="number"] {
       width: 200px;
       margin: 3rem;
+      background-color: azure;
+      color: darkgreen;
   }
   
+  .gessSubmit{
+    background-color: azure;
+    color:lightgreen;
+    border-radius: 2px;
+  }
   .lastResult {
       color: white;
       padding: 3px;
@@ -42,6 +56,8 @@
   
   .lastResult2{
       font: bold 2rem black;
+      background-color:azure;
+      border-radius: 5px;
       padding: 3px;
       display: none;
   }

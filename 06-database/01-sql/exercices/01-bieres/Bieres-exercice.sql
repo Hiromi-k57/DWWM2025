@@ -6,7 +6,7 @@
 --  3. Afficher les tickets émis du 15/01/2014 au 17/01/2014.(4 résultats attendus)
     SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-01-15" AND "2014-01-17";
 --  4. Afficher la liste des articles apparaissant à 50 et plus exemplaires sur un ticket.(1274 résultats attendus)
-
+    SELECT ID_ARTICLE FROM 
 --  5. Quelles sont les tickets émis au mois de mars 2014.(78 résultats attendus)
     SELECT * FROM `ticket` WHERE DATE_VENTE BETWEEN "2014-03-01" AND "2014-03-31";
 --  6. Quelles sont les tickets émis entre les mois de mars et avril 2014 ? (166 résultats attendus)
@@ -16,16 +16,16 @@
 --  8. Afficher l’id et le nom des bières classée par couleur. (3922 résultats attendus, vous pouvez afficher la couleur pour vérifier votre résultat)
     SELECT ID_ARTICLE,NOM_ARTICLE,ID_Couleur FROM `article` ORDER BY ID_Couleur;
 --  9. Afficher l’id et le nom des bières n’ayant pas de couleur. (706 résultats attendus)
-SELECT ID_ARTICLE,NOM_ARTICLE FROM `article` WHERE ID_Couleur = "none";
+    SELECT ID_ARTICLE,NOM_ARTICLE FROM `article` WHERE ID_Couleur  IS NULL;
 --  10. Lister pour chaque ticket la quantité totale d’articles vendus classée par quantité décroissante. (4502 résultats attendus)
-
+    SELECT NUMERO_TICKET,SUM(QUANTITE) as total FROM ventes GROUP BY NUMERO_TICKET ORDER BY total DESC;
 --  11. Lister chaque ticket pour lequel la quantité totale d’articles vendus est supérieure
 --  à 500 classée par quantité décroissante.(1026 résultats attendus)
-
+    SELECT NUMERO_TICKET,SUM(QUANTITE) as total FROM ventes GROUP BY NUMERO_TICKET HAVING total > 500 ORDER BY total DESC;
 --  12. Lister chaque ticket pour lequel la quantité totale d’articles vendus est supérieure
 --  à 500 classée par quantité décroissante.On exclura du total,
 --  les ventes ayant une quantité supérieure à 50  (1021 résultats attendus)
-
+    SELECT NUMERO_TICKET,SUM(QUANTITE) as total FROM ventes WHERE QUANTITE <= 50 GROUP BY NUMERO_TICKET HAVING total > 500 ORDER BY ;
 --  13. Lister l'id, le nom de la bière, le volume et le titrage des bières de type ‘Trappiste’. (48 résultats attendus.)
 
 --  14. Lister les marques de bières du continent ‘Afrique’ (3 résultats attendus)
@@ -40,17 +40,20 @@ SELECT ID_ARTICLE,NOM_ARTICLE FROM `article` WHERE ID_Couleur = "none";
 -- 2014: "585092.90", 2015: "1513659.30", 2016: "2508155.68")
 
 --  18. Lister les quantités vendues de chaque article pour l’année 2016. (1960 résultats attendues (ou 3922))
+    SELECT ANNEE, ID_ARTICLE,SUM(QUANTITE) as TOTAL_ARTICLE FROM ventes WHERE ANNEE = 2016 GROUP BY ID_ARTICLE;
 
 --  19. Lister les quantités vendues de chaque article pour les années 2014,2015 ,2016. (5838 résultats attendus (ou 11197))
-
+    SELECT ID_ARTICLE,ANNEE, SUM(QUANTITE) as TOTAL_QUANTITE FROM ventes WHERE ANNEE IN (2014,2015,2016) GROUP BY  ID_ARTICLE, ANNEE;
 --  20. Lister les articles qui n’ont fait l’objet d’aucune vente en 2014. (498 résultats attendus)
+    SELECT ID_ARTICLE, NOM_ARTICLE FROM article WHERE ID_ARTICLE NOT IT (SELECT ID_ARTICLE FROM ventes WHERE ANNEE = 2014) ORDER BY ID_ARTICLE;
 
 --  21. Coder de 3 manières différentes la requête suivante :
 --  Lister les pays qui fabriquent des bières de type ‘Trappiste’. (3 résultats attendus)
+    SELECT pays.NOM_PAYS FROM pays INNER JOIN marque USING(ID_PAYS) INNER JOIN article USING(ID_MARQUE) WHERE ID_TYPE = (SELECT ID_TYPE FROM type WHERE NOM_TYPE = "Trappiste");
 
 --  22. Lister les tickets sur lesquels apparaissent un des articles apparaissant aussi sur
 --  le ticket 2014-856. (38 résultats attendus)
-
+    
 --  23. Lister les articles ayant un degré d’alcool plus élevé que la plus forte des
 --  trappistes. (74 résultats attendus)
 

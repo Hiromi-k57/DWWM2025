@@ -40,7 +40,8 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
     const userGuess = Number(guessField.value);
      if (userGuess === randomNumber) {
       lastResult.textContent = 'Bien joué ! Vous avez trouvé en 7 tours';
-      lastResult.style.backgroundColor = 'green';
+      lastResult.style.backgroundColor = 'lightblue';
+      lastResult.style.color = 'blue';
       lowOrHi.textContent = '';
       def.textContent = '';
       setGameOver();
@@ -48,7 +49,8 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
      
      else if (guessCount === 7) {
       lastResult.textContent = 'C\'est perdu !';
-      lastResult.style.backgroundColor = 'red';
+      lastResult.style.backgroundColor = 'lightpink';
+      lastResult.style.color = 'red';
       lowOrHi.textContent = '';
       def.textContent = '';
       setGameOver();
@@ -76,6 +78,7 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
       guessSubmit.disabled = true;
       resetButton = document.createElement('button');
       resetButton.textContent = 'Recommencer';
+
       card.appendChild(resetButton);
       resetButton.addEventListener('click', resetGame);
     

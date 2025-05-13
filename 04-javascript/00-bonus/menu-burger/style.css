@@ -24,7 +24,7 @@ body{
   width: 100%;
   height: 1px;
   background-color: blue;
-  transition: .5s;/* 追記 */
+  transition: .5s;
 }
 .hamburger span:first-of-type{/* ハンバーガーメニューの1番目の線 */
   top: 0;
