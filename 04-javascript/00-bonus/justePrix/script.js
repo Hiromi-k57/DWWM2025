@@ -44,6 +44,8 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
       lastResult.style.color = 'blue';
       lowOrHi.textContent = '';
       def.textContent = '';
+      card.style.backgroundImage = 'none';
+      card.style.backgroundColor = 'lightblue';
       setGameOver();
      } 
      
@@ -53,6 +55,10 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
       lastResult.style.color = 'red';
       lowOrHi.textContent = '';
       def.textContent = '';
+      card.style.backgroundImage = 'none';
+      card.style.backgroundColor = 'lightpink';
+      lastResult2.style.backgroundColor ='red';
+      lastResult2.style.color='lightpink';
       setGameOver();
      } else {
       if(userGuess < randomNumber) {
@@ -97,8 +103,13 @@ Lorsque le jeu est terminé, les boutons et input doivent être désactivé.
     guessField.value = '';
     guessField.focus();
     lastResult2.textContent = "";
+    lastResult2.style.backgroundColor ='';
+    lastResult2.style.color='';
+    lastResult2.style.display = '';
     def.textContent = 'Vouillez choisir un nombre entre 1 et 100, vous avez 7 essais';
     lastResult.style.backgroundColor = 'white';
+    card.style.backgroundImage = '';
+    card.style.backgroundColor = '';
     // lastResult.textContent = 'Vouillez choisir un nombre entre 1 et 100, vous avez 7 essais';
     // lastResult.style.fontColor = 'black';
     randomNumber = Math.floor(Math.random() * 100) + 1;

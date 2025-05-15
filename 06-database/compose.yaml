@@ -1,3 +1,4 @@
+# docker compose up -d をターミナルに入れることでdockerにphpadmin追加される
 services:
   mysql:
     image: mariadb
