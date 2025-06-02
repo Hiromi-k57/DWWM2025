@@ -33,6 +33,7 @@ print "<br> test avec print <br> ";
     Il en existe plein d'autre mais le second plus utilisé sera 
         var_dump()
     Il affichera tout type de donnée, en indiquant son type au préalable, il est très utilisé pour le debug
+    これは、事前に型を指定して、あらゆる型のデータを表示します。デバッグに広く使われています。
 */
 var_dump("Bonjour", "le monde");
 // Permet de voir toute la configuration de php :
@@ -42,7 +43,7 @@ echo getenv("DB_HOST");
 
 #------------------------------------
 echo "<h1>Déclaration des variables</h1><hr>";
-// Les variables PHP commencent toujours par un "$"
+// Les variables PHP commencent toujours par un "$"  PHP変数は常に「$」で始まります
 // Ensuite on peut la nommer comme on le souhaite, mais elle ne doit pas commencer par un chiffre
 $banane;
 // echo $banane;
@@ -54,8 +55,9 @@ echo "<br><strong>après fatal Error</strong>";
 
 $banane = "Jaune";
 echo "<br>banane :", $banane;
-/* 
+/*   
     Pour les constantes deux façon de les déclarer:
+        定数を宣言する方法は2つあります。  
     Anciennement "define('nom', 'valeu')"
     Ou nouvellement "const nom = valeur;"
 */
@@ -64,9 +66,9 @@ const AVOCATS = "verreux";
 
 echo "<br>Un avocat est ", AVOCAT, " ou ", AVOCATS, "?<hr>";
 
-// Récupère un tableau des variables définie
+// Récupère un tableau des variables définie 定義済み変数の配列を取得します
 // var_dump(get_defined_vars());
-// De même pour les constantes
+// De même pour les constantes 定数の場合も同様です
 // var_dump(get_defined_constants());
 
 // variable dynamique :
@@ -108,16 +110,18 @@ $nom = "Maurice";
 $age = 54;
 
 // L'interpolation ne fonctionne qu'avec les "".
+// 補間は""でのみ機能します。
 echo "$nom a $age ans. <br>";
 echo '$nom a $age ans. <br>';
-// La concaténation se fait avec un "."
+// La concaténation se fait avec un "." 
+// 連結は「.」で行われます。
 echo $nom . " a " . $age . " ans. <br>";
 $nom .= " Dupont"; // équivalent à $nom = $nom . " Dupont";
 echo $nom, "<br>";
 // Affiche la longueur du string
 echo strlen($nom), "<br>";
 
-// Le fonctionnement des string php se rapprochent de celui des tableaux
+// Le fonctionnement des string php se rapprochent de celui des tableaux 
 echo $nom[8], "<br>";
 $nom[8] = "L";
 echo $nom, "<br>";
@@ -207,13 +211,13 @@ sort($b);
 var_dump($b);
 echo "<br>";
 /* 
-    rsort() pour trier dans le sens décroissant;
+    rsort() pour trier dans le sens décroissant; 降順でソートします
     Et pour les tableaux associatif :
 
-        asort() ordre croissant des valeurs
-        ksort() ordre croissant des clefs
-        arsort() ordre décroissant des valeurs
-        krsort() ordre décroissant des clefs
+        asort() ordre croissant des valeurs 値の昇順でソートします
+        ksort() ordre croissant des clefs キーの昇順でソートします
+        arsort() ordre décroissant des valeurs 値の降順でソートします
+        krsort() ordre décroissant des clefs キーの降順でソートします
 */
 // ---------------------------------------------------
 echo "<h2>Les Booleans</h2><hr>";
@@ -271,34 +275,45 @@ echo "<h2>Les variables Super Globals.</h2><hr>";
 
 /* 
     Les variables super globals, sont des variables définie par défaut par PHP, et qui sont accessible n'importe où dans le code.
+        スーパーグローバル変数は、PHP によってデフォルトで定義され、コード内のどこからでもアクセスできる変数です。
 
     $GLOBALS
     est un tableau contenant toute les variables globales (celles de PHP et les votres)
+        は、すべてのグローバル変数（PHP およびユーザの）を含む配列です。
 
     $_SERVER
     Contient les informations liées au serveur, le header, l'url et j'en passe.
+        サーバー関連の情報、ヘッダー、URL などが含まれます。
 
     $_REQUEST
     Regroupe le contenu des superglobals $_POST, $_GET et $_COOKIE.
+        スーパーグローバル変数 $_POST、$_GET、$_COOKIE の内容をグループ化します。
 
     $_COOKIE
     Liste des cookies.
 
     $_GET
     Liste de toute les informations envoyées en GET (dans l'url)
+        GET 経由で送信されたすべての情報のリスト（URL 内）。
 
     $_POST
     Liste de toute les informations envoyées en POST
+        POST 経由で送信されたすべての情報のリストです。
+
 
     $_FILES
     Contient les informations des fichiers envoyés par un formulaire.
+        定義済みのすべての環境変数が含まれます。
 
     $_ENV
     Contient toute les variables d'environnement définies.
 
+
     $_SESSION
     Doit être initialisé avant d'être utilisé.
     Contient toute les informations stockées en session.
+        使用前に初期化する必要があります。
+        セッションに保存されるすべての情報が含まれます。
 */
 echo '<pre>'.print_r($_POST, 1).'</pre>';
 ?>

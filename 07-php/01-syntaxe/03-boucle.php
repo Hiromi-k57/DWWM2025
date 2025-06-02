@@ -4,6 +4,7 @@
 $x = 0;
 
 // tant que la condition est vrai, alors répète l'action
+// 条件が真である限り、アクションを繰り返します
 while($x < 5)
 {
     $x++;
@@ -32,6 +33,7 @@ do{
     echo "Do while : $x <br>";
 }while($x < 5);
 // do while peut s'écrire sur une seule ligne
+// do while は1行で書ける
 do
     echo "Do while 1 instruction: ". ++$x . "<br>";
 while($x < 25);
@@ -63,6 +65,7 @@ foreach($a as $food)
     echo "foreach 1 : $food <br>";
 }
 // Permet de récupérer les clefs(index) du tableau :
+// テーブルのキー (インデックス) を取得できます。
 foreach($a as $key => $food)
 {
     echo "foreach 2 : $key -> $food <br>";
@@ -75,10 +78,12 @@ endforeach;
 //  --------------------------------------------
 echo "<h2>continue et break</h2> <hr>";
 // ces mots clef fonctionnent sur n'importe quel type de boucle.
+// これらのキーワードはどのタイプのループでも機能します。
 
 foreach($a as $food)
 {
     // Met fin à cette itération et passe à la suivante
+    // この反復を終了し、次の反復に進みます
     if($food === "spaghetti")continue;
     // Met fin à la boucle
     if($food === "mayonnaise")break;

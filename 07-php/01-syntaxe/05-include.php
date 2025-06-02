@@ -9,6 +9,16 @@
     Il prend le contenu du fichier, et le colle là où il est appelé.
     De ce fait, si on déclare des variables avant de l'appeler, elles sont utilisable dans le fichier inclus :
         Ici $title est déclaré ici et utilisé dans le header.
+
+    Require と include は、このファイル内に別のファイルをインクルードするために使用されます。
+    違いはエラーにあります。
+    include は警告を発し、
+    Require は致命的なエラーを発します。
+
+    PHP のインクルードの動作は非常にシンプルです。
+    ファイルの内容を取得し、呼び出された場所に貼り付けます。
+    したがって、呼び出す前に変数を宣言しておけば、インクルードされたファイルでも使用できます。
+        ここでは、$title が宣言され、ヘッダーで使用されています。
 */
 $title = "Include et Require";
 $mainClass = "includeNav";
@@ -44,6 +54,7 @@ include "../ressources/template/_nav.php";
 <?php 
 require("../ressources/template/_footer.php");
 // Les versions once vérifient que l'élément n'est pas déjà inclu avant de faire l'inclusion.
+// once バージョンでは、要素を追加する前に、その要素がまだ含まれていないかどうかを確認します。
 require_once("../ressources/template/_footer.php");
 include_once("../ressources/template/_footer.php");
 
@@ -54,5 +65,11 @@ include_once("../ressources/template/_footer.php");
     __DIR__
     Elle indique le chemin absolue jusqu'au dossier où elle est appelé. 
     En la concaténant à un string, on aura plus qu'à indiquer le chemin depuis notre fichier.
+
+        複数のファイルが互いにインクルードされている場合、各ファイルに対応するパスを見つけるのが難しい場合があります。
+
+        定数 __DIR__ を使用すると、この作業が簡単になります。
+        __DIR__ は、呼び出されるフォルダへの絶対パスを指定します。
+        これを文字列に連結することで、ファイルからのパスを指定するだけで済みます。
 */
 ?>

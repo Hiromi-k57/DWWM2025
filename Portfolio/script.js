@@ -31,3 +31,7 @@ function fromLeft (entres)
         }
     })
 }
+
+const yearSpan =  document.querySelector('.thisYear'); 
+const thisYear = new Date().getFullYear(); 
+yearSpan.innerHTML = thisYear;

@@ -1,5 +1,6 @@
 <?php
 // Si il n'y a aucun HTML à suivre, on peut ne pas ferme la balise php
+// 後続のHTMLがない場合、PHPタグは閉じずに残すことができます
 # Un nombre aléatoire entre 0 et 100 :
 $r = rand(0,100);
 
@@ -21,6 +22,7 @@ else
 }
 echo "<h2>Autre syntaxes :</h2><hr>";
 // Si la condition ne contient qu'une seule instruction, les accolades sont optionnelles.
+// 後続のHTMLがない場合、PHPタグは閉じずに残すことができます
 if($r < 50)
     echo "r est plus petit que 50. <br>";
 elseif($r > 50)
@@ -28,6 +30,7 @@ elseif($r > 50)
 else
     echo "r vaut 50. <br>";
 // On peut aussi remplacer les accollades par ":" et terminé la condition par un "endif";
+// 中括弧を「:」に置き換えて、条件を「endif」で終了することもできます。
 if($r < 50):
     echo "r est plus petit que 50. <br>";
 elseif($r > 50):
@@ -53,6 +56,7 @@ echo "r est plus ".($r<=50 ? "petit ou égale à": "grand que") . " 50. <br>";
 // Opérateur de Coalescence :
 $message1 = "Bonjour le monde. <br>";
 // Si la variable existe, je l'utilise, sinon j'utilise ce qui suis :
+// 変数が存在する場合はそれを使用し、存在しない場合は以下を使用します。
 echo $message1 ?? "Rien à dire. <br>";
 echo $message2 ?? "Rien à dire. <br>";
 
