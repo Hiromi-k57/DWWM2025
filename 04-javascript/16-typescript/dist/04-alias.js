@@ -1,10 +1,10 @@
 "use strict";
 let f = { nom: "Pomme", couleur: "rouge" };
-let af = [f, { nom: "Banane", couleur: "Jaune" }];
+let aF = [f, { nom: "Banane", couleur: "Jaune" }];
 let p = { nom: "Maurice", age: 54 };
 let n = "George";
 let fp = "nom";
-//La dernière possibilité est de créer un type à partir d'un élément déjà existant:
+// La dernière possibilité est de créer un type à partir d'un élément déjà existant :
 let objet = { vieux: true, nom: "chaise", age: 78 };
 // ? Generics
 function useless(arg) {
@@ -12,8 +12,8 @@ function useless(arg) {
 }
 let machine = useless("Salut");
 /*
-    Par défaut, typescript ne connaît pqs la logique interne d'une fonction.
-    Si on lui dit que la valeur de retour est "any" , alors ça sera "any" et rien d'autre.
+    Par défaut, typescript ne connaît pas la logique interne d'une fonction.
+    Si on lui dit que la valeur de retour est "any", alors ça sera "any" et rien d'autre.
 
     Mais on peut lui indiquer grâce aux generics que la valeur de l'argument est le même que celui de la valeur de retour.
 */
@@ -31,6 +31,6 @@ function logSize(arg) {
     console.log(arg.length);
     return arg;
 }
-// Ici ma fonction n'accepte que des élément qui on une propriété "length"
+// Ici ma fonction n'accepte que des éléments qui ont une propriété "length"
 logSize([45]);
 logSize("chaussette");
