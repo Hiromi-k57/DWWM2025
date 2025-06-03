@@ -10,15 +10,35 @@ h1, h4{
     color:blue;
 }
 body{
-    padding: 1rem 1rem;
+    padding: 0 1rem;
     font-family: cursive;
 }
 section{
-    padding: 2rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: raw;
     align-items: center;
 }
+.title{
+    display: flex;
+    flex-direction: column;
+}
+
+.hintDifficile{
+    display: none;
+}
+.img{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.hintEtMots{
+    width: 50%;
+}
+
+
 .motDiv{
     display: flex;
     flex-direction: row;
@@ -39,7 +59,6 @@ span{
     flex-direction:row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
 }
 .keyBtn{
     background-color: lightblue;
@@ -50,4 +69,30 @@ span{
     height: 2rem;
     margin: 0.2rem;
 
+}
+#btnFacile {
+    background-color:lightblue;
+    color: blue;
+    border: 1px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
+}
+#btnDifficile{
+    background-color:lightblue;
+    color: blue;
+    border: 1px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
+}
+.reBtn{
+    text-align: center;
+    margin-top: 1rem;
+}
+#rejouerBtn {
+    display: none;
+    background-color: blue;
+    color: lightblue;
+    border: 2px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
 }
