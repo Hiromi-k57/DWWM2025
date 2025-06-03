@@ -1,36 +1,38 @@
-<?php 
-/*
-    ヘッダーはリクエストの先頭部分で、ブラウザによって読み取られます。
-    通常、HTMLを出力する前に header() 関数を呼び出す必要があります。
-    ヘッダーを使用することで、さまざまなアクションを実行できます。
-*/
-/* "HTTP/" を使用すると、送信されるステータスコードを変更できます。
-たとえば、ここではページを404エラーにしています。*/
-header("HTTP/1.1 404 Not Found");
-// http_response_code を使うと現在のステータスコードを取得できます。
-echo http_response_code();
-/* "Location:" を使うとリダイレクトが発生し、
-ステータスコードは302に変更され、指定されたページへ移動します。
-（リンクは相対パスでも絶対パスでも構いません）*/ 
-if(rand(0, 100)<50){
-    header("Location: 09-b-header.php");
-    /* exit は現在のスクリプトを終了させます。
-    リダイレクト後に使用することで、サーバーが無駄な処理をしないようにします。 */
-    exit;
-    /* 
-    exit はデバッグ時にも便利で、スクリプトを強制終了させて
-    問題が発生している箇所を特定できます。
-    メッセージを表示させることも可能です:
-    exit("ここで停止します！");
-
-    また、exit の別名として die も使用できます。
-    */
-}
-// header("Location: 09-b-header.php");
-$title = " header page 1";
-require("../ressources/template/_header.php");
-?>
-<h1>あなたは運が良い、私を見ることができました。</h1>
 <?php
-require("../ressources/template/_footer.php");
+
+/* 
+    Les headers, sont l'en-tête de la requête qui est lu par le serveur ou le navigateur avant même de consulter le contenu de la requête.
+
+    Via PHP on pourra faire divers actions comme changer le status de la requête (200, 300, 404...)
+    Demander une redirection ou un rechargement de la page.
+    Ou encore limiter l'accès à la page à certains sites, ou method de requête (POST, GET...)
+
+    La plupart des modifications de headers se font via la fonction "headers()" mais certaines autres fonctions les modifies aussi.
+    (session_start(), setcookie()...)
+
+    ! Les headers ne peuvent être modifié que si aucun HTML n'a déjà été envoyé.
+
+    Pour changer le status de la page, deux solutions :
+*/
+// header("HTTP/1.1 404 Not Found");
+// http_response_code(404);
+// Cette dernière peut aussi être utilisé pour récupérer le code de status actuel :
+// echo http_response_code();
+// exit ou die met fin au code. il peut prendre un string à afficher en paramètre.
+// exit("coucou");
+// die("salut");
+if(rand(0,100) > 50)
+{
+    // Location permet de créer une redirection
+    header("Location: 09-b-header.php");
+    // Lorsque l'on fait une redirection, c'est une bonne pratique d'arrêter le code juste après.
+    exit;
+}
+
+$title = "Les headers page 1";
+require "../ressources/template/_header.php";
+
+echo "<h2>Vous êtes bien en page 1</h2>";
+
+require "../ressources/template/_footer.php";
 ?>
