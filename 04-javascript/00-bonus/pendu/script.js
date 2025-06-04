@@ -103,15 +103,15 @@ function activerBoutons() {
 
 // 再挑戦
 rejouerBtn.addEventListener('click', () => {
-    demarrerPartie(modeDifficile);
+    demarrerPartie(modeFacile);
 });
 
 // 難易度選択
 btnFacile.addEventListener('click', () => {
-    demarrerPartie(false);
+    demarrerPartie(true);
 });
 btnDifficile.addEventListener('click', () => {
-    demarrerPartie(true);
+    demarrerPartie(false);
 });
 
 // イベント初期化

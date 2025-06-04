@@ -96,3 +96,19 @@ span{
     border-radius: 2px;
     padding: 0.2rem 0.4rem;
 }
+
+@media screen and (max-width: 768px) {
+  section{
+    display: flex;
+    flex-direction: column;
+  }
+  .hintEtMots{
+    width: 100%;
+}
+section{
+    padding: 0.5rem 0.5rem
+}
+}
+span{
+    margin: 0.2rem;
+}
