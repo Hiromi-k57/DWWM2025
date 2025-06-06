@@ -6,6 +6,7 @@ $error = [];
 // フォームで提供される選択肢のリスト：
 $foodList = ["welsh", "cannelloni", "oyakodon"];
 $drinkList = ["jus de tomate", "milkshake", "limonade"];
+
 // フォームが期待されるメソッドで送信され、かつ少なくとも1つの要素が送信されたかを確認する：
 if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["meal"]))
 {
