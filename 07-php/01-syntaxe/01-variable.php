@@ -7,6 +7,10 @@ Tout code hors de ces balises, est du simple HTML.
 Il est commun de voir du PHP au milieu de HTML.
 Mais selon la structure choisi, on pourra séparer la majorité du PHP de HTML.
 (Par exemple, structure MVC)
+    これらのタグの外側のコードはプレーンHTMLです。
+    PHPがHTMLの途中にあるのはよくあることです。
+    しかし、選択した構造によっては、PHPの大部分をHTMLから分離することも可能です。
+    (例: MVC構造)
 -->
 <?php 
 // Commentaire sur une seule ligne
@@ -17,6 +21,7 @@ Mais selon la structure choisi, on pourra séparer la majorité du PHP de HTML.
 */
 // ! Chaque instruction PHP, se termine par ";"
 // par défaut, le code php n'est pas visible sur la page, pour l'afficher, on devra utiliser une des instructions suivante :
+    // デフォルトでは、PHPコードはページ上に表示されません。表示するには、以下のいずれかの命令を使用する必要があります。
 
 echo "Coucou";
 // Si la plupart des fonctions PHP ont besoin de parenthèse, certaines comme "echo" n'en ont pas besoin
@@ -27,30 +32,38 @@ echo "<br> PHP !!! <hr>";
 /* 
     On a d'autre variantes pour afficher des données
     par exemple "print" qui retourne une valeur de 1 et est un peu plus lent à l'execution.
+        データを表示するための他のオプションもあります。たとえば、「print」は値 1 を返し、実行に少し時間がかかります。
 */
 print "<br> test avec print <br> ";
 /* 
     Il en existe plein d'autre mais le second plus utilisé sera 
         var_dump()
     Il affichera tout type de donnée, en indiquant son type au préalable, il est très utilisé pour le debug
+    他にもたくさんありますが、2番目によく使われるのはvar_dump()です。
     これは、事前に型を指定して、あらゆる型のデータを表示します。デバッグに広く使われています。
 */
 var_dump("Bonjour", "le monde");
 // Permet de voir toute la configuration de php :
 // phpinfo();
 # Il est possible de récupérer des variables d'environnement avec getenv()
+    // PHP 設定全体を表示できます:
+    // phpinfo();
+    # getenv() で環境変数を取得できます
 echo getenv("DB_HOST");
 
 #------------------------------------
 echo "<h1>Déclaration des variables</h1><hr>";
-// Les variables PHP commencent toujours par un "$"  PHP変数は常に「$」で始まります
+// Les variables PHP commencent toujours par un "$"  
 // Ensuite on peut la nommer comme on le souhaite, mais elle ne doit pas commencer par un chiffre
+    //PHP変数は常に「$」で始まります, 好きな名前を付けられますが、数字で始まってはいけません
 $banane;
 // echo $banane;
 // Lors d'un warning, le message d'erreur s'affiche, mais le code continue
+// / 警告中はエラーメッセージが表示されますが、コードは続行されます
 echo "<br><strong>après warning</strong>";
 // throw new ErrorException("test");
 // Lors d'un fatal error, le code s'arrête
+// 致命的なエラーが発生した場合、コードは停止します
 echo "<br><strong>après fatal Error</strong>";
 
 $banane = "Jaune";
@@ -60,6 +73,8 @@ echo "<br>banane :", $banane;
         定数を宣言する方法は2つあります。  
     Anciennement "define('nom', 'valeu')"
     Ou nouvellement "const nom = valeur;"
+        以前は「define('name', 'value')」でした。
+        新しく「const name = value;」になりました。
 */
 define("AVOCAT", "vert");
 const AVOCATS = "verreux";
@@ -76,6 +91,7 @@ $chaussette = "rouge";
 // chaussette est une variable qui vaut "rouge"
 $$chaussette = "bleu";
 // Je met la valeur "bleu" dans une variable dont le nom dépend du contenu de la variable "chaussette"
+    //変数「sock」の内容に応じて名前が決まる変数に「blue」という値を入れます
 echo $rouge;
 
 unset($banane);
@@ -119,9 +135,11 @@ echo $nom . " a " . $age . " ans. <br>";
 $nom .= " Dupont"; // équivalent à $nom = $nom . " Dupont";
 echo $nom, "<br>";
 // Affiche la longueur du string
+// 文字列の長さを表示します
 echo strlen($nom), "<br>";
 
 // Le fonctionnement des string php se rapprochent de celui des tableaux 
+// PHP文字列の操作はテーブルの場合と似ています
 echo $nom[8], "<br>";
 $nom[8] = "L";
 echo $nom, "<br>";
@@ -133,6 +151,7 @@ echo "1-1=", 1-1, "<br>";
 echo "2*2=", 2*2, "<br>";
 echo "8/2=", 8/2, "<br>";
 // Le modulo, reste de la division
+// 除算の剰余
 echo "11%3=", 11%3, "<br>";
 // La puissance
 echo "2**4=", 2**4, "<br>";
@@ -155,6 +174,7 @@ echo PHP_INT_MAX, "<br>", PHP_INT_MIN, "<br>";
 echo PHP_FLOAT_MAX, "<br>", PHP_FLOAT_MIN, "<br>";
 
 // On peut convertir une valeur en la faisant précédé de (type) :
+// 値の先頭に (type) を付けることで値を変換できます。
 echo (int)"42 trucs", "<br>", (int)3.14, "<br>";
 // ---------------------------------------------------
 echo "<h2>Les Tableaux</h2><hr>";
@@ -181,10 +201,13 @@ echo "<hr>";
 
 // En PHP il existe une autre forme de tableau, les tableaux associatifs.
 // Ces tableaux remplaçent les index par des clef nominative.
+// PHP には、連想配列という別の形式の配列があります。
+// これらの配列では、インデックスが名前付きキーに置き換えられます。
 
 $person = ["prenom"=>"Maurice", "age"=>52];
 echo $person["prenom"] . " a " . $person["age"] . " ans.<br>";
 // Pour ajouter un élément, j'indique la nouvelle clef :
+// 要素を追加するには、新しいキーを指定します。
 $person["loisir"] = ["pétanque", "bowling"];
 echo '<pre>'.print_r($person, 1).'</pre>';
 
@@ -194,15 +217,19 @@ unset($person["age"]);
 echo '<pre>'.print_r($person, 1).'</pre>';
 
 // Unset posera problème sur un tableau classique :
+// 配列から要素を削除します:
 unset($a[1]);
 // l'index 1 n'existe plus
+// インデックス1はもう存在しません
 var_dump($a);
 // Corrigeons cela avec :
+// これを次のように修正しましょう:
 $a = array_values($a);
 var_dump($a);
 echo "<br>";
 
 // Sinon on pourra supprimer un index avec :
+// それ以外の場合は次のようにしてインデックスを削除できます。
 array_splice($b, 1, 1);
 var_dump($b);
 echo "<br>";
@@ -246,6 +273,7 @@ var_dump(5==='5');
 echo "<br> 5 != '5' :";
 var_dump(5 != '5');
 // Autre notation pour "différent"
+// 「異なる」の別の表記
 echo "<br> 5 <> '5' :";
 var_dump(5 <> '5');
 
@@ -264,6 +292,7 @@ var_dump(5 < 3 or 5<2);
 var_dump(5 < 3 || 5<2);
 
 // true si seulement un des deux est true.
+// 2 つのうち 1 つだけが true の場合は true になります。
 echo "<br> 5 < 3 xor 5<2 :";
 var_dump(5 < 3 xor 5<2);
 
@@ -307,6 +336,7 @@ echo "<h2>Les variables Super Globals.</h2><hr>";
 
     $_ENV
     Contient toute les variables d'environnement définies.
+        定義されたすべての環境変数が含まれます。
 
 
     $_SESSION

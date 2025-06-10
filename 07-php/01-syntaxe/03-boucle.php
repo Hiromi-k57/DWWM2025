@@ -11,6 +11,7 @@ while($x < 5)
     echo "while : $x <br>";
 }
 // syntaxe pour une seule instruction :
+// 単一命令の構文:
 while($x < 10)
     echo "while 1 instruction :". ++$x ."<br>";
 // syntaxe avec ":" et "endwhile":
