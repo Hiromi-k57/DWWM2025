@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["meal"]))
         $username = trim($_GET["username"]);
         // バックスラッシュを削除する
         $username = stripslashes($username);
-        // 表示するすべてのデータに対して必ず行う必要がある
+        //! 表示するすべてのデータに対して必ず行う必要がある
         // データベースに保存する前、または表示の直前に実行可能
         $username = htmlspecialchars($username);
         // HTMLの特殊文字（<、>など）をそのコード（&gt;など）に置き換えてコードインジェクションを防止する。

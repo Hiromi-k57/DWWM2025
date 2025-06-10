@@ -4,5 +4,6 @@
   box-sizing: border-box;
 }
 .form_body{
-    display: flex;
+  display: flex;
+  
 }
