@@ -24,6 +24,8 @@ function setCSRF(int $time = 0): void
     echo '<input type="hidden" name="token" value="'.$_SESSION["token"].'">';
 }
 /**
+ * クロスサイトリクエストフォージェリ (cross-site request forgeries) は、Webアプリケーションの脆弱性の一つもしくはそれを利用した攻撃。略称はCSRF（シーサーフ (sea-surf) と読まれる事もある）、またはXSRF。リクエスト強要、セッションライディング (session riding) とも呼ばれる。
+ *
  * トークンが有効かどうかをチェックします。
  *
  * @return boolean

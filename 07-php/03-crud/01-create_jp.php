@@ -5,9 +5,9 @@ require "../ressources/service/_shouldBeLogged.php";
 
 shouldBeLogged(false, "/");
 /* 
-    Pour des raisons de simplicité du cours, on n'a pas mit de securité sur ce formulaire, 
-    mais pensez à en ajouter sur vos projets.
-    (csrf, captcha, confirmation du mail...)
+    この講座では簡略化のため、このフォームにセキュリティは追加していませんが、
+実際のプロジェクトでは必ず追加してください。
+（CSRF、キャプチャ、メール確認など）
 */
 $username = $email = $password = "";
 $error = [];
@@ -23,12 +23,12 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription']))
     else
     {
         $username = cleanData($_POST["username"]);
-        // preg_match permet de vérifier une regex.
+        // preg_match は正規表現を確認するために使用されます。
         if(!preg_match("/^[a-zA-Z' -]{2,25}$/", $username))
         {
             $error["username"] = "Votre nom d'utilisateur ne doit contenir que des lettres. (entre 2 et 25)";
         }
-    }// fin vérification username
+    }// ユーザー名の確認終了
     if(empty($_POST["email"]))
     {
         $error["email"] = "Veuillez saisir un email";
@@ -37,10 +37,10 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription']))
     {
         $email = cleanData($_POST["email"]);
         /* 
-            filter_var peut retourner un boolean indiquant si le premier paramètre est valide selon le filtre indiqué en second paramètre.
-            Ou retourné un string modifié selon le filtre donné.
-                FILTER_VALIDATE_*** => boolean
-                FILTER_SANITIZE_*** => string
+            filter_var は、第1引数が第2引数のフィルターに従って有効かどうかのブール値、
+またはフィルターに従って変更された文字列を返します。
+    FILTER_VALIDATE_*** => ブール値
+    FILTER_SANITIZE_*** => 文字列
         */
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
@@ -48,19 +48,19 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription']))
         }
         else
         {
-            // Je prépare ma requête
+            // クエリを準備します
             $sql = $pdo->prepare("SELECT * FROM users WHERE email=?");
-            // Je lance ma requête 
+            // クエリを実行します 
             $sql->execute([$email]);
-            // Je récupère mon résultat
+            // 結果を取得します
             $user = $sql->fetch();
-            // Si j'ai trouvé un utilisateur, alors cet email est déjà utilisé
+            // ユーザーが見つかった場合、そのメールアドレスはすでに使用されています
             if($user)
             {
                 $error["email"] = "Cet email est déjà utilisé";
             }
         }
-    }// fin vérification email
+    }// メール確認の終了
     if(empty($_POST["password"]))
     {
         $error["password"] = "Veuillez saisir un mot de passe";
@@ -74,10 +74,10 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription']))
         }
         else
         {
-            // ! Je hash le mot de passe
+            // ! パスワードをハッシュ化します
             $password = password_hash($password, PASSWORD_DEFAULT);
         }
-    }// fin vérification password
+    }// パスワード確認の終了
     if(empty($_POST["passwordBis"]))
     {
         $error["passwordBis"] = "Veuillez confirmer votre mot de passe";
@@ -85,15 +85,15 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription']))
     elseif($_POST["password"] !== $_POST["passwordBis"])
     {
         $error["passwordBis"] = "Veuillez saisir le même mot de passe";
-    }// fin confirmation password
+    }// パスワード確認終了
     if(empty($error))
     {
-        // Si on n'a pas d'erreur, alors on peut enregistré notre utilisateur en BDD
+        // エラーがなければ、ユーザーをデータベースに保存できます
         $sql = $pdo->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
-        // je lance la requête :
+        // クエリを実行します :
         $sql->execute([$username, $email, $password]);
 
-        // Une fois terminé, je peux rediriger mon utilisateur ailleurs :
+        // 完了したら、ユーザーを他の場所にリダイレクトできます：
         header("Location: /");
         exit;
     }
