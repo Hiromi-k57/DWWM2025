@@ -74,7 +74,7 @@ require "./ressources/template/_header.php";
             <h3>03 - CRUD :</h3>
             <ol>
                 <li>
-                    <a href="./03-crud/00-database.php">Utilisation BDD</a>
+                    <a href="./03-crud/00-database.php">Connexion à la bdd</a>
                 </li>
                 <li>
                     <a href="./03-crud/02-read.php">Liste Utilisateur</a>
@@ -83,10 +83,13 @@ require "./ressources/template/_header.php";
                     <a href="./03-crud/01-create.php">Inscription</a>
                 </li>
                 <li>
+                    <a href="./03-crud/03-update.php">Profil</a>
+                </li>
+                <li>
                     <h4>Exercice :</h4>
                     <ul>
                         <li>
-                            <a href="./03-crud/exercice/connexion.php">connexion</a>
+                            <a href="./03-crud/exercice/login.php">connexion</a>
                         </li>
                         <li>
                             <a href="./03-crud/exercice/deconnexion.php">déconnexion</a>

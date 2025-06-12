@@ -26,7 +26,6 @@ $sqlMessageId =$pdo->prepare("SELECT * FROM messages WHERE idUser = ?");
 
 $sqlMessageId->execute([$idUser]);
 $messageFromPrepare = $sqlMessageId->fetchAll();
-var_dump($messageFromPrepare);
 
 
 if(session_status() !== PHP_SESSION_ACTIVE)
@@ -61,25 +60,35 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']))
         $pass = trim($Post["password"]);
     }
 
-//     if(empty($error))
-//     {
-//         $users = file_get_contents("")
-//     }
+
  }
 ?>
 
+<h2>
+    Message de l'utilisateur # <?=htmlspecialchars($idUser) ?>
+</h2>
+<ul>
+    <?php foreach($messageFromPrepare as $messages): ?>
+        <li><?= htmlspecialchars($message['contenu'])?>(<?= $message['date_creation'] ?>)</li>
+        <?php endforeach;?>
+</ul>
+
 <form action="../exo.php" method="post">
-        <label for="email">Email</label>
+    <fieldset>
+        <br>
+        <label for="email">Email</label><br>
         <input type="email" name="email" id="email">
         <span class="error"><?= $error["email"]??"" ?></span>
         <br>
-        <label for="password">Mot de Passe</label>
+        <label for="password">Mot de Passe</label><br>
         <input type="password" name="password" id="password">
         <span class="error"><?= $error["password"]??"" ?></span>
-        <br>
-        <button type="submit" name="login">Connexion</button>
+        <br><br>
+        <button type="submit" name="login">Connexion</button><br>
         <span class="error"><?= $error["login"]??"" ?></span>
-    </form>
+        <br>
+    </fieldset>
+</form>
 
 
 
