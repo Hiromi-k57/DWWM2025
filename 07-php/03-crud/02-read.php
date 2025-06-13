@@ -38,7 +38,7 @@ if($users):
                     <td><?= $row["idUser"] ?></td>
                     <td><?= $row["username"] ?></td>
                     <td>
-                        <a href="TODO">Voir Blog</a>
+                        <a href="./exercice/exo.php?id=<?= $row["idUser"] ?>">Voir Blog</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
