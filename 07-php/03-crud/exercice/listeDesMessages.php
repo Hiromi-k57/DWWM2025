@@ -34,36 +34,6 @@ if(session_status() !== PHP_SESSION_ACTIVE)
 }
 
 
-// $email = $pass = "";
-// $error = [];
-
-// if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']))
-// {
-//     if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] ===true)
-//     {
-//         header("Location: /");
-//         exit;
-//     }
-//     if(empty($post["email"]))
-//     {
-//         $error["email"] = "Veuillez entrer un email";
-//     }
-//     else
-//     {
-//         $email = trim($_POST["email"]);
-//     }
-//     if(empty($_POST["password"]))
-//     {
-//         $error["password"] = "Veuillez entrer un mot de pass";
-//     }
-//     else
-//     {
-//         $pass = trim($Post["password"]);
-//     }
-//  }
-
- // deconnexion :
-
  if(isset($_GET["action"]) && $_GET["action"] === "logout")
  {
      if(session_status() !== PHP_SESSION_ACTIVE)
@@ -111,22 +81,7 @@ require("../../ressources/template/_header.php");
         <?php endforeach;?>
 </ul>
 
-<!-- <form action="../exo.php" method="post">
-    <fieldset>
-        <br>
-        <label for="email">Email</label><br>
-        <input type="email" name="email" id="email">
-        <span class="error"><?= $error["email"]??"" ?></span>
-        <br>
-        <label for="password">Mot de Passe</label><br>
-        <input type="password" name="password" id="password">
-        <span class="error"><?= $error["password"]??"" ?></span>
-        <br><br>
-        <button type="submit" name="login">Connexion</button><br>
-        <span class="error"><?= $error["login"]??"" ?></span>
-        <br>
-    </fieldset>
-</form> -->
+
 
 
 
