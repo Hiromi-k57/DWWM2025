@@ -1,6 +1,6 @@
-<?php  //Florian の答えをもとに追加
-require("../../ressources/template/_header.php");
-require ("../../ressources/service/_pdo.php");
+<?php
+// Jhon - tako , jdupon - 2dupon@Mail
+require "../../ressources/service/_pdo.php";
 
 $username = "";
 $password = "";
@@ -38,11 +38,10 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['logIn'])) {
         $_SESSION["user_id"] = $user['idUser'];
         $_SESSION["username"] = $user['username'];
         $_SESSION["logged_in"] = true;
-        header("Location: ./exo.php?id=".$user['idUser']);
+        header("Location: ./blog/read.php");
     }
 }
-echo password_hash("tako", PASSWORD_DEFAULT);
-// Jhon pw:tako
+
 ?>
 
 <h1>Log in</h1>
@@ -72,7 +71,3 @@ echo password_hash("tako", PASSWORD_DEFAULT);
         <input type="submit" value="Log in" name="logIn">
     </fieldset>
 </form>
-
-<?php 
-require("../../ressources/template/_footer.php");
-?>
