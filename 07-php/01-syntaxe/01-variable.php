@@ -25,6 +25,7 @@ Mais selon la structure choisi, on pourra séparer la majorité du PHP de HTML.
 
 echo "Coucou";
 // Si la plupart des fonctions PHP ont besoin de parenthèse, certaines comme "echo" n'en ont pas besoin
+// ほとんどの PHP 関数では括弧が必要ですが、「echo」など一部の関数では必要ありません。
 # echo peut prendre plusieurs paramètre :
 echo "Hello", "World";
 # Une fois affiché, les données sont traité comme du HTML:

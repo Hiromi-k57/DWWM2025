@@ -24,8 +24,14 @@ require "../ressources/template/_header.php";
 <hr>
 
 <?php 
-// Est ce que $_SESSION["logged"] existe et est ce qu'il vaut true;
-// $_SESSION["logged"] が存在し、それが true であるか。
+/* 
+    Est ce que $_SESSION["logged"] existe et est ce qu'il vaut true;
+    $_SESSION["logged"] が存在し、それが true であるか。
+
+    *$_SESSION["logged"]を2回書く理由は、１回目に$_SESSION["logged"]というキーが存在するかを確認し、２回目に実際に「ログインしているか（値がtrueか）」を確認しているから
+
+    *issetは引数に指定した変数に値が設定されている、かつ、NULLではない場合にはtrue(正)の値を戻り値とします。 それ以外は、戻り値にfalse(偽)の値を返します。 
+*/
 if(isset($_SESSION["logged"]) && $_SESSION["logged"])
 {
     echo "Bonjour {$_SESSION['username']}, {$_SESSION['age']} ans.";
@@ -34,7 +40,7 @@ if(isset($_SESSION["logged"]) && $_SESSION["logged"])
     echo "Veuillez passer par la page 1";
 }
 // Si on souhaite supprimer une donnée, on utilisera "unset"
-// データを削除したい場合は「unset」を使用します
+// データを削除したい場合は「unset」を使用します; unset関数を使って変数や配列・連想配列の要素を削除することができます
 unset($_SESSION["food"]);
 // Si on souhaite supprimer la session en entier :
 // セッション全体を削除する場合:

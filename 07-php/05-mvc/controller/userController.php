@@ -159,7 +159,9 @@ function updateUser():void
 }
 /**
  * Gère la page de suppression de l'utilisateur.
+ * ユーザー削除ページを管理します。
  *
+ * void型は、関数が何も返さないことを示します。つまり、関数が終了したときに値を返さないことを意味します。void型を戻り値の型として指定した関数からreturn文を使用して値を返そうとすると、PHPはエラーをスローします。
  * @return void
  */
 function deleteUser():void
@@ -177,6 +179,7 @@ function deleteUser():void
     session_destroy();
     setcookie("PHPSESSID","", time()-3600);
     // avant de le rediriger.
+    // リダイレクトする前に
     header("refresh: 5;url = /05-mvc");
 	
     // J'inclu ma vue.

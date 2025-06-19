@@ -12,6 +12,7 @@ function getAllUsers(): array{
 }
 /**
  * Selectionne un utilisateur par son Email.
+ * メールでユーザーを選択します。
  *
  * @param string $email
  * @return array|boolean
@@ -24,6 +25,7 @@ function getOneUserByEmail(string $email): array|bool{
 }
 /**
  * Selectionne un utilisateur par son id.
+ * ID でユーザーを選択します。
  *
  * @param string $id
  * @return array|boolean
@@ -63,6 +65,7 @@ function deleteUserById(string $id):void{
 }
 /**
  * Met à jour l'utilisateur via son id.
+ * ユーザー ID を介してユーザーを更新します。
  *
  * @param string $username
  * @param string $email

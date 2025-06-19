@@ -31,7 +31,7 @@
 if(rand(0,100) > 50)
 {
     // Location permet de créer une redirection
-    // 場所によりリダイレクトを作成できる
+    // Locationによりリダイレクトを作成できる
     header("Location: 09-b-header.php");
     // Lorsque l'on fait une redirection, c'est une bonne pratique d'arrêter le code juste après.
     // リダイレクトを行う場合は、直後にコードを停止することをお勧めします。

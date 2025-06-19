@@ -122,7 +122,7 @@ require "./ressources/template/_header.php";
                 </li>
             </ol>
         </li>
-        <!-- <li>
+        <li>
             <h3>05 - MVC :</h3>
             <ol>
                 <li>
@@ -143,7 +143,7 @@ require "./ressources/template/_header.php";
                     </ul>
                 </li>
             </ol>
-        </li> -->
+        </li>
         <!-- <li>
             <h3>06 - POO :</h3>
             <ol>

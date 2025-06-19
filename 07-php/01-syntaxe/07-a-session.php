@@ -31,6 +31,7 @@ require "../ressources/template/_header.php";
 <hr>
 <?php 
 // Si on souhaite récupérer l'id de la session :
+// セッションIDを取得する場合:
 var_dump($_COOKIE, session_id());
 // Le nom par défaut du cookie est "PHPSESSID" mais il peut être modifié avec "session_name('nouveauNom')" avant le session_start()
 // デフォルトのクッキー名は「PHPSESSID」ですが、session_start() の前に「session_name('newName')」で変更できます。
