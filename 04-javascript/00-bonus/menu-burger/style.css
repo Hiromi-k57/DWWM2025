@@ -9,10 +9,11 @@ body{
 
 .header-area{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   height: 65px;
   padding: 0 20px;
-  align-items: center;
+  align-items:end;
 }
 .hamburger{
   width: 40px;
