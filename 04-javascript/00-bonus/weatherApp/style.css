@@ -1,0 +1,79 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.container {
+    width: 450px;
+    background: linear-gradient(130deg, rgb(192, 221, 255), rgb(136, 134, 240));
+    color: white;
+    padding: 30px;
+    margin: 50px auto 0;
+    border-radius: 10px;
+    text-align: center;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    padding: 12px 22px;
+    flex: 1;
+    margin-right: 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    background-color: lightcyan;
+    color: black;
+}
+.search button{
+    border: 0;
+    outline: 0;
+    background-color: lightcyan;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.search button img{
+    width: 16px;
+}
+.weather .icon{
+    margin-top: 20px;
+    width: 160px;
+}
+.weather h1{
+    font-size: 70px;
+    font-weight: 500;
+}
+.weaether h2{
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.detail{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin-top: 50px;
+}
+.col{
+    display: flex;
+    align-items: center;
+}
+.col img{
+    width: 45px;
+    margin-right: 10px;
+}
+.humidity, .wind{
+    font-size: 27px;
+}
