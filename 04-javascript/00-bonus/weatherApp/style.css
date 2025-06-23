@@ -77,3 +77,10 @@ body{
 .humidity, .wind{
     font-size: 27px;
 }
+.fa-droplet, .fa-wind{
+    font-size:xx-large;
+    padding-right: 1rem;
+}
+.icon{
+    padding-top: 1rem;
+}
