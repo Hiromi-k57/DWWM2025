@@ -2,6 +2,7 @@
 https://www.youtube.com/watch?v=Q1zCAteKg8I
 
 https://openweathermap.org/weather-conditions
+https://lorem-co-ltd.com/fetch-basic/
 
 
 */
@@ -13,6 +14,15 @@ const img =document.querySelector('.icon');
 
 async function getWeather(city){
     let res = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=beb758f15a9582c568ae6270960129e9&units=metric`);
+    if (res.status === 404) {
+        document.querySelector('.error').style.display = "block";
+        return; // Stop further execution if city not found
+    } else if (!res.ok) {
+        document.querySelector('.error').style.display = "block";
+        return; // Handle other errors (e.g., 400, 500)
+    } else {
+        document.querySelector('.error').style.display = "none";
+    }
     let data = await res.json();
 
     console.log(data);
@@ -21,24 +31,18 @@ async function getWeather(city){
     document.querySelector(".humidityP").innerHTML = Math.round(data.main.humidity) +"%";
     document.querySelector(".windS").innerHTML = Math.round(data.wind.speed) +"km/h";
 
-    if (data.weather[0].main == "clear"){
-        image.src = "./img/day_clear.png"
-    } else if(data.weather[0].main == "clouds"){
-        image.src = "./img/day_partial_cloud.png"
-    } else if(data.weather[0].description == "scattered clouds"){
-        image.src = "./img/cloudy.png"
-    } else if(data.weather[0].description == "broken clouds"){
-        image.src = "./img/angry_clouds.png"
-    } else if(data.weather[0].description == "shower rain"){
-        image.src = "./img/rain.png"
-    } else if(data.weather[0].description == "rain"){
-        image.src = "./img/rain.png"
-    } else if(data.weather[0].description == "thunderstorm"){
-        image.src = "./img/thunder.png"
-    } else if(data.weather[0].description == "snow"){
-        image.src = "./img/snow.png"
-    } else if(data.weather[0].description == "mist"){
-        image.src = "./img/snow.png"
+    if (data.weather[0].main == "Clear"){
+        img.src = "./img/day_clear.png"
+    } else if(data.weather[0].main == "Clouds"){
+        img.src = "./img/day_partial_cloud.png"
+    } else if(data.weather[0].main == "Rain"){
+        img.src = "./img/rain.png"
+    } else if(data.weather[0].main == "Thunderstorm"){
+        img.src = "./img/thunder.png"
+    } else if(data.weather[0].main == "Snow"){
+        img.src = "./img/snow.png"
+    } else if(data.weather[0].main == "Mist"){
+        img.src = "./img/mist.png"
     } 
 }
 
