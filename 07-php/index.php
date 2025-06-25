@@ -68,6 +68,14 @@ require "./ressources/template/_header.php";
                 <li>
                     <a href="./02-form/07-mail.php">Mailer</a>
                 </li>
+                <li>
+                    <h4>Exercice :</h4>
+                    <ul>
+                        <li>
+                            <a href="./02-form/exercice_profil/login.php">Profil JSON</a>
+                        </li>
+                    </ul>
+                </li>
             </ol>
         </li> 
         <li>
