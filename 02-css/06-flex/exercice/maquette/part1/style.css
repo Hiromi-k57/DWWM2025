@@ -1,0 +1,84 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section
+{
+    background-color: aqua;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    width: 100vw;
+    
+}
+
+div
+{
+    width: calc(50vw - 5px);
+    height: 25vh;
+    padding: 4px;
+    
+}
+.d1
+{
+    background-color: aqua;
+}
+.d2
+{
+    background-color: greenyellow;  
+}
+.d3
+{
+    background-color: orange;
+}
+.d4
+{
+    background-color: palevioletred;
+}
+.d5
+{
+    background-color: blue;
+}
+.d6
+{
+    background-color: yellow;
+}
+.d7
+{
+    background-color: brown;
+}
+.d8
+{
+    background-color: lightgray;
+}
+
+
+@media screen and (min-width:768px)
+{
+    section{
+        gap:0;
+    }
+    div{
+        width: 25vw;
+        height: 50vh;
+    }
+    .d9{
+        display: flex;
+    }
+}
+
+@media screen and (min-width:900px)
+{
+    section{
+        flex-wrap: nowrap;
+        gap:0;
+    }
+    div{
+        width: 25vw;
+        height: 100vw;
+    }
+}

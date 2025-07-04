@@ -1,0 +1,9 @@
+*.zip
+*.mp4
+test.*
+fontawesome-*
+node_modules/
+vendor/
+.env
+*.log
+bfg.jar

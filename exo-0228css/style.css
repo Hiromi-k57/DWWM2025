@@ -1,0 +1,18 @@
+p {
+    font-size: 20px;
+}
+
+.article_col{
+    color: rgb(36,36,90);
+}
+
+.article_1{
+    font-family: cursive;
+    background-color: lightblue;
+    font-style: italic monospace;
+}
+
+.article_2{
+    font-family: cursive;
+    background-color: #217f18;
+}

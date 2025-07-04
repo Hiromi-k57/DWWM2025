@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04regex-ex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend> Coordonées </legend>
+                <div>
+                    <label for="phone">Téléphone:</label><br>
+                    <input type="tel" id="phone" pattern="[0-9]{10,11}"/>
+                </div>
+
+                <div>
+                    <label for="email">Email: </label><br>
+                    <input type="email" id="email"  />
+                </div>    
+        </fieldset><br>
+        <fieldset>
+            <legend> Identifiants </legend>
+                <div>
+                    <label for="username">Nom d'Utilisateur:</label><br>
+                    <input type="text" id="username" name="username" />
+                </div>
+
+                <div>
+                    <label for="pass">Mot de Pass (au moins 8 caractère): </label><br>
+                    <input type="password" id="pass" minlength="8" required/>
+                </div>
+
+                <div class="mdp"></div>
+
+                <div>
+                    <label for="pass2">Confirmation du Mot de Passe: </label><br>
+                    <input type="password" id="pass2" minlength="8" required/>
+                </div>
+        </fieldset>
+
+    </form>
+    
+</body>
+</html>

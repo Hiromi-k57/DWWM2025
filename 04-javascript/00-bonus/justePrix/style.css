@@ -1,0 +1,80 @@
+*, ::before, ::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+  
+  body {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem;
+      font-family: cursive;
+      background-color:antiquewhite;
+      overflow: hidden;
+  }
+  h2{
+    color:  darkgreen;
+  }
+
+  p{
+    padding: 0 1rem;
+    color:  darkgreen;
+  }
+  
+  .card{
+    background-image: url('./pineapple.jpg');
+    background-size: cover;
+    border-radius: 20px;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    width: 200px;
+    height: 250px;
+    
+  }
+  .resultP{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     
+     
+  }
+  .form input[type="number"] {
+      width: 200px;
+      margin: 3rem;
+      background-color: azure;
+      color: darkgreen;
+  }
+  
+  .guessSubmit{
+    padding: 0.1rem 0.5rem;
+    font-weight: bold;
+    background-color: azure;
+    color: darkgreen;
+    border-radius: 2px;
+    border-color: lightgreen;
+  }
+  .lastResult {
+      color: white;
+      padding: 3px;
+  }
+  
+  .lastResult2{
+      font: bold 2rem black;
+      background-color:azure;
+      border-radius: 5px;
+      padding: 3px;
+      display: none;
+  }
+
+ 

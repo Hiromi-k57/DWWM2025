@@ -1,0 +1,44 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+}
+.container
+{
+    display: flex;
+    height: auto;
+    margin: 2rem;
+
+}
+
+.border
+{
+    width: 5px;
+    background-color: black;
+    padding: 0px 5px;
+}
+.text-container
+{
+    width: fit-content;
+    overflow: hidden;
+}
+.p_rightToLeft 
+{
+   
+    display: inline-block;
+    font-size: 2rem;
+    padding: 1rem 0rem;
+
+   
+}
+
+.p_leftToRight
+{
+    display: inline-block;
+    font-size: 2rem;
+    padding: 1rem 0rem;
+   
+}

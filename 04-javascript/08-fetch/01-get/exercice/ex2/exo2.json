@@ -1,0 +1,16 @@
+{
+    "language":{
+        "Français":{
+            "h1":"Mon Site Génial",
+            "p":"Ce site vous propose un contenu des plus passionant"
+        },
+        "Anglais":{
+            "h1":"My Awesome Site",
+            "p":"This site offers you the most exciting content"
+        },
+        "Japonais":{
+            "h1":"私の素晴らしいサイト",
+            "p":"このサイトはあなたに最もエキサイティングなコンテンツを提供します"
+        }
+    }
+}

@@ -1,0 +1,128 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p{
+    color:cornflowerblue;
+}
+h1, h4{
+    color:blue;
+}
+body{
+    padding: 0 1rem;
+    font-family: cursive;
+}
+section{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+}
+
+.hintDifficile{
+    display: none;
+}
+.img{
+    
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.hintEtMots{
+    width: 45%;
+}
+
+
+.motDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+span{
+    display: none;
+    background-color:lightblue;
+    border-bottom: 3px solid cornflowerblue;
+    width: 1rem;
+    height: 2rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 1rem 0.5rem;
+}
+.keyDiv{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.keyBtn{
+    background-color: lightblue;
+    color: blue;
+    border: 2px solid cornflowerblue;
+    border-radius: 2px;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.2rem;
+
+}
+#btnFacile {
+    background-color:lightblue;
+    color: blue;
+    border: 1px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
+}
+#btnDifficile{
+    background-color:lightblue;
+    color: blue;
+    border: 1px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
+}
+.reBtn{
+    text-align: center;
+    margin-top: 1rem;
+}
+#rejouerBtn {
+    display: none;
+    background-color: blue;
+    color: lightblue;
+    border: 2px solid cornflowerblue;
+    border-radius: 2px;
+    padding: 0.2rem 0.4rem;
+}
+#message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: darkgreen;
+}
+
+#message.lose {
+    color: darkred;
+}
+
+
+@media screen and (max-width: 768px) {
+  section{
+    display: flex;
+    flex-direction: column;
+  }
+  .hintEtMots{
+    width: 100%;
+}
+section{
+    padding: 0.5rem 0.5rem
+}
+}
+span{
+    margin: 0.2rem;
+}

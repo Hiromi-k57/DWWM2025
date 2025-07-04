@@ -1,0 +1,20 @@
+# .htaccess ファイルは、Apache がそのディレクトリ内のリクエストごとに読み込む設定ファイルです。
+# 全てのリクエストを1つのファイルにリダイレクトするために使用します。
+
+# --- URL 書き換え機能を有効化
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_URI} ^/?$
+# %{REQUEST_URI} は Apache によって提供される変数
+
+
+# --- Rediriger tout le reste vers index.php
+RewriteRule (.*) html/index.php [QSA,L]
+
+# (.*) はURL全体を対象とする正規表現
+# htmlフォルダの"index.php" を見せる
+
+# 使用されているフラグ: [QSA,L]
+# QSA（Query String Append）：GETパラメータを保持
+# L（Last）：このルールが適用されたら、以降のルールの適用を停止

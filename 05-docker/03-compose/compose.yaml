@@ -1,0 +1,40 @@
+services:
+# chaque container est un service
+  web:
+  # build permet de construire un container depuis un dockerfile
+  # build を使用すると、dockerfile からコンテナをビルドできます
+
+    build: .
+    # On indique les ports qui doivent être ouverts
+    # 開く必要があるポートを指定します
+    ports:
+      - "8080:80"
+    # On indique notre bind mount
+    # バインドマウントを指定します
+    volumes:
+      - .:/var/www/html #. はこの現在のフォルダの中の意味
+    # On peut ajouter des variables d'environnement
+    environment:
+      - MA_MOYENNE_VARIABLE=bidule
+    container_name: serverApache2025
+    restart: always
+    # Indique qu'il doit attendre que le service "bdd" soit lancé avant de se lancer lui même.
+    # 起動する前に「bdd」サービスが起動するまで待機することを示します。
+    depends_on:
+      - bdd
+  bdd:
+  # On peut aussi lancer un service depuis une image
+  # イメージからサービスを起動することもできます
+    image: mariadb
+    ports:
+      - "3308:3306"
+    # Parfois certaines images demandent de paramètrer des variables d'environnement spécifiques.
+    # イメージによっては、特定の環境変数の設定が必要になる場合があります。
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    # permet de donner un nom au container
+    # コンテナ名を指定できます
+    container_name: serverMariaDB2025
+    # Permet de relancer le container si il s'arrête
+    # コンテナが停止した場合に再起動できます
+    restart: always

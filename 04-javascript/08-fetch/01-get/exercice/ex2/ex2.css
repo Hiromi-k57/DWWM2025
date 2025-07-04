@@ -1,0 +1,36 @@
+*, ::before, ::after
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body
+{
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+select
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.langueDetail
+{
+    /* visibility: hidden; */
+   
+}

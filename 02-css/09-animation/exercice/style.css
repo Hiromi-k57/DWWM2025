@@ -1,0 +1,158 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    height: 100vh;
+    overflow: hidden;
+    background-color:black;
+}
+
+.loadCircle
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    height: 40vh;
+}
+.circle_1,.circle_2,.circle_3
+{
+    border: 1rem solid;
+    border-radius: 50%;
+    border-color: transparent;
+    animation-name: circleAnimation;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.circle_1
+{
+    border-top: 1rem solid red;
+    animation-delay:0.1s;
+    width: 10rem;
+    height: 10rem;
+    /* background-color: antiquewhite; */
+}
+.circle_2
+{   
+    border-top: 1rem solid crimson;
+    animation-delay:0.1s;
+    width: 8rem;
+    height: 8rem;
+}
+.circle_3
+{
+    border-top: 1rem solid pink;
+    animation-delay:0.1s;
+    width: 6rem;
+    height: 6rem;
+}
+    
+
+@keyframes circleAnimation
+{
+    0% {
+        transform: rotate(0deg);
+      }
+    100% {
+        transform: rotate(360deg);
+      }
+}
+
+.loadDot
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    width: 30vw;
+    height: 20vh;
+    background-color: white;
+    
+}
+.dot_1, .dot_2, .dot_3
+{
+    display: inline-block;
+    position: relative;
+    background-color: black;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+    animation-name: dotAnimation;
+    animation-duration: 0.8s;
+    animation-timing-function:ease-in-out; /* out遅い */
+    animation-iteration-count:infinite; /* 無限繰り返し*/
+}
+
+.dot_1
+{
+    animation-delay:0.1s;
+}
+.dot_2
+{
+    animation-delay:0.2s; /* 動作が始まるまでの時間 */
+}
+.dot_3
+{
+    animation-delay:0.3s;
+}
+
+
+@keyframes dotAnimation
+{
+    from{
+        transform: translateY(-1rem);
+        }
+    to{
+        transform: translateY(2rem);
+        }
+
+}
+.marquee
+{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    overflow: hidden;
+    width: 100vw;
+}
+.p_marquee::after
+{
+    content: " Il y a 10 types de personnes, ceux qui comprennent cette blague et ceux qui ne la comprennent pas.";
+}
+.p_marquee
+{
+    color: white;
+    display: inline-block;
+    width: 50vw;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    white-space: nowrap;
+    animation-name: marqueeAnimation;
+    animation-duration: 10s;
+    animation-timing-function:linear; /* 動作スピード 一定 */
+    animation-delay:2s; 
+    animation-iteration-count:infinite;
+
+}
+@keyframes marqueeAnimation
+{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+    
+    /* 0% { transform: translateX(0)}
+    100% { transform: translateX(-100%)} */
+}

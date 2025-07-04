@@ -1,0 +1,168 @@
+*, ::before, ::after{
+margin: 0;
+box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Catamaran';
+    src: url('./assets/font/Catamaran/Catamaran-VariableFont_wght.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Grand Hotel";
+    src: url("./assets/font/Grand_Hotel/GrandHotel-Regular.ttf");
+}
+
+.grand-hotel-regular {
+    font-family: "Grand Hotel", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: green;
+}
+
+.fa-solid 
+{
+    color: green;
+}
+
+body {
+    font-family: "Catamaran", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+header
+{
+    padding: 1rem;
+    width: 100vw;
+    height: 150vh;
+    background-image: url(/maquettes/tea-station/assets/image/main-bcg.jpeg);
+    opacity: 0.8;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-color: greenyellow;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+}
+nav
+{
+    width: 20px;
+    height: 20px;
+}
+.header_container
+{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 2.5rem;
+        &>h2{
+            padding: 1rem 4rem;
+            
+        }
+        &>h1{
+            padding: 1rem 4rem;
+            color: white;           
+            overflow-wrap: break-word;
+            display: flex;
+            justify-content: center;
+
+        }
+        
+}
+.header_btn
+{
+    display: flex;
+    justify-content: center;
+    &>button{
+            width: 7rem;
+            padding: 1rem;
+            background-color:olivedrab;
+            color: white;
+            font-family:  "Catamaran", sans-serif;;
+            font-weight: bold;
+            border: 3px solid transparent;
+            outline: 3px solid olivedrab;  
+            outline-offset: 2px;        
+        }
+}
+.main_container
+{
+    border-top-color:linear-gradient( #ffd07f, #7fffc3); 
+    border: 2px;
+}
+.bcg_gy
+{
+    background-color: lightgray;
+    
+}
+.bcg_wh
+{
+    padding-top: 2rem;
+}
+
+.icons_container
+{
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding:2rem 3rem;
+}
+.teaStation_container
+{
+    background-color: white; 
+    padding:2rem 1rem;
+}
+.teaStation_frame
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    
+    &>img{
+        border: green 10px solid;
+        width: 90vw;
+        height: auto;
+    }
+}
+.teaStation_text_btn{
+    padding-top: 2rem;
+    &>p{
+        width: 90%;
+    }
+    &>button{
+        width: 7rem;
+        padding: 0.5rem;
+        background-color:olivedrab;
+        color: white;
+        font-family:  "Catamaran", sans-serif;;
+        font-weight: bold;
+        border: none;
+        
+    }
+}
+.products_container
+{
+    padding:2rem 1rem;
+}
+.products
+{
+    width: 100vw;
+    height: auto;
+    padding: 2rem 1rem;
+    &>img{
+        width: 80vw;
+        height: auto;
+        border-radius: 10px;
+    }
+    &>h5{
+        padding-top: 0.5rem;
+    }
+}
+
+   

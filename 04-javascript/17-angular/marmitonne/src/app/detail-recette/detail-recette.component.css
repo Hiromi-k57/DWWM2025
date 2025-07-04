@@ -1,0 +1,74 @@
+button
+{
+    background-color: slateblue;
+    border-radius: midnightblue;
+    color: white;
+    float: right;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    width: 15rem;
+    
+}
+
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding: 0 2rem;
+}
+
+.recetteCard{
+    background-color: antiquewhite;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+
+    padding:2rem 5rem;
+}
+
+h2{
+    color: midnightblue;
+}
+
+p{
+    color: slateblue;
+}
+
+img
+{
+    height: auto;
+    width: 300px;
+}
+
+.imgTitleDiv{
+    padding-bottom: 2rem;
+}
+
+.text
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    &> h4{
+        color:midnightblue;
+        display: grid;
+        justify-content: flex-end;    
+    }
+    &> p{
+        color: slateblue;
+        padding-bottom: 1rem;
+        text-align: start;
+    }    
+}
+
+.notFound
+{
+    width: 80%;
+    margin: 2rem auto;
+    text-align: center;
+}

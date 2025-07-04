@@ -1,0 +1,64 @@
+.btn
+{
+    display:none;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 5px 5px gray;
+
+}
+
+li
+{
+    font-size: 40px;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+li:hover
+{
+    background-color: black;
+    width: 40%;
+}
+
+a:hover
+{
+    color:white;
+    width: 40%;
+}
+
+@media screen and (max-width: 992px)
+{
+    li{
+        display: inline-block;
+        margin-right: 1em;
+    }
+    li:hover
+    {
+        background-color: transparent;
+        width: initial;  
+    }
+    a:hover
+    {
+        color:initial;
+        width: initial;
+    }
+   
+}
+
+@media screen and (max-width: 500px)
+{
+    .btn{
+        display: flex;
+        position:relative;
+        float: right;
+        cursor: pointer;
+        
+    }
+}
+
+@media screen and (max-width: 992px)
+{}

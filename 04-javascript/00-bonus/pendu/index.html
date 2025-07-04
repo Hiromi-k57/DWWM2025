@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le jeu du pendu</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <section class="title">
+        <h1>Le jeu du pendu</h1>
+        <p>Trouvez le mot caché !</p><br>
+        <div>
+            <button id="btnFacile">Facile</button>
+            <button id="btnDifficile">Difficile</button>
+        </div><br>
+        <div>
+            <div id="erreursTexte">Erreurs : 0 / 6</div>
+        </div>
+        <div class="reBtn">
+            <button id="rejouerBtn">Rejouer</button>
+        </div>
+        <div id="message"></div>
+    </section>
+    
+    <section>
+        <div class="img">
+            <img src="./images/hangman-0.svg" alt="img"  class="manImg">
+        </div><br>
+        <div class="hintEtMots">
+            <div class="hintFacile">
+                <h4>Indice : </h4>
+                <p>Langage qui rend les pages web interractive. Le mot a 10 lettres.</p>
+            </div>
+            <div class="hintDifficile">
+                <h4>Indice :</h4>
+                <p>Ce mot concerne JavaScript.</p>
+            </div>
+            
+            <br>
+            <div class="motDiv">
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>
+                <span class="lettre"></span>            
+            </div><br>
+            <div class="keyDiv">
+                <button class="keyBtn" value="A">A</button>
+                <button class="keyBtn" value="B">B</button>
+                <button class="keyBtn" value="C">C</button>
+                <button class="keyBtn" value="D">D</button>
+                <button class="keyBtn" value="E">E</button>
+                <button class="keyBtn" value="F">F</button>
+                <button class="keyBtn" value="G">G</button>
+                <button class="keyBtn" value="H">H</button>
+                <button class="keyBtn" value="I">I</button>
+                <button class="keyBtn" value="J">J</button>
+                <button class="keyBtn" value="K">K</button>
+                <button class="keyBtn" value="L">L</button>
+                <button class="keyBtn" value="M">M</button>
+                <button class="keyBtn" value="N">N</button>
+                <button class="keyBtn" value="O">O</button>
+                <button class="keyBtn" value="P">P</button>
+                <button class="keyBtn" value="Q">Q</button>
+                <button class="keyBtn" value="R">R</button>
+                <button class="keyBtn" value="S">S</button>
+                <button class="keyBtn" value="T">T</button>
+                <button class="keyBtn" value="U">U</button>
+                <button class="keyBtn" value="V">V</button>
+                <button class="keyBtn" value="W">W</button>
+                <button class="keyBtn" value="X">X</button>
+                <button class="keyBtn" value="Y">Y</button>
+                <button class="keyBtn" value="Z">Z</button>
+            </div>
+        </div>
+        
+    </section>
+    
+</body>
+</html>

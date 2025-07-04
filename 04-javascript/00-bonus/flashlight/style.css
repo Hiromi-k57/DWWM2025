@@ -1,0 +1,68 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.search {
+  width: 500px;
+  height: 300px;
+  background-color: #222;
+  background-image: linear-gradient(to bottom, #222 50%, blue 50%);
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+.search .bl {
+ 
+}
+.filter{
+   /* background-color: rgba(0,0,0,0.5);  */
+   width: 100%;
+  height: 50%;
+  background-color: blue;
+  padding: 1rem 2rem;
+  color: lightblue;
+  font-size: medium;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  animation: searchAnime 6s infinite ease forwards;
+
+}
+
+/* 黒背景部分（アニメーションでマスク） */
+.search .inner {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  animation: searchAnime 6s infinite ease forwards;
+  clip-path: circle(35px at 100px 80px);
+  background-color: black;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: medium;
+  text-align: center;
+}
+
+.bk{
+    z-index: 1;
+}
+
+
+/* clip-path:特定の位置にある円形で要素を表示する（他は隠す）:(半径 at X座標 Y座標);
+        半径：35px at 円の中心座標（X=100px, Y=30px)、他は隠れる  */
+@keyframes searchAnime {
+  0%   { clip-path: circle(35px at 100px 30px); }     /* 上の方（.bk） */
+  20%  { clip-path: circle(35px at 120px 130px); }    /* 中間あたり */
+  40%  { clip-path: circle(35px at 200px 250px); }    /* .bl 領域に突入 */
+  60%  { clip-path: circle(35px at 400px 280px); }    /* .bl 領域で移動 */
+  80%  { clip-path: circle(35px at 250px 150px); }    /* 中間に戻る */
+  100% { clip-path: circle(35px at 100px 30px); }     /* 最初に戻る */
+}
