@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-    background:powderblue;
+    background: #0ABAB5;
 }
   
 h1{
@@ -45,7 +45,7 @@ h1{
     margin: 0px auto;
     border: none;
     outline: none;
-    background:dodgerblue;
+    background: #0C6170;
     color: #fff;
     font-family: sans-serif;
     font-size: 16px;

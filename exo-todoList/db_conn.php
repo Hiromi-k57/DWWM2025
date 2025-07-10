@@ -3,7 +3,7 @@
 $sName = "localhost";
 $uName = "root";
 $pass = "";
-$db_name = "todoList";
+$db_name = "to_do_list";
 
 try{
     $conn = new PDO("mysql:host=$sName;dbname=$db_name",$uName,$pass);
@@ -15,4 +15,3 @@ try{
 
 ?>
 
-<!-- https://www.youtube.com/watch?v=aEwc4SUq6jo&t=12s  -->
