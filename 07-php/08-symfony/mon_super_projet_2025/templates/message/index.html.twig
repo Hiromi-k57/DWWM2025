@@ -34,6 +34,9 @@
         <p>{{message.content}}</p>
         <div class="btns">
             <a href="{{path('app_message_delete', {id:message.id}) }}">Supprimer</a>
+            {% if message.category %}
+                <a href="">{{ message.category.name }}</a>
+            {% endif %}
             {# todo #}
         </div>
         </div>

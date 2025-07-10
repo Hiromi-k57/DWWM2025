@@ -3,25 +3,42 @@
 namespace App\Controller;
 
 use App\Entity\Message;
+use App\Form\MessageForm;
 use App\Repository\MessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route("/message")]
 final class MessageController extends AbstractController
 {
     #[Route('/add', name: 'app_message_create')]
-    public function createMessage(EntityManagerInterface $em): Response // EntityManagerInterface = ue no "use" kara kiteru
+    public function createMessage(EntityManagerInterface $em, Request $request): Response
     {
         $message = new Message();
-        $message->setContent("Ceci est un message de test")
-                ->setCreatedAt(new \DateTimeImmutable());
-        $em->persist($message);
-        $em->flush();       
-        return $this->render('message/index.html.twig', [
-            'controller_name' => 'MessageController',
+        $form = $this->createForm(MessageForm::class, $message); // ueno "use" ni tuika suru "use APP\Form\MessageForm;"
+        // le formulaire récupère toute les données envoyées
+        $form->handleRequest($request);
+        // Est ce que le formulaire a été soumit et est-il valide?
+        if($form->isSubmitted() && $form->isValid())
+        {
+            // dd($message); message okutta naiyou, dump de kakunin no tame
+            $em->persist($message);
+            $em->flush();
+
+            $this->addFlash("success", "Un nouveau message a été ajouté");
+            $this->redirectToRoute("app_message_read");
+        }
+        
+        // $message->setContent("Ceci est un message de test")
+        //         ->setCreatedAt(new \DateTimeImmutable());
+        // $em->persist($message);
+        // $em->flush();       
+        return $this->render('message/create.html.twig', [
+            'messageForm' => $form,
+            
         ]);
     }
 
@@ -32,9 +49,8 @@ final class MessageController extends AbstractController
         // *Paramètre 1 : WHERE, Paramètre 2 : ORDER BY
         // $messages = $repo->findBy([],["createdAt"=>"DESC"]); //日付順に表示
         // *Paramètre 3 : LIMIT, Paramètre 4: OFFSET
-
         $messages = $repo->findBy([],["createdAt"=>"DESC"], $nb,($page-1)*$nb); 
-
+        // $messages = $repo->findByDateInterval("2022-01-01", "2025-07-10");
         // nombre total de message
         $total = $repo->count();
 
@@ -68,19 +84,36 @@ final class MessageController extends AbstractController
     }
 
     #[Route("/update/{id<^\d+$>}", name: "app_message_update")]
-    public function updateMessage(?Message $message, EntityManagerInterface $em): Response
+    public function updateMessage(?Message $message, EntityManagerInterface $em, Request $request): Response
     {
         if($message)
         {
-            $message->setContent("Message Modifié")
-                    ->setEditedAt(new \DateTime());
-            $em->flush();
-            $this->addFlash("success", "Message Mis à Jour");
+            $form = $this->createForm(MessageForm::class, $message); // ueno "use" ni tuika suru "use APP\Form\MessageForm;"
+            // le formulaire récupère toute les données envoyées
+            $form->handleRequest($request);
+            // Est ce que le formulaire a été soumit et est-il valide?
+            if($form->isSubmitted() && $form->isValid())
+            {
+                // dd($message); message okutta naiyou, dump de kakunin no tame
+                $em->persist($message);
+                $em->flush();
+
+                $this->addFlash("success", "Un nouveau message a été ajouté");
+                $this->redirectToRoute("app_message_read");
+            }
+            // $message->setContent("Message Modifié")
+            //         ->setEditedAt(new \DateTime());
+            // $em->flush();
+            // $this->addFlash("success", "Message Mis à Jour");
         }
         else
         {
             $this->addFlash("danger", "Aucun message correspondant");
+            return $this->redirectToRoute("app_message_read");
+            
         }
-        return $this->redirectToRoute("app_message_read");
+         return $this->render('message/create.html.twig', [
+            'messageForm' => $form,
+         ]);
     }
 }

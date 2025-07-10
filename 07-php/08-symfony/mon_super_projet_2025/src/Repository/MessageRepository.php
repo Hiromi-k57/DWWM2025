@@ -15,6 +15,23 @@ class MessageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Message::class);
     }
+    /**
+     * Selectionne les messages entre deux dates
+     *
+     * @param string $min Date de début
+     * @param string $max Date de fin
+     * @return Message[] Retourne un tableau de message
+     */
+    public function findByDateInterval(string $min, string $max): array
+    {
+        return $this->createQueryBuilder("m")
+        ->andWhere("m.createAt BETWEEN :min AND :max")
+        ->setParameter("min","$min")
+        ->setParameter("max","$max")
+        ->orderBy("m.createAt","DESC")
+        ->getQuery()
+        ->getResult();
+    }
 
     //    /**
     //     * @return Message[] Returns an array of Message objects
