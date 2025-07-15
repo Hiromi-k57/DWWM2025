@@ -4,6 +4,9 @@
     <!-- 
         J'ajoute la possibilité de mettre les inputs en require 
         Ainsi que la possibilité de préremplir les inputs
+        --
+        入力を必須にする機能と、入力内容を事前に入力する機能を追加します
+        
     -->
     <input 
         type="text" 
@@ -35,6 +38,6 @@
     <input type="password" name="passwordConfirm" id="passwordConfirm" <?php echo $required??""?>>
     <span class="error"><?php echo $error["passwordConfirm"]??"" ?></span>
     <br>
-    <!-- Je change le nom et la value de l'input -->
+    <!-- Je change le nom et la value de l'input 入力の名前と値を変更する-->
     <input type="submit" value="Enregistrer" name="userForm">
 </form>

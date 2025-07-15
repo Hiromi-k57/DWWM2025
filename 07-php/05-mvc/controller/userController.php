@@ -36,6 +36,7 @@ function createUser():void
                 $error["email"] = "Veuillez saisir un email valide";
             }
             // Je vérifie si l'utilisateur existe en BDD
+            // ユーザーがデータベースに存在するかどうかを確認します
             $resultat = getOneUserByEmail($email);
             if($resultat){
                 $error["email"] = "Cet email est déjà enregistré.";
@@ -68,6 +69,7 @@ function createUser():void
         }
     }
 	// j'inclu la vue qui correspond.
+    // 対応するビューをインクルードします。
     require __DIR__."/../view/user/inscription.php";
 }
 /**
@@ -77,7 +79,7 @@ function createUser():void
  */
 function readUsers():void
 {
-    // Je récupère tous mes utilisateurs.
+    // Je récupère tous mes utilisateurs. // すべてのユーザーを回復します。
     $users = getAllUsers();
     if(isset($_SESSION["flash"])){
         $flash = $_SESSION["flash"];
@@ -96,6 +98,7 @@ function updateUser():void
     shouldBeLogged(true, "/05-mvc");
 
     // Je récupère les informations de mon utilisateur.
+    // ユーザーの情報を取得します。
     $user = getOneUserById($_SESSION["idUser"]);
 
     $username = $password = $email = "";
@@ -144,7 +147,7 @@ function updateUser():void
         if(empty($error)){
             // mis à jour de l'utilisateur.
             updateUserById($username, $email, $password, $user["idUser"]);
-            // ajout d'un flash message.
+            // ajout d'un flash message. // フラッシュメッセージを追加。
             $_SESSION["flash"] = "Votre profil a bien été édité.";
             header("Location: /05-mvc");
             exit;
@@ -162,13 +165,13 @@ function deleteUser():void
 {
     shouldBeLogged(true, "./exercice/connexion.php");
 
-    // On supprime l'utilisateur
+    // On supprime l'utilisateur // ユーザーを削除します
     deleteUserById($_SESSION["idUser"]);
-    // Et on le déconnecte.
+    // Et on le déconnecte. // そして切断します。
     unset($_SESSION);
     session_destroy();
     setcookie("PHPSESSID","", time()-3600);
-    // avant de le rediriger.
+    // avant de le rediriger. // リダイレクトする前に。
     header("refresh: 5;url = /05-mvc");
 	
     // J'inclu ma vue.

@@ -53,7 +53,7 @@ function addUser(string $us, string $em, string $pass): void{
     $sql->execute([$us,$em,$pass]);
 }
 /**
- * Supprime un utilisateur par son id.
+ * Supprime un utilisateur par son id. //ID によってユーザーを削除します。
  *
  * @param string $id
  * @return void

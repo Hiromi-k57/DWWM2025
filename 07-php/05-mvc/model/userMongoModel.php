@@ -4,6 +4,7 @@ use MongoDB\Driver\BulkWrite;
 
 require_once __DIR__."/../../ressources/service/_mongo.php";
 
+// "Undefined ~" のエラー出るけど、エクステンションの問題で、動作不良ないからそのままでOK
 $mongo = connexionMongo();
 $bulk = new BulkWrite();
 
@@ -63,6 +64,7 @@ function deleteUserById(string $id):void
 {
     global $mongo, $bulk;
     // Il prend en paramètre la recherche à effectuer pour supprimer les éléments.
+    // 要素を削除するために実行する検索を引数として取ります。
     $bulk->delete(["_id"=>getId($id)]);
     $mongo->executeBulkWrite("blog.user", $bulk);
 }
@@ -79,6 +81,7 @@ function updateUserById(string $username, string $email, string $password, strin
 {
     global $mongo, $bulk;
     // La fonction update prend en premier paramètre la recherche à effectuer et en second les paramètres à changer
+    // 更新関数は、最初のパラメータとして実行する検索を取り、2番目のパラメータとして変更するパラメータを取ります。
     $bulk->update(["_id"=>getId($id)], ['$set'=>["username"=>$username, "email"=>$email, "password"=>$password]]);
     $mongo->executeBulkWrite("blog.user", $bulk);
 }

@@ -5,9 +5,12 @@ shouldBeLogged(true, "/04-router/connexion");
     Si l'utilisateur n'est pas connecté, il est redirigé.
     Si l'utilisateur vient sur cette page sans indiquer d'id, il est redirigé. 
     Si l'utilisateur vient sur cette page sans que ce soit son id, il est redirigé. 
+    ユーザーがログインしていない場合はリダイレクトされます。
+    ユーザーがIDを入力せずにこのページにアクセスした場合もリダイレクトされます。
+    ユーザーがIDを入力せずにこのページにアクセスした場合もリダイレクトされます。
 */
 // isSelectedUser("/04-router/");
-// Je récupère les informations de mon utilisateur.
+// Je récupère les informations de mon utilisateur. // ユーザー情報を取得します。
 require "../ressources/service/_csrf.php";
 require("../ressources/service/_pdo.php");
 $pdo = connexionPDO();
@@ -78,13 +81,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"]))
             "mdp" => $password,
             "us" => $username
         ]);
-        // ajout d'un flash message.
+        // ajout d'un flash message. // フラッシュメッセージを追加しました。
         $_SESSION["flash"] = "Votre profil a bien été édité.";
         header("Location: /04-router/");
         exit;
         /*
             Il serait possible d'améliorer cette requête 
             en ne modifiant uniquement les champs qui changent au lieu de tous les modifier.
+                すべてのフィールドを変更するのではなく、変更されるフィールドのみを変更することで、このクエリを改善できます。
         */
     }
 }

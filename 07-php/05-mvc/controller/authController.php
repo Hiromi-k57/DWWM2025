@@ -22,6 +22,7 @@ function login()
         }
         if(empty($error)){
             // Je récupère l 'utilisateur correspondant à l'email.
+            // メールに対応するユーザーを取得します。
             $user = getOneUserByEmail($email);
             if($user){
                 if(password_verify($pass, $user["password"])){

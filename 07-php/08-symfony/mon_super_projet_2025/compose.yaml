@@ -16,6 +16,7 @@ services:
     volumes:
       - database_data:/var/lib/postgresql/data:rw
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      ## 代わりにバインドマウントされたホスト ディレクトリを使用すると、誤ってボリュームを削除してすべてのデータを失う可能性が低くなります。
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
 

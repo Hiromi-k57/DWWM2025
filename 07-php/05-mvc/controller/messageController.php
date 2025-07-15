@@ -6,7 +6,8 @@ require(__DIR__."/../model/messageModel.php");
 require(__DIR__."/../model/categorieModel.php");
 /**
  * Gère la page d'affichage des messages d'un utilisateur.
- *
+ *ユーザーのメッセージ表示ページを管理します。
+ * 
  * @return void
  */
 function readMessage(): void
@@ -18,7 +19,7 @@ function readMessage(): void
     $messages = $flash = $user =  "";
 
     $user = getOneUserById((int)$_GET["id"]);
-    // On récupère les messages
+    // On récupère les messages // メッセージを取得します
     if(empty($_GET["cat"]))
     {
         $messages = getMessagesByUser((int)$_GET["id"]);

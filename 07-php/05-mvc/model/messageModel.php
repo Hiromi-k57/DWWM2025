@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__."/../../ressources/service/_pdo.php";
 /**
- * Retourne tous les messages d'un utilisateur.
+ * Retourne tous les messages d'un utilisateur. ユーザーからのすべてのメッセージを返します。
  *
  * @param integer $idUser
  * @return array|false
@@ -14,7 +14,7 @@ function getMessagesByUser(int $idUser): array|false
     return $sql->fetchAll();
 }
 /**
- * Retourne un message via son id.
+ * Retourne un message via son id. ID 経由でメッセージを返します。
  *
  * @param integer $id
  * @return array|false
@@ -28,6 +28,7 @@ function getMessageById(int $id): array|false
 }
 /**
  * Retourne les messages d'un utilisateur d'une catégorie donnée.
+ * 指定されたカテゴリ内のユーザーからの投稿を返します。
  *
  * @param integer $idUser
  * @param integer $idCat
@@ -41,7 +42,7 @@ function getMessagesByUserAndCategorie(int $idUser, int $idCat): array|false
     return $sql->fetchAll();
 }
 /**
- * Créer un nouveau message en BDD.
+ * Créer un nouveau message en BDD. * データベースに新しいメッセージを作成します。
  *
  * @param array $values
  *  $values = ["m"=>(string) message, "id"=>(int) idUser, {"cat"=>(int) idCat}]

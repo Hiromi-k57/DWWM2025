@@ -2,12 +2,15 @@ const nameCheck = /^[-_a-zA-Z0-9]{4,22}$/;
 const tokenCheck = /^[-_\/+a-zA-Z0-9]{24,}$/;
 
 // Generate and double-submit a CSRF token in a form field and a cookie, as defined by Symfony's SameOriginCsrfTokenManager
+// Symfony の SameOriginCsrfTokenManager で定義されているように、フォーム フィールドと Cookie に CSRF トークンを生成して二重送信します。
 document.addEventListener('submit', function (event) {
     generateCsrfToken(event.target);
 }, true);
 
 // When @hotwired/turbo handles form submissions, send the CSRF token in a header in addition to a cookie
 // The `framework.csrf_protection.check_header` config option needs to be enabled for the header to be checked
+    // @hotwired/turbo がフォーム送信を処理する際、Cookie に加えて CSRF トークンをヘッダーで送信します。
+    // ヘッダーをチェックするには、`framework.csrf_protection.check_header` 設定オプションを有効にする必要があります。
 document.addEventListener('turbo:submit-start', function (event) {
     const h = generateCsrfHeaders(event.detail.formSubmission.formElement);
     Object.keys(h).map(function (k) {
@@ -16,6 +19,7 @@ document.addEventListener('turbo:submit-start', function (event) {
 });
 
 // When @hotwired/turbo handles form submissions, remove the CSRF cookie once a form has been submitted
+    // @hotwired/turbo がフォームの送信を処理する場合、フォームが送信されたら CSRF クッキーを削除します
 document.addEventListener('turbo:submit-end', function (event) {
     removeCsrfToken(event.detail.formSubmission.formElement);
 });
