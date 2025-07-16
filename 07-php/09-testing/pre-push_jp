@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# このファイルは必須ではありません。
+# 毎回の push 時にテストを自動実行したい場合は、".git/hooks" ディレクトリに配置します。
+
+PHPUNIT=./07-php/vendor/bin/phpunit
+TEST_DIR=./07-php/09-testing/tests
+
+echo "pre-push フックが検出されました"
+
+# 環境変数 RUN_TESTS が 1 に設定されているか確認
+# Git Bash または Linux ターミナルでのみ動作します
+if [ "$RUN_TESTS" != "1" ]; then
+    echo "RUN_TESTS が設定されていない -> テストをスキップします"
+    # 正常終了 -> push を許可
+    exit 0;
+fi
+
+# PHPUnit テストを実行：
+echo "テスト有効：PHPUnit を実行中..."
+# phpunit へのパスのあとにテストディレクトリのパスを指定：
+$PHPUNIT $TEST_DIR
+
+# 終了コードを確認：
+if [ $? -ne 0 ]; then
+    echo "テストに失敗しました。Push はブロックされました。"
+    # エラー終了 -> push をキャンセル
+    exit 1
+fi
+
+echo "テスト成功。Push を許可します"
+exit 0
+# Git Bash で実行するには：`RUN_TESTS="1" git push;` とすればテストが実行されます。
