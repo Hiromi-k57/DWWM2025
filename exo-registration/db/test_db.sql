@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 14, 2020 at 12:51 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- ホスト: 127.0.0.1
+-- 生成日時: 2025-07-16 16:07:14
+-- サーバのバージョン： 10.4.32-MariaDB
+-- PHP のバージョン: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test_db`
+-- データベース: `test_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- テーブルの構造 `users`
 --
 
 CREATE TABLE `users` (
@@ -33,35 +32,36 @@ CREATE TABLE `users` (
   `user_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `users`
+-- テーブルのデータのダンプ `users`
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `name`) VALUES
 (3, 'ela', '202cb962ac59075b964b07152d234b70', 'Ela'),
-(4, 'elias', '202cb962ac59075b964b07152d234b70', 'elias');
+(5, 'test1', '5a105e8b9d40e1329780d62ea2265d8a', 'test1'),
+(6, 'test2', 'ad0234829205b9033196ba818f7a872b', 'test2');
 
 --
--- Indexes for dumped tables
+-- ダンプしたテーブルのインデックス
 --
 
 --
--- Indexes for table `users`
+-- テーブルのインデックス `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- ダンプしたテーブルの AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- テーブルの AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
