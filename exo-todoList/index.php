@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
+    header("Location: ./app/user/signup.php");
+     exit();
+}
 require 'db_conn.php';
 ?>
 <!DOCTYPE html>
@@ -8,28 +14,31 @@ require 'db_conn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Todo List</title>
+    <script src="./js/script.js" defer></script>
 </head>
 <body>
     <div class="main-section">
-        <h1>Todo Liste</h1><br>
+        <h1>Todo Liste <?= $_SESSION['user_name'] ?></h1><br>
         <div class="add-section">
             <form action="./app/add.php" method="POST" autocomplete="off" >
                 <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>  
                     <input type="text" 
-                        name="title"
-                        style="border-color: red;"
-                        placeholder="Ce champ est obligatoire"/>
+                            name="title"
+                            style="border-color: red;"
+                            placeholder="Ce champ est obligatoire"/>
                     <button type="submit">Ajouter</button>
                 <?php }else{?>
                     <input type="text" 
-                        name="title" 
-                        placeholder="Que dois-tu faire ?">
+                            name="title" 
+                            placeholder="Que dois-tu faire ?">
                     <button type="submit">Ajouter</button>
                 <?php }?>
             </form>
         </div>
+
         <?php 
-            $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
+            $todos = $conn->prepare("SELECT * FROM todos WHERE userId = :id ORDER BY id DESC");
+            $todos->execute(["id"=>$_SESSION['id']]);
         ?>
         <div class="show-todo-section">
             <?php if($todos->rowCount() <= 0){ ?>
@@ -50,7 +59,7 @@ require 'db_conn.php';
                                class="check-box"
                                data-todo-id ="<?php echo $todo['id']; ?>"
                                checked />
-                        <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                        <h2 class="checked"><?php echo htmlspecialchars($todo['title']) ?></h2>
                     <?php }else {?>
                         <input type="checkbox"
                             data-todo-id ="<?php echo $todo['id']; ?>"
@@ -60,16 +69,17 @@ require 'db_conn.php';
 
                     <br>
                     <small>Créé: <?php echo $todo['date_time'] ?></small>                    
-                </div>
+            </div>
             <?php }?>
-
         </div>
+        <a href="./app/user/logout.php">Logout</a>
     </div>
+     
 
-    <script src="./js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="./js/NG_jquery-3.2.1.min.js"></script> -->
 
     <script>
-        $(document).ready(function(){
+        /* $(document).ready(function(){
             $('.remove-to-do').click(function(){
                 const id = $(this).attr('id'); // ここでのattr('id')はtodos list 各タイトルのid
                 
@@ -104,7 +114,7 @@ require 'db_conn.php';
                 );
             });
 
-        });
+        }); */
     </script>
 
 </body>

@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
+    echo "error";
+    exit();
+}
 
 if(isset($_POST['id'])){
     require '../db_conn.php';
@@ -8,8 +14,8 @@ if(isset($_POST['id'])){
     if(empty($id)){
         echo 'error';
     }else {
-        $todos = $conn->prepare("SELECT id, checked FROM todos WHERE id=?");
-        $todos->execute([$id]);
+        $todos = $conn->prepare("SELECT id, checked FROM todos WHERE id=? and userId=?");
+        $todos->execute([$id, $_SESSION['id']]);
 
         $todo = $todos->fetch();
         $uId = $todo['id'];

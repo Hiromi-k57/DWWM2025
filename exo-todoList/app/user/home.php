@@ -9,11 +9,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../../css/signup.css">
 	<title>HOME</title>
 </head>
 <body>
-     <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
+     <h1>Hello, <?php echo $_SESSION['name']; ?></h1><br>
+     <a href="../../index.php">Todo List</a>
+     <br>
      <a href="logout.php">Logout</a>
      
 </body>
