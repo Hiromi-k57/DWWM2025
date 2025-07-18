@@ -16,7 +16,7 @@
      	<?php } ?>
 
           <?php if (isset($_GET['success'])) { ?>
-               <p class="success"><?php echo htmlspecialchars($_GET['error'])?></p>
+               <p class="success"><?php echo htmlspecialchars($_GET['success'])?></p>
           <?php } ?>
 
           <label>Name</label>
