@@ -13,14 +13,18 @@ ul
     /* 
         Indiquer une durée de transition, va appliquer à tout changement de propriété, de prendre ce temps pour changer de valeur.
         Exemple, ici le left passait de -50% à 50% instantanément, en indiquant 1s, il prendra donc 1s pour passer doucement de -50% à 50%
+            遷移時間を指定すると、この時間がすべてのプロパティの変更に適用され、値の変更が可能になります。
+            たとえば、ここでは左の値が -50% から 50% に瞬時に変化したため、1 秒を指定すると、-50% から 50% へのスムーズな遷移に 1 秒かかります。
     */
     transition-duration: 1s;
     /* 
         On pourra indiquer d'utiliser la transition que sur certaines propriétés, ici left
+        ここでは左側にあるように、特定のプロパティに対してのみトランジションを使用するように指定できます。
     */
     transition-property: left;
     /* 
         Permet d'appliquer un délai d'attente avant le début de la transition
+        遷移が始まる前に待機時間を適用できます
     */
     transition-delay: 0.5s;
     /* 
@@ -28,6 +32,9 @@ ul
         Certains mots clefs (ease, linear, ease-in, ease-out, ease-in-out) permettent des effets classiques comme démarrer lentement et arriver rapidement.
         On peut aussi avoir un rythme totalement personnalisé grace aux cubic-bezier
         https://cubic-bezier.com/
+            トランジションのリズム（持続時間ではありません）を変更します。
+            特定のキーワード（ease、linear、ease-in、ease-out、ease-in-out）を使用すると、ゆっくりと開始して素早く到達するといった古典的な効果を実現できます。
+            cubic-bezier を使用すると、完全にカスタマイズされたリズムを作成することもできます。https://cubic-bezier.com/
     */
     transition-timing-function:cubic-bezier(1,.2,1,-0.44);
 }
@@ -47,13 +54,16 @@ input#burger:checked ~ ul{left: 50%;}
 li:nth-child(1) button
 {
     background-color: chartreuse;
-    /* On peut indiquer plusieurs propriétés séparés d'une virgule */
+    /* On peut indiquer plusieurs propriétés séparés d'une virgule 複数のプロパティをコンマで区切って指定できます。 */
     transition-property: background-color, transform;
     /* De même pour les autres propriétés, la première valeur s'appliquant à la première propriété, la seconde à la seconde et ainsi de suite 
     si plus de propriété sont précisées que de paramètre, c'est le premier paramètre qui est utilisé
+        他のプロパティについても同様に、最初の値が最初のプロパティに適用され、2 番目の値が 2 番目のプロパティに適用され、以下同様に続きます。
+        パラメータよりも多くのプロパティが指定されている場合は、最初のパラメータが使用されます。
     */
     transition-duration: 1s, 2s;
-    /* En indiquant une seule valeur, elle s'appliquera à toute les propriétés */
+    /* En indiquant une seule valeur, elle s'appliquera à toute les propriétés 
+    単一の値を指定すると、すべてのプロパティに適用されます。*/
     transition-delay: 0.3s;
     transition-timing-function: ease-out;
 }
@@ -67,20 +77,23 @@ li:nth-child(2) button
     /* valeur par défaut, toute les propriétés */
     transition-property: all;
     transition-duration: 3s;
-    /* steps permet de remplacer la transition fluide, par une transition en étape, ici il fera 5 étapes pour transitionner complètement */
+    /* steps permet de remplacer la transition fluide, par une transition en étape, ici il fera 5 étapes pour transitionner complètement 
+        steps を使用すると、スムーズな遷移をステップ遷移に置き換えることができます。ここでは、完全な遷移には 5 ステップかかります。*/
     transition-timing-function: steps(5, jump-start);
 }
 li:nth-child(2) button:hover
 {
     /* 
-        Pas toute les propriétés peuvent être transitionné.
-        Ce sera généralement les propriétés prenant une valeur numérique ou de couleur qui peuvent transitionner.
+    Pas toute les propriétés peuvent être transitionné.
+    Ce sera généralement les propriétés prenant une valeur numérique ou de couleur qui peuvent transitionner.
+        すべてのプロパティが遷移できるわけではありません。一般的に、遷移できるのは数値または色の値を取るプロパティです。
     */
     border-radius: 50%;
 }
 li:nth-child(3) button
 {
-    /* La propriété transition regroupe toute les propriétés de transition. première durée, duration, seconde durée, le délai */
+    /* La propriété transition regroupe toute les propriétés de transition. première durée, duration, seconde durée, le délai 
+    遷移プロパティは、最初の継続時間、継続時間、2 番目の継続時間、遅延など、すべての遷移プロパティをグループ化します。*/
     transition: box-shadow 1s 0.3s linear;
 }
 li:nth-child(3) button:active
@@ -92,9 +105,13 @@ li:nth-child(4) button{
 }
 li:nth-child(4):hover button{
     /* lors d'un déplacement, une modification de taille ou autre, avec un hover, attention car vous pouvez perdre le fait d'être au survol.
-    Une solution sera de mettre le survol sur le parent, ici le li */
+    Une solution sera de mettre le survol sur le parent, ici le li
+        移動、サイズ変更、ホバーなどの操作を行う際は、ホバー状態が失われる可能性があるため注意してください。
+        1つの解決策は、親要素（この場合は li ）の上にホバーすることです。 */
     transform: scale(0.5);
     /* si la transition est placé non pas sur l'élément de base, mais sur sa version modifié, alors la transition ne se fera que dans un sens.
-    Par exemple ici, au hover la transition est bien appliqué, mais lorsque l'on quitte l'élément, il reprend sa forme d'origine sans transition */
+    Par exemple ici, au hover la transition est bien appliqué, mais lorsque l'on quitte l'élément, il reprend sa forme d'origine sans transition
+        トランジションをベース要素ではなく、その変更されたバージョンに配置すると、トランジションは一方向にのみ発生します。
+        たとえば、ここでは、ホバー時にトランジションが正しく適用されますが、要素を離れると、トランジションのない元の状態に戻ります。 */
     transition: transform 1s linear;
 }

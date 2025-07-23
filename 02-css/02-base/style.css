@@ -1,16 +1,19 @@
-/* permet d'importer une police d'écriture */
+/* permet d'importer une police d'écriture フォントをインポートできます*/
 @font-face {
     /* nom que l'on donne à notre police */
     font-family: Playwrite;
     /* chemin vers le fichier de la police */
     src: url(./PlaywriteITModerna-VariableFont_wght.ttf);
 }
-/* le selecteur root correspond à la racine du site, généralement la balise html */
+/* le selecteur root correspond à la racine du site, généralement la balise html.
+ルートセレクターはサイトのルート（通常はHTMLタグ）に対応します */
 :root
 {
     /* 
         Les variables CSS, permettent de créer un nom précédé de "--" qui contiendra une valeur, couleur, taille ou autre 
         Cette valeur sera réutilisable où l'on souhaite dans le reste du CSS.
+            CSS変数を使用すると、「--」で始まる名前を作成し、その中に色、サイズなどの値を含めることができます。
+            この値は、CSSの他の部分で再利用できます。
     */
     --main-background-color: blue;
     --chaussette: green;
@@ -19,10 +22,12 @@
 }
 .target1
 {
-    /* Pour utiliser une variable, je dois appeler la fonction "var()" et mettre le nom de la variable que l'on souhaite appeler entre parenthèse. */
+    /* Pour utiliser une variable, je dois appeler la fonction "var()" et mettre le nom de la variable que l'on souhaite appeler entre parenthèse.
+        変数を使用するには、「var()」関数を呼び出して、呼び出したい変数の名前を括弧で囲む必要があります。 */
     font-size: var(--divTextSize);
     font-family: 'Courier New', Courier, monospace;
-    /* La fonction rgb prend 3 valeurs allant de 0 à 255 représentant les niveaux de rouge, vert et bleu */
+    /* La fonction rgb prend 3 valeurs allant de 0 à 255 représentant les niveaux de rouge, vert et bleu 
+    rgb関数は、赤、緑、青のレベルを表す0から255までの3つの値を取ります。*/
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
@@ -31,48 +36,57 @@
     font-size: var(--divTextSize);
     font-family: Playwrite;
     background-color: rgb(26, 143, 104);
-    /* rgba prend un quatrième paramètre qui correspond au niveau de transparence (de 0 à 1) */
+    /* rgba prend un quatrième paramètre qui correspond au niveau de transparence (de 0 à 1) 
+    rgbaは透明度レベル（0から1）に対応する4番目のパラメータを取ります。*/
     color: rgba(0,0,0,0.5);
 }
 .target3
 {
-    /* L'hexadecimal commence par un "#" puis prend 3 paires de chiffres allant de 0 à F pour les couleurs rouge, vert, bleu */
+    /* L'hexadecimal commence par un "#" puis prend 3 paires de chiffres allant de 0 à F pour les couleurs rouge, vert, bleu 
+    16進数は「#」で始まり、赤、緑、青の色を表す0からFまでの3組の数字を取ります。*/
     background-color: #000000;
     color: #FFFFFF;
-    /* Deux fois la taille hérité du parent */
+    /* Deux fois la taille hérité du parent 親から継承したサイズの2倍*/
     font-size: 2em;
 }
 .target4
 {
     background-color: #30c944;
-    /* On peut ajouter une paire de chiffre pour gérer la transparence */
+    /* On peut ajouter une paire de chiffre pour gérer la transparence 
+    透明性を管理するために数字のペアを追加することができます*/
     color: #00000080;
-    /* Deux fois la taille hérité de la racine */
+    /* Deux fois la taille hérité de la racine ルートから継承したサイズの2倍*/
     font-size: 2rem;
 }
 body{font-size: 20px;}
 .target5
 {
-    /* hsl prend 3 valeurs,
-    la première correspond à des degrés sur une rouge chromatique
-    le second correspond à la saturation de la couleur
-    Le troisième à la brillance de la couleur */
+    /* 
+    hsl prend 3 valeurs,
+        la première correspond à des degrés sur une rouge chromatique
+        le second correspond à la saturation de la couleur
+        Le troisième à la brillance de la couleur 
+            HSL は3つの値を取ります。
+            1つ目は、有彩色における赤の度合いに対応します。
+            2つ目は、色の彩度に対応します。
+            3つ目は、色の明度に対応します。*/
     background-color: hsl(0, 0%, 0%);
     color: hsl(360, 100%, 100%);
-    /* viewport width, 5% de la largeur du viewport */
+    /* viewport width, 5% de la largeur du viewport ビューポート幅の5%*/
     font-size: 5vw;
 }
 .target6
 {
     background-color: hsl(288, 61%, 31%);
-    /* prend une quatrième valeur avec le niveau de transparence */
+    /* prend une quatrième valeur avec le niveau de transparence. 透明度レベルを示す4番目の値を取得 */
     color: hsla(0, 0%, 0%, 0.5);
     /* viewport height, 10% de la hauteur du viewport */
     font-size: 10vh;
 }
 .target7
 {
-    /* viewport max, 5% de l'axe le plus grand, (si la largeur est plus grande que la hauteur, alors c'est 5% de la largeur), il existe aussi vmin */
+    /* viewport max, 5% de l'axe le plus grand, (si la largeur est plus grande que la hauteur, alors c'est 5% de la largeur), il existe aussi vmin.
+    ビューポートの最大値は、最大軸の 5% です (幅が高さより大きい場合は、幅の 5% になります)。また、vmin もあります。 */
     font-size: 5vmax;
 }
 .target8
@@ -82,7 +96,10 @@ body{font-size: 20px;}
 }
 .target9
 {
-    /* La fonction clamp permet d'adapter la taille de la police en indiquant un minimum et un maximum */
+    /* La fonction clamp permet d'adapter la taille de la police en indiquant un minimum et un maximum.
+
+    メディアクエリの代わりにクランプ機能を使用すると、最小値と最大値を指定してフォント サイズを調整できます。 
+    このサイトで自動計算できる https://min-max-calculator.9elements.com/?16,24,320,1200*/
     font-size: clamp(16px, 5vw, 30px);
 }
 .target10

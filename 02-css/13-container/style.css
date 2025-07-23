@@ -14,18 +14,27 @@
         border: 2px solid black;
         border-radius: 5px;
         /* 
-            En ajoutant la propriété "container-type"
-            l'élément devient un container, par ce fait, il devient incapable d'adapter sa taille à son contenu.
-            Il doit avoir une taille fixé ou au moins dépendante d'un contexte comme flex ou grid
+        En ajoutant la propriété "container-type"
+        l'élément devient un container, par ce fait, il devient incapable d'adapter sa taille à son contenu.
+        Il doit avoir une taille fixé ou au moins dépendante d'un contexte comme flex ou grid
 
-            normal (n'est pas un query container)
-            size (est un query container)
-            inline-size (est un query container uniquement sur l'axe inline (par défaut horizontal))
+        normal (n'est pas un query container)
+        size (est un query container)
+        inline-size (est un query container uniquement sur l'axe inline (par défaut horizontal))
+
+            「container-type」プロパティを追加すると、要素はコンテナとなり、コンテンツに合わせてサイズを調整できなくなります。
+            要素は固定サイズ、または少なくともflexやgridなどのコンテキストに依存するサイズを持つ必要があります。
+
+            normal（クエリコンテナではありません）
+            size（クエリコンテナです）
+            inline-size（インライン軸（デフォルトは水平）のみのクエリコンテナです）
+
         */
         container-type: inline-size;
         /* min-height: 60vh; */
         /* 
             Optionnellement, on pourra ajouter un nom à notre container, qui pourra être utile plus tard
+            オプションで、コンテナに名前を追加できます。これは後で役立つ場合があります。
         */
         container-name: monSuperArticle;
     }
@@ -34,6 +43,7 @@ img
 {
     /* 
         utiliser un container, débloque l'utilisation des unités "cqw" et "cqh" qui représentent un pourcentage de la largeur ou de la hateur du container
+        コンテナを使用すると、コンテナの幅または高さのパーセンテージを表す「cqw」および「cqh」単位が使用できるようになります。
     */
     width: 80cqw;
     display: block;
@@ -41,6 +51,7 @@ img
 }
 /* 
     Cette règle permet une media query dépendant non pas du viewport mais de la taille du container nommé.
+    このルールは、ビューポートではなく名前付きコンテナのサイズに依存するメディアクエリを許可します。
 */
 @container monSuperArticle (min-width: 450px)
 {

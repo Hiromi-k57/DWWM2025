@@ -1,15 +1,21 @@
 @charset "UTF-8";
 /* 
     ajouter "..." derière un paramètre, permet de faire contenir un nombre infini de paramètre, dans une variable.
+    パラメータの後に「...」を追加すると、変数に無限の数のパラメータを含めることができます。
 */
 ul {
   background-color: cornflowerblue;
   /* 
-      @for permet de créer une boucle
-      allant du chiffre indiqué après "from"
-      à celui indiqué après "to"
-      cette boucle va répéter l'action entre accolade en remplaçant la valeur de "$i" à chaque fois
-  */
+    @for permet de créer une boucle
+    allant du chiffre indiqué après "from"
+    à celui indiqué après "to"
+    cette boucle va répéter l'action entre accolade en remplaçant la valeur de "$i" à chaque fois
+      @for はループを作成します。
+      「from」の後に示された数値から
+      「to」の後に示された数値まで
+      このループは中括弧内のアクションを繰り返し、そのたびに「$i」の値を置き換えます。
+*/
+  
 }
 ul .truc1 {
   font-size: 16px;
@@ -52,6 +58,7 @@ section.sass h2:hover {
 /* 
     Les extends permettent d'écrire un morceau de code et de les réutiliser ailleurs.
     ils sont déclaré avec un "%" suivi d'un nom.
+      Extends を使用すると、コードを記述して他の場所で再利用できます。Extends は、「%」に続けて名前を宣言します。
 */
 .copy, .menu, main ul, header {
   display: flex;
@@ -61,7 +68,8 @@ section.sass h2:hover {
 
 header {
   /* 
-      On utilisera @extend pour appeler toute les propriétés d'un extend ou d'une classe.
+    On utilisera @extend pour appeler toute les propriétés d'un extend ou d'une classe.
+    @extend は、extend またはクラスのすべてのプロパティを呼び出すために使用されます。
   */
 }
 
@@ -71,6 +79,11 @@ header {
 
     On peut ajouter des propriétés sous forme de variable à nos mixins, celles ci devront alors être transmise lors de l'appelle.
     En ajoutant ":uneValeur" après une propriété, celle ci prendra cette valeur par défaut, si aucune ne lui ai transmise.
+      Mixin は extends に似ていますが、より柔軟に設定可能です。
+      mixin は「@mixin someName()」で宣言されます。
+
+      mixin には変数としてプロパティを追加できます。これらのプロパティは、呼び出される際に渡される必要があります。
+      プロパティの後に「:someValue」を追加すると、何も渡されない場合にデフォルトでその値が設定されます。
 */
 .copy {
   font-size: 3rem;
@@ -96,6 +109,12 @@ header {
     on cherche la couleur complémentaire,
     on l'éclairci un peu, 
     puis on la renvoi avec "@return"
+
+    関数を使うと、値をパラメータとして受け取り、それを返す前に変更することができます。
+    例えば、ここでは色を受け取り、
+    補色を探し、
+    少し明るくし、
+    「@return」で返します。
 */
 .copy {
   color: rgb(194.1145251397, 224.1284916201, 132.3715083799);

@@ -14,7 +14,8 @@ body>header
     background-color: lightgreen;
     text-align: center;
     padding: 1rem;
-    /* & représente le selecteur parent, ici "header" */
+    /* & représente le selecteur parent, ici "header" 
+    & は親セレクタを表します。ここでは「ヘッダー」です。 */
     &>h1
     {
         font-size: 3rem;
@@ -29,7 +30,8 @@ main
     width: 80%;
     margin: auto;
     background-color: lightcyan;
-    /* si & n'est pas précisé, cela revient au même qu'écrire "& nouveauSelecteur" */
+    /* si & n'est pas précisé, cela revient au même qu'écrire "& nouveauSelecteur" 
+    & が指定されていない場合は、「& newSelector」と記述するのと同じです。*/
     section
     {
         margin: 20px 50px;
@@ -54,6 +56,14 @@ main
                 :first-child
             équivaut à :
                 main section :first-child
+            !ここで & は非常に重要です。
+                &:first-child
+            は以下と同等です。
+                main section:first-child
+            ただし、
+                :first-child
+            は以下と同等です。
+                main section:first-child
         */
         &:first-child, &:last-child
         {
@@ -94,7 +104,7 @@ main
         &:last-child h2
         {
             text-decoration: underline dotted blue;
-            /* On peut aussi utiliser le nesting pour les éléments suivants */
+            /* On peut aussi utiliser le nesting pour les éléments suivants ネストは次の要素にも使用できます。*/
             & + p
             {
                 font-size: 1.2em;

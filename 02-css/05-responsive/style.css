@@ -23,6 +23,8 @@ article
 /* 
     Les media queries permettent de placer des règles sous condition.
     Par exemple les règles ci-dessous ne se déclencherons que si on est sur un écran et que celui ci fait au moins 500px
+        メディアクエリを使用すると、条件付きルールを設定できます。
+        たとえば、以下のルールは、画面の幅が 500 ピクセル以上の場合にのみ実行されます。
 */
 @media screen and (min-width: 500px) 
 {
@@ -38,6 +40,8 @@ article
 /* 
     Ici, on attend que l'écran face au moins 1000px.
     Cela n'efface pas les règles d'au dessus.
+        ここでは、画面サイズが少なくとも 1000 ピクセルであることを想定しています。
+        これは上記のルールを上書きするものではありません。
 */
 /* @media screen and (width > 1000px) */
 @media screen and (min-width: 1000px) 
@@ -62,8 +66,8 @@ article
         display: none;
     }
 }
-/* En cas de navigateur en thème sombre */
+/* En cas de navigateur en thème sombre ダークテーマブラウザの場合*/
 @media (prefers-color-scheme: dark) {}
-/* En cas de navigateur en thème clair */
+/* En cas de navigateur en thème clair ライトテーマブラウザの場合*/
 @media (prefers-color-scheme: light) {}
 

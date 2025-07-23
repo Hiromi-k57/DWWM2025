@@ -1,5 +1,6 @@
 /* 
     ajouter "..." derière un paramètre, permet de faire contenir un nombre infini de paramètre, dans une variable.
+    パラメータの後に「...」を追加すると、変数に無限の数のパラメータを含めることができます。
 */
 @mixin liste($li...)
 {
@@ -9,14 +10,18 @@
         allant du chiffre indiqué après "from"
         à celui indiqué après "to"
         cette boucle va répéter l'action entre accolade en remplaçant la valeur de "$i" à chaque fois
-    */
+            @for はループを作成します。
+            「from」の後に示された数値から
+            「to」の後に示された数値まで
+            このループは中括弧内のアクションを繰り返し、そのたびに「$i」の値を置き換えます。
+        */
     @for $i from 0 to length($li)
     {
         // @debug $i;
-        // nth permet de récupérer un élément d'une liste.
+        // nth permet de récupérer un élément d'une liste. nth を使用すると、リストから要素を取得できます。
         // @debug nth($li, $i+1);
-        // #{} permet d'afficher un texte en tant que selecteur.
-        // Par exemple, ici nous lui demandons d'afficher les ".truc1", ".truc2"... passés en paramètre.
+        // #{} permet d'afficher un texte en tant que selecteur. #{} を使用すると、テキストをセレクターとして表示できます。
+        // Par exemple, ici nous lui demandons d'afficher les ".truc1", ".truc2"... passés en paramètre.  たとえば、ここではパラメータとして渡された「.truc1」、「.truc2」などを表示するように要求します。
         #{nth($li, $i+1)}
         {
             font-size: 16px + $i*10;

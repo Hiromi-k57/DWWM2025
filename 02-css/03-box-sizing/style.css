@@ -10,24 +10,30 @@ header
     background-color: aqua;
     /* Ajoute une image en fond */
     background-image: url(./phare.jpg);
-    /* Indique la taille de l'image, contain permet que l'image soit contenu dans l'élément html, cover qu'elle couvre entièrement celui ci */
+    
+    /* Indique la taille de l'image, contain permet que l'image soit contenu dans l'élément html, cover qu'elle couvre entièrement celui ci
+        * 画像のサイズを示します。contain は画像を HTML 要素内に含めることを許可し、cover は画像を完全に覆うことを許可します。 */
     background-size: cover;
-    /* Empêche l'image de se répéter */
+    /* Empêche l'image de se répéter. 画像が繰り返されるのを防ぎます。 */
     background-repeat: no-repeat;
+
     /* Indique la position de l'image de fond
-    en contain, elle positionne l'image dans l'élément HTML, en cover, elle indique quelle partie de l'image est visible */
+    en contain, elle positionne l'image dans l'élément HTML, en cover, elle indique quelle partie de l'image est visible     
+        背景画像の位置を示します。
+        contain では HTML 要素内の画像の位置を指定します。cover では画像のどの部分が表示されるかを指定します。*/
     background-position: bottom;
 }
 footer
 {
-    /* résume toute les propriétés de background */
+    /* résume toute les propriétés de background 背景のすべてのプロパティをまとめます。 */
     background: red url(./pexels-pixabay-38547.jpg) center / contain no-repeat;
 }
 article
 {
     /* largeur de l'élément */
     width: 49%;
-    /* Défini le display de l'élément (block, inline, inline-block... */
+    /* Défini le display de l'élément (block, inline, inline-block...
+    要素の表示を設定します (ブロック、インライン、インラインブロックなど)。 */
     display: inline-block;
     /* 
         border-color / border-style / border-width
@@ -48,13 +54,17 @@ article
     /* Crée une ombre autour de l'élément,
     Elle doit prendre au moins 2 tailles pour le décalage horizontal et vertical, et une couleur.
     On pourra lui ajouter jusqu'à deux autres tailles, pour le flou et le spread.
-    Le mot clef "inset" permet que l'ombre soit à l'interieur de l'élément */
+    Le mot clef "inset" permet que l'ombre soit à l'interieur de l'élément 
+        要素の周囲に影を作成します。
+        水平方向と垂直方向のオフセットについて少なくとも2つのサイズと、色を指定する必要があります。
+        ぼかしと広がりについて、最大2つのサイズを追加できます。
+        「inset」キーワードを使用すると、影を要素の内側に配置できます。*/
     box-shadow: 5px 5px 2px 1px red;
 }
 h1
 {
     font-size: 42px;
-    /* alignement du texte */
+    /* alignement du texte テキストの配置*/
     text-align: center;
     /* équivaut à 0.8em 0.1em */
     padding: .8em .1em;
@@ -66,9 +76,9 @@ li
 {
     display: inline-block;
     background-color: aqua;
-    /* change la hauteur par rapport à la largeur. */
+    /* change la hauteur par rapport à la largeur. 幅に応じて高さを変更します。 */
     aspect-ratio: 1/1;
-    /* Arrondi les angles */
+    /* Arrondi les angles 角を丸く */
     border-radius: 50%;
     padding: 1em 5px;
     margin-left: 15%;
@@ -85,7 +95,8 @@ img
 {
     width: 100%;
     height: 20vh;
-    /* Fonctionne comme background-size mais adapté à une balise image */
+    /* Fonctionne comme background-size mais adapté à une balise image 
+    background-size と同様に機能しますが、画像タグに適合します。*/
     object-fit: cover;
     object-position: bottom;
 }

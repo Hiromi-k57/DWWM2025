@@ -9,29 +9,30 @@ section.sass
     {
         background-color: brown;
         padding: 5px;
-        // Ne rien préciser avant le selecteur, compte comme "enfant de"
+        // Ne rien préciser avant le selecteur, compte comme "enfant de" .セレクターの前に何も指定しないでください。セレクターは「子」としてカウントされます。
         // & span
         span
         {
             font-style: italic;
         }
-        // Le symbole & représente le selecteur parent, ici "h2"
+        // Le symbole & représente le selecteur parent, ici "h2". &記号は親セレクター（ここでは「h2」）を表します。
         &:hover
         {
             transform: scale(1.2);
         }
     }
 }
-// variable sass
+// variable sass $変数名: 値;
 $colorMain: violet;
 .scss
 {
     background-color: $colorMain;
 }
-// extends
+// extends 再利用したい1度定義したクラスを他のクラスにも継承
 /* 
     Les extends permettent d'écrire un morceau de code et de les réutiliser ailleurs.
     ils sont déclaré avec un "%" suivi d'un nom.
+        Extends を使用すると、コードを記述して他の場所で再利用できます。Extends は、「%」に続けて名前を宣言します。
 */
 %flexCenter
 {
@@ -43,6 +44,7 @@ header
 {
     /* 
         On utilisera @extend pour appeler toute les propriétés d'un extend ou d'une classe.
+        @extend は、extend またはクラスのすべてのプロパティを呼び出すために使用されます。
     */
     @extend %flexCenter;
     @extend .scss;
@@ -59,6 +61,12 @@ main ul
 
     On peut ajouter des propriétés sous forme de variable à nos mixins, celles ci devront alors être transmise lors de l'appelle.
     En ajoutant ":uneValeur" après une propriété, celle ci prendra cette valeur par défaut, si aucune ne lui ai transmise.
+
+        Mixin は extends に似ていますが、より柔軟に設定可能です。
+        mixin は「@mixin someName()」で宣言されます。
+
+        mixin には変数としてプロパティを追加できます。これらのプロパティは、mixin が呼び出される際に渡される必要があります。
+        プロパティの後に「:someValue」を追加すると、何も渡されない場合にデフォルトでその値が設定されます。
 */
 @mixin absol($top, $left, $trx: -50%, $try: -50%)
 {
@@ -86,6 +94,12 @@ main ul
     on cherche la couleur complémentaire,
     on l'éclairci un peu, 
     puis on la renvoi avec "@return"
+
+    関数を使うと、値をパラメータとして受け取り、それを返す前に変更することができます。
+    例えば、ここでは色を受け取り、
+    補色を探し、
+    少し明るくし、
+    「@return」で返します。
 */
 @function compLight($color)
 {

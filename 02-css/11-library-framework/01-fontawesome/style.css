@@ -3,6 +3,11 @@
     EN copiant le svg, ou en installant la bibliothèque afin d'utiliser les balises "<i></i>"
 
     Les svg et images sont à traiter comme des images concernant la taille, mais les balises "i" devront être modifié comme une police d'écriture.
+
+    font-awesome は画像をダウンロードすることで使用できます。
+    SVG をコピーするか、ライブラリをインストールして「<i></i>」タグを使用することもできます。
+
+    SVG と画像はサイズ調整に関しては画像として扱う必要がありますが、「i」タグはフォントのように変更する必要があります。
 */
 img, svg
 {
@@ -14,13 +19,14 @@ i
 }
 img, svg, i
 {
-    /* ne modifie que la balise "i" */
+    /* ne modifie que la balise "i". 「i」タグのみを変更します*/
     color: green;
-    /* fill et stroke permettent la modification de SVG */
+    /* fill et stroke permettent la modification de SVG. 塗りつぶしとストロークにより SVG を変更できます。*/
     fill: yellow;
     stroke: red;
 }
 
 /* 
     font-awesome peut être installé, en téléchargeant directment la bibliothèque, en utilisant un CDN ou alors avec NPM.
+        font-awesome は、ライブラリを直接ダウンロードするか、CDN を使用するか、NPM を使用してインストールできます。
 */

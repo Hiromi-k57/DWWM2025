@@ -14,6 +14,10 @@ body
         Ici j'ai 1 + 3 + 1 = 5
         Donc la première et la troisième ligne prendrons 1/5ème de l'espace restant
         Et la seconde 3/5ème.
+            複数のfr単位が指定されている場合、分数のように残りのスペースを共有します。
+            ここでは1 + 3 + 1 = 5です。
+            つまり、1行目と3行目はスペースの1/5ずつを占め、
+            2行目は3/5を占めます。
     */
     grid-template-rows: 1fr 3fr 1fr;
     /* 
@@ -21,6 +25,9 @@ body
         de créer la grille en plaçant directement le nom des éléments.
         chaque "" représente une rangée, chaque nom, une colonne.
         ! Faite bien attention d'avoir le même nombre de colonne à chaque rangée
+        子要素にgrid-areaという名前を付けると、要素名を直接配置してグリッドを作成できます。
+        各「」は行を表し、各名前は列を表します。
+        ! 各行の列数を同じにするように注意してください。
     */
     grid-template-areas: 
     "header header header header header header"
@@ -31,7 +38,8 @@ body
 .item1
 {
     background-color: blue;
-    /* grid-area peut aussi permettre de nommer un élément afin de l'utiliser dans un grid-template-area */
+    /* grid-area peut aussi permettre de nommer un élément afin de l'utiliser dans un grid-template-area
+        grid-area は、grid-template-area で使用する要素に名前を付けるためにも使用できます。 */
     grid-area: header;
 }
 .item2

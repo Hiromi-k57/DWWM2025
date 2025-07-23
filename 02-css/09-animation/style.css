@@ -23,19 +23,20 @@ body
     transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
-    /* (obligatoire) Permet d'indiquer le nom du keyframe à lancer */
+    /* (obligatoire) Permet d'indiquer le nom du keyframe à lancer (必須) 起動するキーフレームの名前を指定できます*/
     animation-name: cloudAnimation;
-    /* (obligatoire) Indique la durée de l'animation */
+    /* (obligatoire) Indique la durée de l'animation (必須) アニメーションの継続時間を示します。*/
     animation-duration: 10s;
-    /* Indique si l'animation doit se jouer normalement, en sens inverse, ou alterner */
+    /* Indique si l'animation doit se jouer normalement, en sens inverse, ou alterner. アニメーションを通常通り再生するか、逆順に再生するか、交互に再生するかを示します。*/
     animation-direction: normal;
-    /* Indique le nombre de fois que doit se jouer l'animation (1 à infinite) */
+    /* Indique le nombre de fois que doit se jouer l'animation (1 à infinite) アニメーションを再生する回数を指定します (1 ～ 無制限)*/
     animation-iteration-count: 5;
-    /* Indique si une fois l'animation terminé, elle reprend son état d'origine, reste sur la dernière ou première étape de l'animation */
+    /* Indique si une fois l'animation terminé, elle reprend son état d'origine, reste sur la dernière ou première étape de l'animation 
+    アニメーションが終了した後、元の状態に戻るか、アニメーションの最後のステップまたは最初のステップに留まるかを示します。*/
     animation-fill-mode: forwards;
-    /* rythme auquel se joue l'animation (comme les transitions) */
+    /* rythme auquel se joue l'animation (comme les transitions) アニメーションが再生されるペース（トランジションなど）*/
     animation-timing-function: ease-in-out;
-    /* ajoute un délai avant le début de l'animation */
+    /* ajoute un délai avant le début de l'animation アニメーションが開始する前に遅延を追加します。*/
     animation-delay: 0.2s;
 }
 .cloud div
@@ -45,7 +46,8 @@ body
     height: inherit;
     border-radius: 50%;
     background-color: whitesmoke;
-    /* animation est la propriété résumé de toute les propriétés d'animation */
+    /* animation est la propriété résumé de toute les propriétés d'animation 
+    「アニメーション」は、すべてのアニメーション プロパティの要約プロパティです。*/
     animation: darkCloud 5s linear infinite;
 }
 .part1{top: -35%;}
@@ -55,6 +57,9 @@ body
     Permet de définir les étapes clefs d'une animation.
     Elle doit au moins avoir une étape de fin (to ou 100%) mais aura généralement aussi une étape de départ (from ou 0%)
     On peut ajouter autant d'étape que l'on veut en pourcentage
+        アニメーションの主要なステップを定義できます。
+        少なくとも1つの終了ステップ（終了または100%）が必要ですが、通常は開始ステップ（開始または0%）も必要です。
+        パーセンテージで任意の数のステップを追加できます。
 */
 @keyframes cloudAnimation 
 {
@@ -120,15 +125,18 @@ body.scroll
     position: absolute;
     bottom: 0;
     background-color: green;
-    /* transform-origin permet d'indiquer quelle partie de l'élément reste stable lors d'une transformation. par défaut le centre */
+    /* transform-origin permet d'indiquer quelle partie de l'élément reste stable lors d'une transformation. par défaut le centre 
+    transform-origin を使用すると、変形中に要素のどの部分が固定されるかを指定できます。デフォルトでは中央です。*/
     transform-origin: left;
     scale: 0 1;
     animation-name: scrollme;
     animation-timing-function: linear;
-    /* auto ne fonctionne qu'en changeant la timeline */
+    /* auto ne fonctionne qu'en changeant la timeline 自動はタイムラインを変更する場合にのみ機能します*/
     animation-duration: auto;
     /* scroll() permet de se baser non plus sur une durée, mais sur le scrolling de la page.
-    Il est d'ailleurs possible de changer cela pour se baser sur le scrolling d'un autre élément */
+    Il est d'ailleurs possible de changer cela pour se baser sur le scrolling d'un autre élément 
+        scroll() を使用すると、時間ではなくページのスクロールに基づいてアクションを実行できます。
+        これを変更して、別の要素のスクロールに基づいてアクションを実行することも可能です。*/
     animation-timeline: scroll();
 }
 .scroll .ball

@@ -14,14 +14,17 @@ header
     background-color: slategray;
     color: antiquewhite;
     text-align: center;
-    /* En position fixed, l'élément sort du flow de la page, sa largeur devient égale à son contenu, et l'élément se déplace avec le scrolling */
+    /* En position fixed, l'élément sort du flow de la page, sa largeur devient égale à son contenu, et l'élément se déplace avec le scrolling
+    固定位置では、要素はページの流れから外れ、幅がそのコンテンツと等しくなり、要素はスクロールとともに移動します。 */
     position: fixed;
     width: 100%;
     /* 
         z-index ne fonctionne que sur un élément positionné.
         Il joue sur la profondeur de l'élément.
         Tout élément est par défaut à 0, un nombre positif, fera passer l'élément devant, un négatif, derrière.
-    */
+            Z-indeは要素の重なり順を指定。
+        すべての要素はデフォルトで 0 に設定。正の数を指定すると要素は最前面に移動し、負の数を指定すると最背面に移動します。つまり値が大きい要素ほど上に配置される。
+        */
     z-index: 1;
 }
 nav, main
@@ -38,6 +41,9 @@ nav
         linear-gradient prend au moins 2 couleur, jusqu'à autant qu'on le souhaite, et crée une image qui est un dégradé de ces couleurs.
         On peut ajouter un premier paramètre qui est soit un mot clef (to bottom, to left...) soit une valeur en degré (45deg...) pour tourner le dégradé.
         On peut faire suivre la couleur d'un pourcentage pour indiquer à partir de quand le dégradé doit commencer.
+            linear-gradient は、少なくとも2色から任意の数までの色を取り、それらの色のグラデーション画像を作成します。
+        最初のパラメータとして、キーワード（下へ、左へなど）または角度（45度など）の値を追加して、グラデーションを回転させることができます。
+        色の後にパーセンテージを追加して、グラデーションの開始点を示すこともできます。
     */
     background-image: linear-gradient(90deg, blue 33%, white 33%, white 66%, red 66%);
 }
@@ -46,12 +52,16 @@ nav ul
     /* 
         La position sticky, garde l'élément dans le flux de la page, jusqu'à ce que la position indiqué soit atteinte (ici top: 70px)
         Une fois la position atteinte, l'élément suivra le scrolling, tant qu'il peut rester dans son parent (ici la nav)
+            position stickyは、指定された位置（ここでは上部：70px）に到達するまで、要素をページフロー内に保持します。指定された位置に到達すると、要素は親要素（ここではナビゲーション）内に留まる限り、スクロールに従います。
     */
     position: sticky;
     /* 
         Les propriétés top, left, right, bottom, ne fonctionnent que sur un élément positionné.
         Elles agissent différement selon la position.
         Il existe une propriété résumé de ces 4 là, nommé "inset"
+            top、left、right、bottom の各プロパティは、位置指定された要素にのみ適用されます。
+            これらのプロパティは、位置によって動作が異なります。
+            これら 4 つのプロパティをまとめた「inset」というプロパティがあります。
     */
     top: 70px;
 }
@@ -60,15 +70,19 @@ main
     /* 
         La fonction calc permet de faire des calcules en CSS.
         ! Chaque élément doit être séparé d'un espace
+            calc 関数を使用すると、CSS で計算を実行できます。
+        ! 各要素はスペースで区切る必要があります。
     */
     width: calc(100% - 205px);
     /* 
         radial gradient fonctionnera comme linear gradient si ce n'est qu'il va créer une forme circulaire. par défaut la forme sera plutôt ovale, mais on peut lui préciser qu'on veut un cercle, et à quel position ce cercle doit commencer.
+            radial gradientは線形グラデーションと同じように機能しますが、円形を作成します。デフォルトでは楕円形に近い形状になりますが、円を描くように指定し、その円の開始位置を指定することもできます。
     */
     background-image: radial-gradient(circle at 50%, red 20%, white 20%);
     /* 
         La position relative, permet de déplacer un élément par rapport à sa position d'origine.
         Son emplacement d'origine est toujours gardé dans le flux de la page, donc aucun élément ne viendra le remplacer.
+            position relativeを使用すると、要素を元の位置を基準にして移動できます。ページフロー内では元の位置が常に維持されるため、他の要素によって置き換えられることはありません。
     */
     position: relative;
     top: 100px;
@@ -85,6 +99,10 @@ button
         Il prend la taille de son contenu.
         Si un positionnement (top, left...) lui est précisé.
         Il vient se positionner, par rapport à son parent positionné le plus proche.
+
+        要素はページフローの外に移動されます。
+        要素はコンテンツと同じサイズになります。
+        要素の位置（上、左など）が指定されている場合は、最も近い位置にある親要素を基準にして配置されます。
     */
     position: absolute;
     /* right: 0;
@@ -102,11 +120,14 @@ img
     /* 
         float sort l'élément de son flux habituel, pour le replacer ailleurs dans le flux de son parent.
         Il n'est pas possible d'être précis, on indique généralement "right" ou "left".
+
+        float は要素を通常のフローから移動し、親のフロー内の別の場所に配置します。正確に指定することはできませんが、通常は「右」または「左」になります。
     */
     float: left;
     border-radius: 50%;
     /* 
         Permet que le texte s'adapte à la forme de l'élément.
+        テキストを要素の形状に合わせることができます。
     */
     shape-outside: margin-box;
     margin: 10px;

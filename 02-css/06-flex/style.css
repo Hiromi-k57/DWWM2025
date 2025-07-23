@@ -9,25 +9,30 @@ ul
     /* 
         Le display flex permet de déplacer les éléments enfant de façon flexible.
         C'est à dire qu'ils vont s'adapter à la taille du parent.
+            Display flex を使用すると、子要素を柔軟に移動できます。つまり、子要素は親要素のサイズに合わせて調整されます。
     */
     display: flex;
     /* 
         Le display flex fonctionne selon un axe principal et un secondaire.
-        Le principal est choisi avec flex-direction
+        Le principal est choisi avec flex-direction.
+            フレックスディスプレイは主軸と副軸に沿って動作します。主軸はflex-directionを使って選択します。
     */
     flex-direction: row;
     height: 25vh;
     /* 
         justify-content permet de placer les éléments enfant sur l'axe principal.
         On peut les placer au début, à la fin ou au centre mais aussi, les espacer avec space-****
+            justify-content を使用すると、子要素を主軸上に配置できます。子要素は先頭、末尾、中央に配置することができ、space-**** を使用して間隔を空けることもできます。
     */
     justify-content: space-between;
     /* 
         Lorsque les éléments n'ont plus de place, plutôt que de se compacter, ils vont créer de nouvelles lignes.
+            要素に余裕がなくなると、圧縮されるのではなく、新しい行が作成されます。
     */
     flex-wrap: wrap;
     /* 
         Choisi la position des éléments sur l'axe secondaire
+            二次軸上の要素の位置を選択します。
     */
     align-items: center;
     border: 1px solid black;
@@ -47,6 +52,8 @@ li:hover
     /* 
         Indique l'espace que doit prendre l'élément,
         si il est seul à avoir un flex-grow, il prendra tout l'espace restant
+            要素が占めるスペースを指定します。
+            flex-grow が設定されている要素が 1 つだけの場合、残りのスペースはすべてその要素によって占められます。
     */
     flex-grow: 1;
 }
@@ -54,9 +61,9 @@ section
 {
     height: 200px;
     display: flex;
-    /* fusion de flex-direction et flex-wrap */
+    /* fusion de flex-direction et flex-wrap. flex-directionとflex-wrapの融合*/
     flex-flow: column wrap;
-    /* Permet d'espacer les éléments */
+    /* Permet d'espacer les éléments 要素間の間隔を調整できます*/
     gap: 20px;
 }
 article
@@ -71,6 +78,10 @@ article:last-child
         Permet de déplacer un élément par rapport aux autres.
         Chaque élément à par défaut un ordre de "0", il suit l'ordre du HTML.
         En indiquant une valeur négative, il va se placer avant les autres, avec une positive, il ira après.
+
+        要素を他の要素に対して相対的に移動できます。
+        各要素のデフォルトの順序は「0」で、HTML の順序に従います。
+        負の値を指定すると他の要素の前に配置され、正の値を指定すると後に配置されます。
     */
     order: -1;
 }
