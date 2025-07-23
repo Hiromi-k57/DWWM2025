@@ -15,27 +15,27 @@
 <body>
     <!-- un tableau -->
     <table>
-        <!-- une rangée d'un tableau -->
+        <!-- une rangée d'un tableau-->
         <tr>
             <!-- Une case d'un tableau -->
             <td>pomme</td>
             <td>cerise</td>
         </tr>
         <tr>
-            <!-- Chaque rangée d'un tableau, doit avoir le même nombre de case -->
+            <!-- Chaque rangée d'un tableau, doit avoir le même nombre de case 表の各行には、同じ数のマス目が必要です。-->
             <td>banane</td>
             <td>tomate</td>
         </tr>
     </table>
     <hr>
-    <!-- tableau plus poussé -->
+    <!-- tableau plus poussé より詳細な表-->
     <table>
-        <!-- l'entête du tableau -->
+        <!-- l'entête du tableau 表のヘッダー-->
         <thead>
             <tr>
-                <!-- titre des colonnes -->
+                <!-- titre des colonnes *colspanで横2マス分結合でFruit入れてる-->
                 <th colspan="2">Fruit</th>
-                <!-- colspan permet de fusionner des colonnes -->
+                <!-- colspan permet de fusionner des colonnes "colspan"を使用すると列を結合できます-->
                 <th colspan="2">Légume</th>
             </tr>
         </thead>
@@ -45,7 +45,7 @@
                 <td>banane</td>
                 <td>cerise</td>
                 <td>carotte</td>
-                <!-- fusionne des rangées -->
+                <!-- fusionne des rangées "rowspan"で2マス分縦方向（行）のセル結合する-->
                 <td rowspan="2">courgette</td>
             </tr>
             <tr>

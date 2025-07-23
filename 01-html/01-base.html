@@ -6,32 +6,38 @@
     <title>Balises de base</title>
 </head>
 <body>
-    <!-- Balises block sémantiques. Aucun effet -->
+        <!-- Balises block sémantiques. Aucun effet -->
     <header id="hautDePage"></header>
     <footer></footer>
     <nav></nav>
-    <!-- Balise block par défaut. -->
+        <!-- Balise block par défaut. -->
     <div></div>
-    <!-- Ne devrait apparaître qu'une fois dans la page -->
+        <!-- Ne devrait apparaître qu'une fois dans la page -->
+        <!-- ページ上に 1 回だけ表示されます -->
     <main>main</main>
-    <!-- h$*6>{Titre $}
-    Balise de titre, du 1 le plus important, au 6.
-    Possède une marge en haut et en bas, change la taille du texte et le met en gras.
-    L'ordre d'importance des titres doit être respecté -->
+        <!-- h$*6>{Titre $}
+        Balise de titre, du 1 le plus important, au 6.
+        Possède une marge en haut et en bas, change la taille du texte et le met en gras.
+        L'ordre d'importance des titres doit être respecté -->
+            <!-- h$*6>{タイトル $}
+            タイトルタグ。重要度1位から6位まで。
+            上下に余白があり、テキストサイズが変更され、太字になります。
+            見出しの重要度順は尊重する必要があります -->
     <h1>Titre 1</h1>
     <h2>Titre 2</h2>
     <h3>Titre 3</h3>
     <h4>Titre 4</h4>
     <h5>Titre 5</h5>
     <h6>Titre 6</h6>
-    <!-- Balises sémantiques qui devrait contenir un titre -->
+        <!-- Balises sémantiques qui devrait contenir un titre -->
     <section>
         <h2>Ma section</h2>
     </section>
     <article>
         <h3>mon article</h3>
     </article>
-    <!-- Unordered List, ne peut contenir que des balises "li" -->
+        <!-- Unordered List, ne peut contenir que des balises "li" -->
+        <!-- 順序なしリスト、「li」タグのみを含めることができます -->
     <ul>
         <!-- list item, ne peut être contenu que dans un ul, ol ou menu (li*3>{item $})-->
         <li>item 1</li>
@@ -44,32 +50,39 @@
         <li>item 2</li>
         <li>item 3</li>
     </menu>
-    <!-- Ordered list, affiche les éléments précédé d'un chiffre.
-    ol>li*3>{item $} -->
+        <!-- Ordered list, affiche les éléments précédé d'un chiffre.
+        ol>li*3>{item $} -->
+            <!-- 順序付きリスト。先頭に数字が付いた項目を表示します。
+            ol>li*3>{item $} -->
     <ol>
         <li>item 1</li>
         <li>item 2</li>
         <li>item 3</li>
     </ol>
-    <!-- paragraphe, il ne peut contenir que du texte ou des éléments inline -->
+        <!-- paragraphe, il ne peut contenir que du texte ou des éléments inline -->
+        <!-- 段落。テキストまたはインライン要素のみを含めることができます -->
     <p>
         Lorem,               ipsum dolor sit amet consectetur adipisicing elit. 
         
         Voluptates quos dolor nostrum facilis delectus quibusdam dicta dolore! Illum facere, vitae natus magni quaerat, temporibus vel molestiae dicta ratione nihil aliquid.
     </p>
     <!-- preformate permet de garder le formatage du document, saut à la ligne, espace... -->
+    <!-- preformate を使用すると、ドキュメントの書式、改行、スペースなどを保持できます -->
     <pre>
         Lorem,               ipsum dolor sit amet consectetur adipisicing elit. 
         
         Voluptates quos dolor nostrum facilis delectus quibusdam dicta dolore! Illum facere, vitae natus magni quaerat, temporibus vel molestiae dicta ratione nihil aliquid.
     </pre>
     <!-- les balises d'ancre, permettent de créer des liens cliquable. -->
+    <!-- アンカータグを使用するとクリック可能なリンクを作成できます。 -->
     <a href="./index.html">index</a>
     <!-- target blank permet d'ouvrir le lien dans un nouvel onglet -->
+    <!-- target blankにすると、リンクが新しいタブで開きます -->
     <a href="https://www.google.fr/search?q=pizza" target="_blank">Google</a>
     <!-- un # suivi du nom d'un id permet un lien interne à la page -->
+    <!-- # の後に ID 名を続けると、ページへの内部リンクが可能になります -->
     <a href="#hautDePage">haut de page</a>
-    <!-- Crée une ligne séparatrice -->
+    <!-- Crée une ligne séparatrice 境界線を作成します -->
     <hr>
     <p>
         <!-- strong indique l'importance d'un texte -->
@@ -80,9 +93,11 @@
         <b>Magni voluptatem voluptatibus inventore repudiandae cum quod soluta adipisci libero minima. </b>
         <br>
         <!-- u pour faire ressortir un texte comme un nom propre ou une erreur -->
+        <!-- u で固有名詞やエラーなどのテキストを強調表示 -->
         <u>Perferendis quas hic quam ea maiores iure sequi possimus molestiae? Similique.</u>
         <br>
         <!-- em permet de mettre l'emphase sur du texte  -->
+        <!-- em を使用するとテキストを強調できます -->
         <em>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </em>
         <br>
         <!-- i permet de faire ressortir une citation *何らかの理由で他のテキストと区別されるテキストの範囲を表します。イタリック体で表現 -->
@@ -100,8 +115,11 @@
         <!-- Insérer une autre page internet -->
         <iframe src="./02-formulaire.html"></iframe>
         <!-- balise inline sans aucun effet ou règle -->
+        <!-- 効果やルールのないインラインタグ -->
         <span class="maClasse ma-seconde-classe"></span>
         <!-- la classe permet d'identifier un élément, mais à la différence de l'id, on peut avoir plusieurs classes séparés d'un espace, et une même classe peut être appliqué à plusieurs éléments. -->
+        <!-- classは要素を識別しますが、ID とは異なり、複数のクラスをスペースで区切ることができ、同じクラスを複数の要素に適用できます。 -->
+</p>
     </p>
 </body>
 </html>

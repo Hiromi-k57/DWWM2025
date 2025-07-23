@@ -34,7 +34,8 @@ const salut2 = function()
 }
 salut2();
 /* 
-    Il existe une version raccourci de la fonction anonyme, on appelle cela une fonction fléché. 匿名関数の短縮版があります。これは矢印関数と呼ばれる
+    Il existe une version raccourci de la fonction anonyme, on appelle cela une fonction fléché. 
+    匿名関数の短縮版があります。これは矢印関数と呼ばれる
 */
 const salut3 = ()=>{
     console.log("Salut fléché !");
@@ -62,11 +63,14 @@ function bonsoir(nom)
 }
 bonsoir("Maurice");
 // Si aucun paramètre n'est fourni, il sera considéré comme "undefined"
+// パラメータが指定されていない場合は、「未定義」として扱われます
 bonsoir();
 // Si trop de paramètre sont fourni, il ignorera ceux en trop.
+// 指定されたパラメータが多すぎる場合、余分なものは無視されます。
 bonsoir("Maurice", "Pierre");
 
 // On peut ajouter autant de paramètre que voulu, en les séparents d'une virgule
+// パラメータはカンマで区切っていくつでも追加できます
 function bonneNuit(nom1, nom2)
 {
     // ajouter %c au début d'un console.log permet que le second paramètre soit utilisé comme CSS
@@ -103,9 +107,10 @@ goodBye();
 */
 function goodMorning(...noms)
 {
-    // affichage adapté aux tableaux
+    // affichage adapté aux tableaux // テーブルに合わせて表示
     console.table(noms);    
     // .toString() ou .join() permettent de transformer un tableau en string
+    // .toString() または .join() を使用すると、配列を文字列に変換できます。
     console.log("Good Morning "+ noms.toString());
     console.log("Good Morning "+ noms.join(" et "));    
 }

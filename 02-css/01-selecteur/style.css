@@ -3,71 +3,76 @@ h1
     background-color: aqua;
 }
 /* Enfant Direct ou Indirect */
-/* Selectionne tout p dans un main */
+/* Selectionne tout p dans un main メイン内のすべての p を選択 */
 main p
 {
     background-color: lightsalmon;
 }
-/* Selectionne tout p, directement enfant du main, sans autre balise les séparants */
+/* Selectionne tout p, directement enfant du main, sans autre balise les séparants
+他のタグで区切られていない、メインの直接の子であるすべての p を選択します。 */
 main > p
 {
     background-color: olive;
 }
 /* Frère direct ou indirect */
-/* Selectionne tous les p suivant un h1 */
+/* Selectionne tous les p suivant un h1. h1に続くすべてのpを選択*/
 h1 ~ p
 {
     background-color: burlywood;
 }
-/* Selectionne tout p juste après un h1 */
+/* Selectionne tout p juste après un h1. h1の直後のpをすべて選択する */
 h1 + p
 {
     background-color: crimson;
 }
-/* Les pseudo classes */
-/* Elles se reconnaissent à la syntaxe suivante ":nomPseudoClasse" */
-/* Au survol de l'élément */
+/* Les pseudo classes 擬似クラス */
+/* Elles se reconnaissent à la syntaxe suivante ":nomPseudoClasse". 擬似クラスは、次の構文で認識されます: ":pseudoclassname" */
+/* Au survol de l'élément 要素にマウスオーバーした時*/
 li:hover
 {
     background-color: chartreuse;
 }
-/* selectionne le second enfant, si c'est un p */
+/* selectionne le second enfant, si c'est un p 
+2番目の子がpの場合、それを選択します*/
 header p:nth-child(2)
 {
     color: skyblue;
 }
-/* Selectionne le second p enfant de header */
+/* Selectionne le second p enfant de header 
+ヘッダーの2番目の子pを選択*/
 header p:nth-of-type(2)
 {
     color: peachpuff;
 }
-/* Existe aussi en comptant depuis la fin, avec nth-last-child() et nth-last-of-type() */
-/* Les balises a n'héritent pas des propriétés de couleur de leurs parents, il faut les cibler directement */
+/* Existe aussi en comptant depuis la fin, avec nth-last-child() et nth-last-of-type(). 
+nth-last-child() と nth-last-of-type() を使って末尾から数えることもできます。 */
+/* Les balises a n'héritent pas des propriétés de couleur de leurs parents, il faut les cibler directement.
+a タグは親から色のプロパティを継承しないため、直接ターゲットにする必要があります。 */
 h1 a
 {
     color: red;
 }
-/* couleur du lien si visité */
+/* couleur du lien si visité 訪問した場合のリンクの色*/
 h1 a:visited
 {
     color: gold;
 }
-/* couleur du lien quand on clique dessus */
+/* couleur du lien quand on clique dessus クリック時のリンクの色 */
 h1 a:active
 {
     color: darkmagenta;
 }
-/* Couleur du lien quand il a le focus */
+/* Couleur du lien quand il a le focus フォーカスがあるときのリンクの色*/
 h1 a:focus
 {
     color: steelblue;
 }
-/* tous les span dans un p, sauf le second */
+/* tous les span dans un p, sauf le second 2番目を除くp内のすべての範囲*/
 p span:not(:nth-child(2))
 {
     color: magenta;
 }
-/* toute les balises, sauf h1 et a */
+/* toute les balises, sauf h1 et a. h1とaを除くすべてのタグ */
 /* h1{ font-size: 5px;} */
 *:not(h1, a)
 {
@@ -79,30 +84,34 @@ p span:not(:nth-child(2))
     background-color: gray !important;
 }
 /* Pseudo Element */
-/* Reconnaissable à la syntaxe suivante "::pseudoElement" */
-/* Modifie la première lettre */
+    /* Pseudo Element擬似要素とは、セレクタに追加してHTMLの記述に影響を与えずに、コンテンツの内容やスタイルを変更するものです。::beforeや::afterを使って、選択した要素の先頭または文末に文章を追加したり、::first-lineや::first-letterを使って、文章の1行目やの1文字目の文字色やサイズを変化することなどができます。
+     *擬似クラスは「:」シングルコロンで、擬似要素は「::」ダブルコロンで記述する */
+/* Reconnaissable à la syntaxe suivante "::pseudoElement". 次の構文で認識されます:  * */
+/* Modifie la première lettre 最初の文字を変更します*/
 article p::first-letter
 {
     font-size: 50px;
 }
-/* modifie la première ligne */
+/* modifie la première ligne 最初の行を変更する*/
 main > p::first-line
 {
     font-weight: bold;
 }
-/* Crée un élément au début du h1 */
+/* Crée un élément au début du h1. h1の先頭に要素を作成します*/
 h1::before
 {
-    /* La propriété content est obligatoire sur un before ou un after */
+    /* La propriété content est obligatoire sur un before ou un after.
+    content:プロパティは、beforeまたはafterで必須です。*/
     content: "C'est faux ->";
 }
-/* Crée un élément à la fin du h1 */
+/* Crée un élément à la fin du h1 
+h1の末尾に要素を作成します*/
 h1::after
 {
     content: "<- Il ment !";
 }
-/* Les classes, id et autres attributs */
-/* selectionne l'élément d'id "MenuImportant" */
+/* Les classes, id et autres attributs クラス、ID、その他の属性*/
+/* selectionne l'élément d'id "MenuImportant". IDが「MenuImportant」の項目を選択します*/
 
 #MenuImportant
 {
@@ -110,29 +119,29 @@ h1::after
     font-weight: bold;
     color: red;
 }
-/* selectionne tous les éléments avec la classe "peuImportant" */
+/* selectionne tous les éléments avec la classe "peuImportant". クラスが「重要でない」の要素をすべて選択する*/
 .peuImportant
 {
     font-size: 8px;
     font-weight: 100;
     color: gainsboro;
 }
-/* Tous a qui possède un attribut "target" */
+/* Tous a qui possède un attribut "target". 「ターゲット」属性を持つものすべて*/
 a[target]
 {
     font-style: italic;
 }
-/* tous a dont l'attribut href contient le mot "amazon" */
+/* tous a dont l'attribut href contient le mot "amazon". href属性に「amazon」という単語が含まれるものすべて*/
 a[href*="amazon"]
 {
     font-family: monospace;
 }
-/* tous a dont l'attribut href se termine par ".fr" */
+/* tous a dont l'attribut href se termine par ".fr". href属性が「.fr」で終わるものすべて */
 a[href$=".fr"]
 {
     background-color: blue;
 }
-/* tous a dont l'attribut href commence par "https" */
+/* tous a dont l'attribut href commence par "https". href属性が「https」で始まるものすべて */
 a[href^="https"]::before
 {
     content: "✓";
@@ -152,7 +161,22 @@ a[href^="https"]::before
             div.classeCool vaudra 0,1,1
         Un id fera évoluer le premier chiffre
             div#idImportant vaudra 1,0,1
+    
+    セレクタの優先順位は3桁の数字で表されます。
+        (0,0,1)
+    各桁は次の桁よりも優先されます。
+        1,0,0 は 0,18,9 よりも優先されます。
+        0,1,0 は 0,0,5 よりも優先されます。
+        0,0,3 は 0,0,1 よりも優先されます。
+    これらの桁はセレクタによって定義されます。
+        タグ (div、main など) は最後の桁を変更します。
+            main > p は 0,0,2 になります。
+        クラスまたは疑似クラスは2番目の桁を変更します。
+            div.classeCool は 0,1,1 になります。
+        id は最初の桁を変更します。
+            div#idImportant は 1,0,1 になります。
 */
+
 li:nth-child(1)
 {
     color: gold;

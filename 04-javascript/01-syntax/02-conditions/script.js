@@ -46,7 +46,7 @@ else //それ以外の場合
 /* 
     Si la condition, n'a qu'une seule instruction à réaliser.
     On peut ne pas mettre les accolades.
-    //条件に実行する命令が 1 つだけある場合、中括弧{}は省略できる
+    条件に実行する命令が 1 つだけある場合、中括弧{}は省略できる
 */
 if(x<50)
     console.log("x est plus petit que 50");    

@@ -7,45 +7,53 @@
 </head>
 <body>  
     <!-- Un formulaire en get, enverra les informations du formulaire directement dans l'url, "?nomChamp1=valeur1&nomChamp2=valeur2" -->
+    <!-- フォーム method="get" はフォーム情報を URL に直接送信します。 -->
     <form action="https://www.google.fr/search" method="get">
-        <!-- label permet d'indiquer le nom/role d'un champ -->
+        <!-- label permet d'indiquer le nom/role d'un champ 
+         ラベルを使用すると、フィールドの名前/役割を示すことができます -->
         <label for="recherche">Recherche :</label>
-        <!-- le name indique le nom du champ -->
+        <!-- le name indique le nom du champ 名前はフィールドの名前を示します-->
         <input type="text" name="q" id="recherche" autofocus>
-        <!-- le type submit crée un bouton de soumission (envoi) de formulaire -->
+        <!-- le type submit crée un bouton de soumission (envoi) de formulaire 
+         送信タイプはフォーム送信ボタンを作成します-->
         <input type="submit" value="Envoyer">
     </form>
     <hr>
     <form action="./02-formulaire.html" method="post">
-        <!-- readonly permet que le champ ne soit pas modifiable, value pour mettre une valeur par défaut -->
+        <!-- readonly permet que le champ ne soit pas modifiable, value pour mettre une valeur par défaut.
+         readonly はフィールドを編集不可にし、value はデフォルト値を設定します。 --> 
         <input type="text" name="prenom" id="prenom" value="Maurice" readonly>
         <br>
-        <!-- placeholder permet d'afficher un texte qui s'effacera automatiquement quand l'utilisateur entre une information
-        disabled, permet de désactiver le champ -->
+        <!-- placeholder permet d'afficher un texte qui s'effacera automatiquement quand l'utilisateur entre une information disabled, permet de désactiver le champ -->
+        <!-- プレースホルダを使用すると、ユーザーが情報を入力したときに自動的にクリアされるテキストを表示できます。disabledにすると、フィールドを無効にすることができます。 -->
         <input type="text" name="nom" id="nom" placeholder="Votre nom" disabled>
         <br>
-        <!-- Permet un champ date avec calendrier -->
+        <!-- Permet un champ date avec calendrier カレンダー付きの日付フィールドを許可します-->
         <input type="date" name="birthday" id="birthday">
         <br>
-        <!-- permet une selection de couleur -->
+        <!-- permet une selection de couleur 色の選択が可能-->
         <input type="color" name="couleur" id="couleur">
         <br>
-        <!-- vérifie que le contenu soit bien conforme à la syntaxe d'un email -->
+        <!-- vérifie que le contenu soit bien conforme à la syntaxe d'un email 
+         コンテンツが電子メールの構文に準拠しているかどうかを確認します-->
         <input type="email" name="mail" id="mail">
         <br>
-        <!-- affiche les caractères sous forme de point -->
+        <!-- affiche les caractères sous forme de point 文字をドットとして表示します-->
         <input type="password" name="mdp" id="mdp">
         <br>
-        <!-- Permet l'envoi de fichier, multiple permet de pouvoir selectionner plusieurs fichiers d'un coup -->
+        <!-- Permet l'envoi de fichier, multiple permet de pouvoir selectionner plusieurs fichiers d'un coup 
+         ファイルを送信できます。複数選択では一度に複数のファイルを選択できます。-->
         <input type="file" name="fichier" id="fichier" multiple>
         <br>
         <input type="hidden" name="csrf">
-        <!-- permet un champ texte plus grand qu'un simple input et gérant les lignes multiples -->
+        <!-- permet un champ texte plus grand qu'un simple input et gérant les lignes multiples 
+         単純な入力よりも大きなテキストフィールドを許可し、複数行を処理できます。-->
         <textarea name="commentaire" id="comm"></textarea>
         <fieldset>
-            <!-- fieldset crée un cadre, si accompagné d'une legende, celle ci s'affiche en haut du cadre -->
+            <!-- fieldset crée un cadre, si accompagné d'une legende, celle ci s'affiche en haut du cadre
+             fieldset はフレームを作成します。キャプションが付いている場合は、フレームの上部に表示されます -->
             <legend>Quel catégorie appréciez vous ?</legend>
-            <!-- Checkbox crée une case à cocher -->
+            <!-- Checkbox crée une case à cocher. Checkboxはチェックボックスを作成します-->
             <input type="checkbox" name="aventure" id="av" checked>
             <label for="av">Aventure</label>
             <br>
@@ -57,7 +65,8 @@
         </fieldset>
         <fieldset>
             <legend>Choisi ton langage préféré :</legend>
-            <!-- Les radio portant le même nom, se décoche lorsque l'un d'entre eux est coché -->
+            <!-- Les radio portant le même nom, se décoche lorsque l'un d'entre eux est coché 
+             同じ名前のラジオは、そのうちの1つがチェックされているとチェックが外れます-->
             <input type="radio" name="langage" id="html" checked>
             <label for="html">HTML</label>
             <br>
@@ -66,19 +75,22 @@
             <br>
             <input type="radio" name="langage" id="js">
             <label for="js">Javascript</label>
-            <!-- pensez à ajouter une value aux radios, sinon la seule info qui sera envoyé c'est "langage=on" -->
+            <!-- pensez à ajouter une value aux radios, sinon la seule info qui sera envoyé c'est "langage=on" 
+             ラジオに値を追加することを忘れないでください。そうしないと、送信される情報は「language=on」のみになります。-->
         </fieldset>
         <!-- Crée une liste à choix -->
         <select name="repas" id="repas" multiple>
-            <!-- C'est la value qui est envoyé avec le formulaire et non le texte dans l'option -->
+            <!-- C'est la value qui est envoyé avec le formulaire et non le texte dans l'option.
+             これはフォームで送信される値であり、オプション内のテキストではありません。 -->
             <option value="pizza">Pizza !</option>
             <option value="pasta" selected>Pâtes !</option>
             <option value="burger">Burger !</option>
         </select>
-        <!-- l'attribut required rend un champ obligatoire à remplir pour pouvoir soumettre le formulaire -->
+        <!-- l'attribut required rend un champ obligatoire à remplir pour pouvoir soumettre le formulaire.
+          required 属性により、フォームを送信するためにフィールドへの入力が必須になります。-->
         <input type="text" name="test" id="test" required>
         <button type="submit">Envoyer</button>
-        <!-- Crée un bouton sans effet -->
+        <!-- Crée un bouton sans effet 効果のないボタンを作成する-->
         <input type="button" value="Coucou">
     </form>
 </body>
