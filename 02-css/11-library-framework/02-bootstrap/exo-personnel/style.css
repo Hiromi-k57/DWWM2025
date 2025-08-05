@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+:root{
+    --primary:#cbfb45;
+    --gray:#f2f2f2;
+    --lightGray:#f8f8f8;
+    --white:#ffffff;
+    --bkack:#171717;
+}
+body{  
+  font-family: "Sora", sans-serif;
+}
+.navbar .nav-link{
+    color: white;
+    font-weight: 700;
+}
+.btn-primary {
+    background-color: #cbfb45;
+    color:#171717;
+}
+
