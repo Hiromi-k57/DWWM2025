@@ -1,10 +1,16 @@
 <?php 
 session_start();
+//ここでCSRFトークンを生成
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrf_token = $_SESSION['csrf_token'];
 
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
     header("Location: ./app/user/signup.php");
      exit();
 }
+
 require 'db_conn.php';
 ?>
 <!DOCTYPE html>
@@ -20,20 +26,25 @@ require 'db_conn.php';
     <div class="main-section">
         <h1>Todo Liste <?= $_SESSION['user_name'] ?></h1><br>
         <div class="add-section">
-            <form action="./app/add.php" method="POST" autocomplete="off" >
-                <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>  
+            <form action="./app/add.php" method="POST" autocomplete="off"> 
+                <input type="hidden" 
+                    name="csrf_token" 
+                    value="<?= htmlspecialchars($csrf_token) ?>">  
+
+                <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                     <input type="text" 
-                            name="title"
-                            style="border-color: red;"
-                            placeholder="Ce champ est obligatoire"/>
-                    <button type="submit">Ajouter</button>
-                <?php }else{?>
+                        name="title"
+                        style="border-color: red;"
+                        placeholder="Ce champ est obligatoire"/>
+                <?php } else { ?>
                     <input type="text" 
-                            name="title" 
-                            placeholder="Que dois-tu faire ?">
-                    <button type="submit">Ajouter</button>
-                <?php }?>
+                        name="title" 
+                        placeholder="Que dois-tu faire ?">
+                <?php } ?>
+
+                <button type="submit">Ajouter</button>
             </form>
+
         </div>
 
         <?php 

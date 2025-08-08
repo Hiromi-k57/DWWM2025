@@ -1,9 +1,16 @@
 <?php 
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+//ここでCSRFトークンを生成
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrf_token = $_SESSION['csrf_token'];
 
- ?>
+//ログイン済みかどうかをチェック
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

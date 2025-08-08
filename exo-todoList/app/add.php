@@ -1,5 +1,10 @@
 <?php 
 session_start();
+//CSRFトークンの検証
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    // トークンが一致しない場合、アクセスを拒否（フランス語のメッセージ）
+    die('Le jeton CSRF est invalide.');
+}
 
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
     header("Location: ./app/user/signup.php");
