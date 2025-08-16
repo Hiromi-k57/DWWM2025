@@ -55,7 +55,7 @@
                  name="re_password" 
                  placeholder="Re_Password"><br>
           <label>
-          <img src="../services/_captcha_jp.php" alt="captcha"></label>
+          <img src="/app/services/_captcha_jp.php" alt="captcha"></label>
           <input type="text" name="captcha" placeholder="Captcha"><br>  
 
      	<button type="submit">Sign Up</button>

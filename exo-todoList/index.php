@@ -21,6 +21,7 @@ require 'db_conn.php';
     <link rel="stylesheet" href="./css/style.css">
     <title>Todo List</title>
     <script src="./js/script.js" defer></script>
+    <meta name="csrf_token" content="<?= htmlspecialchars($csrf_token) ?>">
 </head>
 <body>
     <div class="main-section">
@@ -63,8 +64,7 @@ require 'db_conn.php';
             
             <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
                 <div class="todo-item">
-                    <span id="<?php echo $todo['id']; ?>"
-                          class="remove-to-do">x</span>
+                    <span class="remove-to-do" data-todo-id="<?php echo $todo['id']; ?>">x</span>
                     <?php if($todo['checked']){?>
                         <input type="checkbox"
                                class="check-box"
@@ -87,46 +87,6 @@ require 'db_conn.php';
     </div>
      
 
-    <!-- <script src="./js/NG_jquery-3.2.1.min.js"></script> -->
-
-    <script>
-        /* $(document).ready(function(){
-            $('.remove-to-do').click(function(){
-                const id = $(this).attr('id'); // ここでのattr('id')はtodos list 各タイトルのid
-                
-                $.post("./app/remove.php",
-                    {
-                        id: id
-                    },
-                    (data) => {
-                        if(data){
-                            $(this).parent().hide(600);
-                        }
-                    }
-                );
-            });
-            $(".check-box").click(function(e){
-                const id = $(this).attr('data-todo-id');
-                
-                $.post("./app/check.php",
-                    {
-                        id: id
-                    },
-                    (data) => {
-                        if(data != 'error'){
-                            const h2 = $(this).next();
-                            if(data === '1'){
-                                h2.removeClass('checked');
-                            }else {
-                                h2.addClass('checked');
-                            }
-                        }
-                    }
-                );
-            });
-
-        }); */
-    </script>
-
+   
 </body>
 </html>

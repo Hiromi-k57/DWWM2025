@@ -18,7 +18,7 @@
      	<label>Password</label>
      	<input type="password" name="password" placeholder="Password"><br>
 
-     	<button type="submit" onclick="loction.href='home.php'">Login</button>
+     	<button type="submit" onclick="location.href='home.php'">Login</button>
           <a href="signup.php" class="ca">Create an account</a>
      </form>
 </body>

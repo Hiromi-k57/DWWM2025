@@ -13,8 +13,6 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
 // -------------------------
 // 2. CSRFトークン検証
 // -------------------------
-// フォームやAJAXから送られてきたトークンが、
-// セッションに保存されているトークンと一致するか確認
 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
     echo "error_csrf"; // CSRFトークン不一致
     exit();
@@ -23,40 +21,25 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
 // -------------------------
 // 3. IDパラメータの検証
 // -------------------------
-// POSTされた "id" が存在していて、整数値のみで構成されているかを確認
-if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
-    require '../db_conn.php'; // DB接続
-
-    $id = (int) $_POST['id']; // 数値型にキャストしてSQLインジェクション対策
-
-    // -------------------------
-    // 4. 権限チェック
-    // -------------------------
-    // 削除対象のタスクが、現在ログインしているユーザーのものかを確認
-    $stmt = $conn->prepare("SELECT id FROM todos WHERE id = ? AND userId = ?");
-    $stmt->execute([$id, $_SESSION['id']]);
-    $todo = $stmt->fetch();
-
-    if ($todo) {
-        // -------------------------
-        // 5. 削除処理
-        // -------------------------
-        $res = $conn->prepare("DELETE FROM todos WHERE id = ?");
-        $deleteRes = $res->execute([$todo['id']]);
-
-        if ($deleteRes) {
-            echo "success"; // 削除成功
-        } else {
-            echo "error_delete"; // 削除失敗（DBエラーなど）
-        }
-    } else {
-        echo "error_not_found"; // 該当タスクが見つからない（または他人のタスク）
-    }
-
-    $conn = null; // DB接続を閉じる
-    exit();
-
-} else {
+if (!isset($_POST['id']) || !ctype_digit($_POST['id'])) {
     echo "error_id"; // IDが無効または未指定
     exit();
 }
+
+require '../db_conn.php'; // DB接続
+$id = (int) $_POST['id']; // 数値型にキャスト
+
+// -------------------------
+// 4. 削除処理（ユーザーIDも条件に追加）
+// -------------------------
+$stmt = $conn->prepare("DELETE FROM todos WHERE id = ? AND userId = ?");
+$res = $stmt->execute([$id, $_SESSION['id']]);
+
+if ($res && $stmt->rowCount() > 0) {
+    echo "success"; // 削除成功
+} else {
+    echo "error_delete"; // 該当タスクなし or 削除失敗
+}
+
+$conn = null; // DB切断
+exit();
