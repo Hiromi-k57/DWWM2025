@@ -75,11 +75,11 @@ require 'db_conn.php';
                         <input type="checkbox"
                             data-todo-id ="<?php echo $todo['id']; ?>"
                             class="check-box"/>
-                        <h2><?php echo $todo['title'] ?></h2>
+                        <h2><?php echo htmlspecialchars($todo['title']) ?></h2>
                     <?php } ?>
 
                     <br>
-                    <small>Créé: <?php echo $todo['date_time'] ?></small>                    
+                    <small>Créé: <?php echo htmlspecialchars($todo['date_time']) ?></small>                    
             </div>
             <?php }?>
         </div>

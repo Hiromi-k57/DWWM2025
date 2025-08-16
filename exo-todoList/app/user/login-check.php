@@ -1,69 +1,87 @@
 <?php 
-// セッション開始, DB接続
 session_start(); 
 include "../../db_conn.php";
 
-// ユーザー名（uname）とパスワード（password）が送信されているか確認
+// ----------------------------
+// ログイン試行回数の初期化
+// ----------------------------
+if (!isset($_SESSION['login_attempts'])) {
+    $_SESSION['login_attempts'] = 0;
+}
+if (!isset($_SESSION['last_attempt_time'])) {
+    $_SESSION['last_attempt_time'] = time();
+}
+
+// ----------------------------
+// 1. ロックアウト判定
+// ----------------------------
+// 3回失敗したら30秒ロック
+$lockout_time = 30; // 秒
+$max_attempts = 3;
+
+if ($_SESSION['login_attempts'] >= $max_attempts) {
+    if (time() - $_SESSION['last_attempt_time'] < $lockout_time) {
+        header("Location: login.php?error=Trop de tentatives. Réessayez dans 30 secondes.");
+        exit();
+    } else {
+        // ロック解除
+        $_SESSION['login_attempts'] = 0;
+    }
+}
+
+// ----------------------------
+// 2. フォーム入力の確認
+// ----------------------------
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
-	// この validate関数はユーザーから送信されたデータを安全に処理するため
 	function validate($data){
-       $data = trim($data); //文字列の先頭と末尾の空白を削除
-	   $data = stripslashes($data); //バックスラッシュ（\）を削除します。フォーム送信時に自動で追加される場合があります
-	   $data = htmlspecialchars($data); //特殊文字（例：< や >）をHTMLエンティティに変換、XSS（クロスサイトスクリプティング）対策
-	   return $data; //加工したデータを返します
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
 	}
 
 	$uname = validate($_POST['uname']);
 	$pass = trim($_POST['password']);
 
-	// ユーザー名が空なら、エラーメッセージ（User Name is required）付きでログイン画面に戻す
 	if (empty($uname)) {
-		header("Location: login.php?error=User Name is required");
+		header("Location: login.php?error=Nom d'utilisateur requis");
 	    exit();
-	// パスワードが空なら、エラーメッセージ（Password is required）付きでログイン画面に戻す
 	}else if(empty($pass)){
-        header("Location: login.php?error=Password is required");
+        header("Location: login.php?error=Mot de passe requis");
 	    exit();
 	}else{
-		// md5 = 文字列をハッシュ化 脆弱性が確認, 要変更
-        // $pass = md5($pass);
-
-        
 		$sql = "SELECT * FROM users WHERE user_name=?";
-
-		// $result = mysqli_query($conn, $sql);
 		$sql = $conn->prepare($sql);
 		$sql->execute([$uname]);
 
-		// データベースから取得したユーザー情報を使ってログイン認証を行う処理
-		// *検索結果が1件だけなら（ユーザー名とパスワードが一致するユーザーがいる場合）
-		// if (mysqli_num_rows($result) === 1) {
 		if ($sql->rowCount() === 1) {
-			// そのユーザー情報を取得
-			// $row = mysqli_fetch_assoc($result);
 			$row = $sql->fetch();
-			// 取得したユーザー名とパスワードが、送信されたものと一致するか再確認
-			//*一致すればセッションにユーザー情報を保存し、home.php（ログイン後のページ）へ移動
-            if (password_verify($pass, $row["password"])) {
+			if (password_verify($pass, $row["password"])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
+
+                // 成功したら試行回数をリセット
+                $_SESSION['login_attempts'] = 0;
+
             	header("Location: home.php");
 		        exit();
-			//*一致しなければエラーメッセージ付きでログイン画面に戻す
-            }else{
-				header("Location: login.php?error=Incorect User name or password");
+			}else{
+                // パスワード間違い → 試行回数を増加
+                $_SESSION['login_attempts']++;
+                $_SESSION['last_attempt_time'] = time();
+				header("Location: login.php?error=Nom d'utilisateur ou mot de passe incorrect");
 		        exit();
 			}
-		// 検索結果が0件なら同じくエラーメッセージ付きでログイン画面に戻す
 		}else{
-			header("Location: index.php?error=Incorect User name or password");
+            // ユーザー名が存在しない → 試行回数を増加
+            $_SESSION['login_attempts']++;
+            $_SESSION['last_attempt_time'] = time();
+			header("Location: login.php?error=Nom d'utilisateur ou mot de passe incorrect");
 	        exit();
 		}
 	}
-
-//ログインページに直接アクセスした場合（POSTでデータが送信されていない場合）に、ログイン画面（index.php）へ強制的に戻す処理
 }else{
 	header("Location: index.php");
 	exit();

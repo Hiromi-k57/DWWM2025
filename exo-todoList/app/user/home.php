@@ -21,7 +21,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<title>HOME</title>
 </head>
 <body>
-     <h1>Hello, <?php echo $_SESSION['name']; ?></h1><br>
+     <h1>Hello, <?php echo htmlspecialchars($_SESSION['name']); ?></h1><br>
      <a href="../../index.php">Todo List</a>
      <br>
      <a href="logout.php">Logout</a>
