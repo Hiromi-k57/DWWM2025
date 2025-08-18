@@ -3,64 +3,57 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet"  href="../../css/signup.css">
-	<title>SIGN UP</title>
+     <link rel="stylesheet" href="../../css/signup.css">
+     <title>Inscription</title>
 </head>
 <body>
      <form action="signup-check.php" method="post">
-     	<h2>SIGN UP</h2>
-          <!-- URLのクエリパラメータにerrorがあれば、その内容をエラーメッセージとして表示。同様に、成功メッセージも表示 -->
-     	<?php 
-          if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo htmlspecialchars($_GET['error'])?></p>
-     	<?php } ?>
+          <h2>Inscription</h2>
 
-          <?php if (isset($_GET['success'])) { ?>
-               <p class="success"><?php echo htmlspecialchars($_GET['success'])?></p>
-          <?php } ?>
+          <?php 
+          // Afficher un message d'erreur s'il est présent dans l'URL
+          // （URLに error があれば表示）
+          if (isset($_GET['error'])): ?>
+               <p class="error"><?= htmlspecialchars($_GET['error']) ?></p>
+          <?php endif; ?>
 
-          <label>Name</label>
-          <!-- 「name」パラメータが設定されているか確認。設定されていれば、その値をvalue属性に入れて、入力欄に表示。設定されていなければ、空の入力欄を表示。 -->
-          <?php if (isset($_GET['name'])) { ?>
-               <input type="text" 
-                      name="name" 
-                      placeholder="Name"
-                      value="<?php echo $_GET['name']; ?>"><br>
-          <?php }else{ ?>
-               <input type="text" 
-                      name="name" 
-                      placeholder="Name"><br>
-          <?php }?>
+          <?php 
+          // Afficher un message de succès s'il est présent dans l'URL
+          // （URLに success があれば表示）
+          if (isset($_GET['success'])): ?>
+               <p class="success"><?= htmlspecialchars($_GET['success']) ?></p>
+          <?php endif; ?>
 
-          <label>User Name</label>
-          <?php if (isset($_GET['uname'])) { ?>
-               <input type="text" 
-                      name="uname" 
-                      placeholder="User Name"
-                      value="<?php echo $_GET['uname']; ?>"><br>
-          <?php }else{ ?>
-               <input type="text" 
-                      name="uname" 
-                      placeholder="User Name"><br>
-          <?php }?>
+          <label>Nom complet</label>
+          <?php if (isset($_GET['name'])): ?>
+               <input type="text" name="name" placeholder="Votre nom complet"
+                      value="<?= htmlspecialchars($_GET['name']) ?>"><br>
+          <?php else: ?>
+               <input type="text" name="name" placeholder="Votre nom complet"><br>
+          <?php endif; ?>
 
+          <label>Nom d’utilisateur</label>
+          <?php if (isset($_GET['uname'])): ?>
+               <input type="text" name="uname" placeholder="Nom d’utilisateur"
+                      value="<?= htmlspecialchars($_GET['uname']) ?>"><br>
+          <?php else: ?>
+               <input type="text" name="uname" placeholder="Nom d’utilisateur"><br>
+          <?php endif; ?>
 
-     	<label>Password</label>
-     	<input type="password" 
-                 name="password" 
-                 placeholder="Password"><br>
+          <label>Mot de passe</label>
+          <input type="password" name="password" placeholder="Mot de passe"><br>
 
-          <label>Re Password</label>
-          <input type="password" 
-                 name="re_password" 
-                 placeholder="Re_Password"><br>
-          <label>
-          <img src="/app/services/_captcha_jp.php" alt="captcha"></label>
-          <input type="text" name="captcha" placeholder="Captcha"><br>  
+          <label>Confirmez le mot de passe</label>
+          <input type="password" name="re_password" placeholder="Confirmez le mot de passe"><br>
 
-     	<button type="submit">Sign Up</button>
-          <a href="login.php" class="ca">Already have an account?</a>
+          <label>Captcha</label><br>
+          <!-- Image générée par PHP pour vérifier que l’utilisateur n’est pas un robot
+               （PHPで生成した画像。ボット対策） -->
+          <img src="../services/_captcha_jp.php" alt="captcha"><br>
+          <input type="text" name="captcha" placeholder="Entrez le texte de l’image" required><br>
+
+          <button type="submit">S’inscrire</button>
+          <a href="login.php" class="ca">Vous avez déjà un compte ?</a>
      </form>
 </body>
 </html>
-

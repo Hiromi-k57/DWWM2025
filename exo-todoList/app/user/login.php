@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../css/signup.css">
-	<title>LOGIN</title>
+    <title>Connexion</title>
 </head>
 <body>
-     <form action="login-check.php" method="post">
-     	<h2>LOGIN</h2>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-     	<label>User Name</label>
-     	<input type="text" name="uname" placeholder="User Name"><br>
+    <form action="login-check.php" method="post">
+        <h2>Connexion</h2>
 
-     	<label>Password</label>
-     	<input type="password" name="password" placeholder="Password"><br>
+        <!-- Afficher les messages d'erreur ou de succès si présents dans l’URL -->
+        <!-- （エラーメッセージや成功メッセージがURLにあれば表示） -->
+        <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?= htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8') ?></p>
+        <?php } ?>
 
-     	<button type="submit" onclick="location.href='home.php'">Login</button>
-          <a href="signup.php" class="ca">Create an account</a>
-     </form>
+        <?php if (isset($_GET['success'])) { ?>
+            <p class="success"><?= htmlspecialchars($_GET['success'], ENT_QUOTES, 'UTF-8') ?></p>
+        <?php } ?>
+
+        <label>Nom d'utilisateur</label>
+        <input type="text" 
+               name="uname" 
+               placeholder="Nom d’utilisateur"><br>
+
+        <label>Mot de passe</label>
+        <input type="password" 
+               name="password" 
+               placeholder="Votre mot de passe"><br>
+
+        <button type="submit">Se connecter</button>
+        <a href="signup.php" class="ca">Créer un compte</a>
+    </form>
 </body>
 </html>

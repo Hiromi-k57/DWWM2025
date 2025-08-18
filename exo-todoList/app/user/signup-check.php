@@ -1,94 +1,90 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 include "../../db_conn.php";
 
-// POSTデータの存在確認,データ送信されているか
-if (isset($_POST['uname']) && isset($_POST['password'])
-    && isset($_POST['name']) && isset($_POST['re_password'])) {
+// Vérifier la présence des champs requis envoyés par POST
+// （必須POST項目が揃っているか確認）
+if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_password'], $_POST['captcha'])) {
 
-	//function validat = 入力されたデータの前後の空白を取り除き、特殊文字をエスケープし、安全に処理できるように
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
-	// ユーザーから送信された値をvalidate()で処理し、それぞれの変数に格納
-	$uname = validate($_POST['uname']);
-	$pass = trim($_POST['password']);
+    // Fonction simple de nettoyage des données
+    // （基本のサニタイズ）
+    function validate($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    }
 
-	$re_pass = trim($_POST['re_password']);
-	$name = validate($_POST['name']);
-	$captcha = trim($_POST["captcha"]);
+    // Récupération et nettoyage
+    $uname    = validate($_POST['uname']);
+    $name     = validate($_POST['name']);
+    $pass     = trim($_POST['password']);
+    $re_pass  = trim($_POST['re_password']);
+    $captcha  = trim($_POST['captcha']);
 
-	$user_data = 'uname='. $uname. '&name='. $name;
+    // Conserver les valeurs utiles en cas d'erreur pour pré-remplir le formulaire
+    // （エラー時に値を保持して再表示）
+    $user_data = 'uname=' . urlencode($uname) . '&name=' . urlencode($name);
 
-	//各入力項目が空でないかを確認し、空の場合はエラーメッセージとともにsignup.phpにリダイレクト
-	if (empty($uname)) {
-		header("Location: signup.php?error=User Name is required&$user_data");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: signup.php?error=Password is required&$user_data");
-	    exit();
-	}
-	else if(empty($re_pass)){
-        header("Location: signup.php?error=Re Password is required&$user_data");
-	    exit();
-	}
+    // Contrôles de base
+    if ($uname === '') {
+        header("Location: signup.php?error=Le nom d’utilisateur est requis&$user_data");
+        exit();
+    }
+    if ($pass === '') {
+        header("Location: signup.php?error=Le mot de passe est requis&$user_data");
+        exit();
+    }
+    if ($re_pass === '') {
+        header("Location: signup.php?error=La confirmation du mot de passe est requise&$user_data");
+        exit();
+    }
+    if ($name === '') {
+        header("Location: signup.php?error=Le nom complet est requis&$user_data");
+        exit();
+    }
+    if ($pass !== $re_pass) {
+        header("Location: signup.php?error=La confirmation du mot de passe ne correspond pas&$user_data");
+        exit();
+    }
 
-	else if(empty($name)){
-        header("Location: signup.php?error=Name is required&$user_data");
-	    exit();
-	}
+    // Vérification du CAPTCHA（大文字小文字の揺れ対策で大文字化）
+    if (!isset($_SESSION['captcha']) || strtoupper($captcha) !== $_SESSION['captcha']) {
+        header("Location: signup.php?error=Le captcha est incorrect&$user_data");
+        exit();
+    }
 
-	else if($pass !== $re_pass){
-        header("Location: signup.php?error=The confirmation password  does not match&$user_data");
-	    exit();
-	}
-	else if($captcha !== $_SESSION["captcha"]){
-        header("Location: signup.php?error=The captcha doesn't match");
-	    exit();
-	}
+    // Vérifier si l’utilisateur existe déjà
+    $stmt = $conn->prepare("SELECT id FROM users WHERE user_name = ?");
+    $stmt->execute([$uname]);
+    if ($stmt->rowCount() > 0) {
+        header("Location: signup.php?error=Ce nom d’utilisateur est déjà pris&$user_data");
+        exit();
+    }
 
-	else{
+    // Hacher le mot de passe
+    $hashed = password_hash($pass, PASSWORD_DEFAULT);
 
-		//要変更
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
+    // Insérer l’utilisateur
+    $stmt = $conn->prepare("INSERT INTO users (user_name, password, name) VALUES (?, ?, ?)");
+    $ok = $stmt->execute([$uname, $hashed, $name]);
 
-		// 直接変数$unameをSQL文に埋め込むと、SQLインジェクションのリスクが高まるため、プレースホルダやエスケープ処理に要変更
-	    $sql = "SELECT * FROM users WHERE user_name=? ";
-		// $result = mysqli_query($conn, $sql);
-		$result = $conn->prepare($sql);
-		$result->execute([$uname]);
+    if ($ok) {
+        // Sécurité : régénérer l’ID de session après l’inscription（セッション固定対策）
+        session_regenerate_id(true);
 
-		// if (mysqli_num_rows($result) > 0) {
-		if ($result->rowCount() > 0) {
-			//データベース内に同じユーザ名が既に存在するかを調べ、重複していればエラー
-			header("Location: signup.php?error=The username is taken try another&$user_data");
-	        exit();
-		}else {
-			//重複がなければ、ユーザ名、ハッシュ化したパスワード、名前をデータベースに挿入
-           $sql2 = "INSERT INTO users(user_name, password, name) VALUES(?,?,?)";
-        //    $result2 = mysqli_query($conn, $sql2);
-			$stmt = $conn->prepare($sql2);
-			$result2 = $stmt->execute([$uname, $pass, $name]);
+        // Démarrer la session applicative
+        $_SESSION['user_name'] = $uname;
+        $_SESSION['name']      = $name;
+        $_SESSION['id']        = $conn->lastInsertId();
 
-		   //登録が成功した場合は成功メッセージとともにリダイレクトし、失敗した場合はエラーメッセージとともにリダイレクト
-           if ($result2) {
-
-			$_SESSION['user_name'] = $uname;
-			$_SESSION['name'] = $name;
-			$_SESSION['id'] = $conn->lastInsertId();
-           	 header("Location: home.php?success=Your account has been created successfully");
-	         exit();
-           }else {
-	           	header("Location: signup.php?error=unknown error occurred&$user_data");
-		        exit();
-           }
-		}
-	}
-	
-}else{
-	header("Location: signup.php");
-	exit();
+        header("Location: home.php?success=Votre compte a été créé avec succès");
+        exit();
+    } else {
+        header("Location: signup.php?error=Une erreur inconnue est survenue&$user_data");
+        exit();
+    }
+} else {
+    // Accès direct sans formulaire
+    header("Location: signup.php");
+    exit();
 }
