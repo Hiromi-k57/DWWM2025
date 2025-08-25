@@ -1,50 +1,57 @@
 <?php
-// セッション開始
+// Pas d'espaces avant ce tag. （先頭に空白禁止）
 session_start();
 
-// ユーザーがログインしているか確認
-if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
-    echo "error";
+/* 1) Refuser l'accès direct : seulement en POST
+   （1) 直アクセス禁止：POSTのみ受け付け） */
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo "error_method";
     exit();
 }
 
-// CSRFトークン検証
+/* 2) Authentification requise
+   （2) ログイン必須） */
+if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
+    echo "error_auth";
+    exit();
+}
+
+/* 3) Vérification du jeton CSRF
+   （3) CSRFトークン検証） */
 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
     echo "error_csrf";
     exit();
 }
 
-// IDの存在確認と型チェック
-if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
-    require '../db_conn.php';
-
-    $id = (int) $_POST['id'];
-
-    // 該当タスクが現在のユーザーのものか確認
-    $todos = $conn->prepare("SELECT id, checked FROM todos WHERE id = ? AND userId = ?");
-    $todos->execute([$id, $_SESSION['id']]);
-    $todo = $todos->fetch();
-
-    if ($todo) {
-        $uChecked = $todo['checked'] ? 0 : 1;
-
-        // 状態を更新
-        $res = $conn->prepare("UPDATE todos SET checked = ? WHERE id = ?");
-        $updateRes = $res->execute([$uChecked, $todo['id']]);
-
-        if ($updateRes) {
-            echo $uChecked; // 新しい状態を返す
-        } else {
-            echo "error_update";
-        }
-    } else {
-        echo "error_not_found";
-    }
-
-    $conn = null;
-    exit();
-
-} else {
+/* 4) Validation du paramètre id (présence + chiffres uniquement)
+   （4) id の検証：存在＋数字のみ） */
+if (!isset($_POST['id']) || !ctype_digit($_POST['id'])) {
     echo "error_id";
     exit();
 }
+
+require_once '../db_conn.php';
+$id = (int)$_POST['id'];
+
+/* 5) Vérifier la propriété + récupérer l'état actuel
+   （5) 所有者チェック＋現在のチェック状態の取得） */
+$todos = $conn->prepare("SELECT id, checked FROM todos WHERE id = ? AND userId = ?");
+$todos->execute([$id, $_SESSION['id']]);
+$todo = $todos->fetch(PDO::FETCH_ASSOC);
+
+if (!$todo) {
+    echo "error_not_found"; // 該当タスクなし or 他人のタスク
+    exit();
+}
+
+/* 6) Basculer l'état (0↔1)
+   （6) チェック状態を反転） */
+$newChecked = $todo['checked'] ? 0 : 1;
+
+$up = $conn->prepare("UPDATE todos SET checked = ? WHERE id = ?");
+$ok = $up->execute([$newChecked, $id]);
+
+/* 7) Réponse : retourner le nouvel état (0/1) ou un message d’erreur
+   （7) レスポンス：新しい状態（0/1）を返す or エラー） */
+echo $ok ? (string)$newChecked : "error_update";
+exit();

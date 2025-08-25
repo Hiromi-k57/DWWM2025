@@ -1,12 +1,13 @@
 <?php
-//まずsession_start()でセッションを開始し、その後session_unset()とsession_destroy()でセッションの内容をクリアし、破棄。最後にheader()関数を使って、ユーザーをトップページに移動 
-// セッションを開始（出力よりも前に）
+// Pas d'espaces avant ce tag. （先頭に空白禁止）
 session_start();
 
-// セッションをすべて削除してログアウト
+/* Déconnexion : vider et détruire la session
+   （ログアウト：セッションの内容をクリアし、破棄） */
 session_unset();
 session_destroy();
 
-// ホーム画面にリダイレクト
+/* Redirection vers la page d’accueil
+   （トップページへリダイレクト） */
 header("Location: ../../index.php");
 exit();

@@ -1,44 +1,51 @@
-<?php 
+<?php
 session_start();
-//CSRFトークンの検証
-if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    // トークンが一致しない場合、アクセスを拒否（フランス語のメッセージ）
-    header("Location: ../index.php?mess=error_csrf"); // ← 画面側で表示
-}
-// フォーム以外のアクセス（GETなど）は受け付けない
+
+/* 1) Refuser l'accès direct : seulement en POST
+   （1) 直アクセス禁止：POSTのみ受け付け） */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../index.php");
     exit();
 }
-// ログイン必須
+
+/* 2) Authentification requise
+   （2) ログイン必須） */
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
-    header("Location: ./app/user/signup.php");
-     exit();
+    header("Location: ../app/user/signup.php");
+    exit();
 }
-if(isset($_POST['title'])){
-    require '../db_conn.php';
-    
-    $title = $_POST['title']; //input name=title
-    // echo $title;
 
-    if(empty($title)){
-        //空の場合、リダイレクトを行い、クエリパラメータ`mess=error`を付与したURLに遷移
-        header("Location: ../index.php?mess=error"); //空白入力したらURIがこうなる
-    }else {
-        //テーブルに新しい行を挿入
-        $stmt = $conn->prepare("INSERT INTO todos(title, userId) VALUE(?, ?)");
-        $res = $stmt->execute([$title, $_SESSION['id']]);
-
-        if($res){
-            header("Location: ../index.php?mess=success");
-        }else{
-            header("Location: ../index.php");
-        }
-        $conn = null;
-        exit();
-
-    }
-}else {
-header("Location: ../index.php?mess=error");
+/* 3) Vérification du jeton CSRF
+   （3) CSRFトークン検証） */
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    header("Location: ../index.php?mess=error_csrf"); // 画面側で表示
+    exit();
 }
-?>
+
+/* 4) Validation du champ "title"
+   （4) タイトルの検証） */
+if (!isset($_POST['title'])) {
+    header("Location: ../index.php?mess=error");
+    exit();
+}
+$title = trim($_POST['title']); // 前後空白除去
+if ($title === '') {
+    header("Location: ../index.php?mess=error");
+    exit();
+}
+
+require_once '../db_conn.php';
+
+/* 5) Insertion dans la base
+   （5) DBへINSERT） */
+$stmt = $conn->prepare("INSERT INTO todos (title, userId) VALUES (?, ?)");
+$ok   = $stmt->execute([$title, $_SESSION['id']]);
+
+/* 6) Redirection selon le résultat
+   （6) 結果に応じてリダイレクト） */
+if ($ok) {
+    header("Location: ../index.php?mess=success");
+} else {
+    header("Location: ../index.php");
+}
+exit();
