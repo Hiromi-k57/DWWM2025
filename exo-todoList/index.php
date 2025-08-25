@@ -43,7 +43,8 @@ require 'db_conn.php';
                     <input type="text" name="title" style="border-color: red;"
                            placeholder="Ce champ est obligatoire"/>
                 <?php } else { ?>
-                    <input type="text" name="title" placeholder="Que dois-tu faire ?">
+                    <input type="text" name="title" placeholder="Que dois-tu faire ?" required>
+
                 <?php } ?>
 
                 <button type="submit">Ajouter</button>

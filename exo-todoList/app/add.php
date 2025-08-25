@@ -22,14 +22,14 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
     exit();
 }
 
-/* 4) Validation du champ "title"
+/* 4) Validation du champ "title" 
    （4) タイトルの検証） */
 if (!isset($_POST['title'])) {
     header("Location: ../index.php?mess=error");
     exit();
 }
-$title = trim($_POST['title']); // 前後空白除去
-if ($title === '') {
+$title = trim($_POST['title']); // ← 空白削除
+if (empty($title)) {            // ← 空白だけならここで弾かれる
     header("Location: ../index.php?mess=error");
     exit();
 }
