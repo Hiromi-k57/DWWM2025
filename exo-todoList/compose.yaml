@@ -9,14 +9,16 @@ services:
             - "8080:80"  #docker内で使ってる番号と被らないように(8080部分)。被る場合はdockerで被ってる番号をstopする,それかこの番号を変える
         volumes:  
             - .:/var/www/html  
-        # environment:  
+        environment:  
+            - TZ=Europe/Paris
         #     - SUPER_ENVIRONEMENT_VARIABLE=Mon Super Site
     mysql:  
-        image: mariadb  
+        image: mariadb
         container_name: to_do_list
         restart: always  
         environment:  
-            - MARIADB_ROOT_PASSWORD=root  
+            - MARIADB_ROOT_PASSWORD=root
+            - TZ=Europe/Paris
         ports:  
             - "3308:3306"  
         # volumes:  
