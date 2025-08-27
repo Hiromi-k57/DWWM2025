@@ -6,7 +6,7 @@
 }
 
 body {
-	background: #1690A7;
+	background: #81d8D0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,11 +15,13 @@ body {
 }
 
 form {
-	width: 500px;
+	max-width: 500px;   
+	width: 90%;         /* 画面が狭いときは90%に可変 */
 	border: 2px solid #ccc;
 	padding: 30px;
 	background: #fff;
 	border-radius: 15px;
+	margin-top: 5rem;
 }
 
 h2 {
@@ -86,3 +88,10 @@ h1 {
 .ca:hover {
 	text-decoration: underline;
 } 
+/* === Accessibilité clavier : focus visible（キーボード操作時だけ枠表示） === */
+input:focus-visible,
+button:focus-visible,
+a.ca:focus-visible {
+  outline: 3px solid #1690A7;
+  outline-offset: 2px;
+}
