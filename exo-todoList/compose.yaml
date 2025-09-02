@@ -11,17 +11,19 @@ services:
             - .:/var/www/html  
         environment:  
             - TZ=Europe/Paris
+            - DB_PASSWORD=${DB_PASSWORD}
         #     - SUPER_ENVIRONEMENT_VARIABLE=Mon Super Site
     mysql:  
         image: mariadb
         container_name: to_do_list
         restart: always  
         environment:  
-            - MARIADB_ROOT_PASSWORD=root
+            - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
             - TZ=Europe/Paris
         ports:  
             - "3308:3306"  
-        # volumes:  
+        volumes:  
+            - data:/var/lib/mysql
         #     - ./mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
 
     phpmyadmin:  
@@ -35,3 +37,5 @@ services:
             PMA_HOST: mysql  
         ports:  
             - "8081:80"
+volumes:
+    data: null

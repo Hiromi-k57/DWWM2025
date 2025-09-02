@@ -1,5 +1,10 @@
 <?php
 session_start();
+/* function redirectTo($message)
+{
+    header("Location: ../index.php?mess=$message");
+    exit();
+} */
 
 /* 1) Refuser l'accès direct : seulement en POST
    （1) 直アクセス禁止：POSTのみ受け付け） */
