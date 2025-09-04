@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /* Génération du jeton CSRF (sécurité contre CSRF)
    （CSRF対策：トークン生成） */
@@ -11,7 +10,7 @@ $csrf_token = $_SESSION['csrf_token'];
 /* Vérification d’authentification : accès réservé aux utilisateurs connectés
    （認証チェック：未ログインならサインアップへ） */
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
-    header("Location: ./app/user/signup.php");
+    header("Location: /signup");
     exit();
 }
 

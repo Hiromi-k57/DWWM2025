@@ -1,9 +1,7 @@
 <?php
-session_start();
-
 /* Vérification d’authentification（認証チェック） */
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
-    header("Location: signup.php");
+    header("Location: /signup");
     exit();
 }
 ?>
@@ -12,7 +10,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="../../css/signup.css">
+     <link rel="stylesheet" href="/assets/css/signup.css">
      <title>Accueil</title>
 </head>
 <body>
@@ -20,11 +18,11 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
       （表示名はユーザー入力なので必ずエスケープ） -->
      <h1>Bonjour, <?= htmlspecialchars($_SESSION['name'], ENT_QUOTES, 'UTF-8') ?></h1><br>
 
-     <a href="../../index.php">Aller à la liste de tâches</a>
+     <a href="/">Aller à la liste de tâches</a>
      <br>
-     <a href="logout.php">Déconnexion</a>
+     <a href="/logout">Déconnexion</a>
      <br>
-     <a href="delete-account.php" style="color:red;">Supprimer mon compte</a>
+     <a href="/delete-account" style="color:red;">Supprimer mon compte</a>
 
 </body>
 </html>

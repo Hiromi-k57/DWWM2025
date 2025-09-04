@@ -1,32 +1,16 @@
-<?php session_start();
-$message = $_SESSION["message"]??[];
-unset($_SESSION["message"]);
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="../../css/signup.css">
+     <link rel="stylesheet" href="/assets/css/signup.css">
      <title>Inscription</title>
 </head>
 <body>
-     <form action="signup-check.php" method="post">
+     <form action="/signup" method="post">
           <h2>Inscription</h2>
 
-          <?php 
-          // Afficher un message d'erreur s'il est présent dans l'URL
-          // （URLに error があれば表示）
-          if (isset($message['error'])): ?>
-               <p class="error"><?= htmlspecialchars($message['error']) ?></p>
-          <?php endif; ?>
-
-          <?php 
-          // Afficher un message de succès s'il est présent dans l'URL
-          // （URLに success があれば表示）
-          if (isset($message['success'])): ?>
-               <p class="success"><?= htmlspecialchars($message['success']) ?></p>
-          <?php endif; ?>
+          <?php displayFlashMessage(); ?>
 
           <label>Nom complet</label>
           <?php if (isset($_GET['name'])): ?>
@@ -55,11 +39,11 @@ unset($_SESSION["message"]);
           <label>Captcha</label><br>
           <!-- Image générée par PHP pour vérifier que l’utilisateur n’est pas un robot
                （PHPで生成した画像。ボット対策） -->
-          <img src="../services/_captcha_jp.php" alt="captcha" class="img_captcha"><br>
+          <img src="/captcha" alt="captcha" class="img_captcha"><br>
           <input type="text" name="captcha" placeholder="Entrez le texte de l’image" required><br>
 
           <button type="submit">S’inscrire</button>
-          <a href="login.php" class="ca">Vous avez déjà un compte ?</a>
+          <a href="/login" class="ca">Vous avez déjà un compte ?</a>
      </form>
 </body>
 </html>

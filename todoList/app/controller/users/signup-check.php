@@ -1,18 +1,9 @@
 <?php
-session_start();
-include "../../db_conn.php";
+include __DIR__."/../../model/users.php";
 
 // Vérifier la présence des champs requis envoyés par POST
 // （必須POST項目が揃っているか確認）
 if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_password'], $_POST['captcha'])) {
-
-    // Fonction simple de nettoyage des données
-    // （基本のサニタイズ）
-    function validate($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    }
 
     // Récupération et nettoyage
     $uname    = validate($_POST['uname']);
@@ -54,45 +45,36 @@ if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_passwo
     }
 
     // Vérifier si l’utilisateur existe déjà
-    $stmt = $conn->prepare("SELECT id FROM users WHERE user_name = ?");
-    $stmt->execute([$uname]);
-    if ($stmt->rowCount() > 0) {
+    $user = getUserByName($uname);
+    if ($user) {
         $error = "Ce nom d’utilisateur est déjà pris";
     }
 
     if(!empty($error))
     {
-        redirectTo("signup.php?$user_data","error", $error);
+        redirectTo("/signup?$user_data","error", $error);
     }
     // Hacher le mot de passe
     $hashed = password_hash($pass, PASSWORD_DEFAULT);
 
     // Insérer l’utilisateur
-    $stmt = $conn->prepare("INSERT INTO users (user_name, password, name) VALUES (?, ?, ?)");
-    $ok = $stmt->execute([$uname, $hashed, $name]);
+    $id = addUser($uname, $hashed, $name);
 
-    if ($ok) {
+    if ($id !== 0) {
         // Sécurité : régénérer l’ID de session après l’inscription（セッション固定対策）
         session_regenerate_id(true);
 
         // Démarrer la session applicative
         $_SESSION['user_name'] = $uname;
         $_SESSION['name']      = $name;
-        $_SESSION['id']        = $conn->lastInsertId();
+        $_SESSION['id']        = $id;
 
-        redirectTo("home.php","success", "Votre compte a été créé avec succès");
+        redirectTo("/home","success", "Votre compte a été créé avec succès");
         
     } else {
-        redirectTo("signup.php?$user_data", "error", "Une erreur inconnue est survenue");
+        redirectTo("/signup?$user_data", "error", "Une erreur inconnue est survenue");
     }
 } else {
     // Accès direct sans formulaire
-    redirectTo("signup.php");
-}
-
-function redirectTo($path, $type = "success", $message = "")
-{
-    if(!empty($message)) $_SESSION["message"][$type] = $message;
-    header("Location: $path");
-    exit();
+    redirectTo("/signup");
 }
