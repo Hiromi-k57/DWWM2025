@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Envoyer une requête POST à check.php avec fetch()
       // fetch()を使ってcheck.phpにPOSTリクエスト送信
-      fetch("app/check.php", {
+      fetch("/check", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: `id=${encodeURIComponent(id)}&csrf_token=${encodeURIComponent(csrfToken)}`
+        body: `id=${encodeURIComponent(id)}&csrf=${encodeURIComponent(csrfToken)}`
         // Envoyer l’ID de la tâche + le jeton CSRF
         // タスクのIDとCSRFトークンを送信
       })
@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const id = this.getAttribute("data-todo-id");
       if (!id) return;
 
-      fetch("app/remove.php", {
+      fetch("/remove", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: `id=${encodeURIComponent(id)}&csrf_token=${encodeURIComponent(csrfToken)}`
+        body: `id=${encodeURIComponent(id)}&csrf=${encodeURIComponent(csrfToken)}`
       })
         .then((res) => res.text())
         .then((data) => {

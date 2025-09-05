@@ -98,6 +98,11 @@ function set_csrf()
 	echo '<input type="hidden" name="csrf" value="' . $_SESSION["csrf"] . '">';
 }
 
+function get_csrf()
+{
+	return $_SESSION["csrf"]??"";
+}
+
 function is_csrf_valid()
 {
 	if (!isset($_SESSION['csrf']) || !isset($_POST['csrf'])) {
@@ -116,7 +121,7 @@ function validate($data) {
 	return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
 }
 
-function redirectTo($path, $type = "success", $message = "")
+function redirectTo($path, $type = "", $message = "")
 {
     if(!empty($message)) $_SESSION["message"][$type] = $message;
     header("Location: $path");
