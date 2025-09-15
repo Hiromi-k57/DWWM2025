@@ -28,7 +28,11 @@ Pour configurer le projet en local, suivez ces étapes :
 1.Cloner le dépôt  
 
 ```bash
-   git clone <URL>
+   git clone --filter=blob:none --no-checkout https://github.com/Hiromi-k57/DWWM2025.git todolist
+   cd todolist
+   git sparse-checkout init --no-cone
+   git sparse-checkout set "todoList/" "todoList/*"
+   git checkout
    ```
 
 2.Créer un fichier `.env` et y ajouter `DB_USER, DB_PASSWORD, DB_NAME`.
@@ -55,7 +59,8 @@ Exemple :
 - La connexion à la base de données se fait via les variables du fichier `.env` (`DB_USER, DB_PASSWORD, DB_NAME, DB_HOST`).
   
 5.Exécuter l’application
-   Importer le fichier `app/_database/to_do_list0905.sql` via phpMyAdmin pour créer la base `to_do_list`.
+
+Importer le fichier `app/_database/to_do_list0905.sql` via phpMyAdmin pour créer la base `to_do_list`.
 
 - Application : [http://localhost:8080/signup](http://localhost:8080/signup)
 - phpMyAdmin : [http://localhost:8081/](http://localhost:8081/)
@@ -71,13 +76,15 @@ Exemple :
 - Réinitialisation du mot de passe
   
 ## Améliorations prévues (sécurité et qualité)
+
+- Actuellement la protection brute force passe par la session, la rendant faillible si on supprime les cookies, change de navigateur ou passe en navigation privée, il faudrait ajouter la protection brute force en base de donnée pour plus de sécurité.
   
 ## Licence
 
 ### Illustrations utilisées
 
 - time.gif (Pixabay)
-- check.jpg (FREEP !k)
+- check.jpg (Freep!k)
 
 ### Polices utilisées
 
