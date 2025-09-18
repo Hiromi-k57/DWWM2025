@@ -3,15 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: #81d8D0;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
   
 h1{
   text-align: center;
   color: #555;
-}  
+}
+
 .main-section {
   background: transparent;
   max-width: 500px;
