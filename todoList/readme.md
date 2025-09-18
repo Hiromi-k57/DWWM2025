@@ -86,6 +86,7 @@ Importer le fichier `app/_database/to_do_list0905.sql` via phpMyAdmin pour crée
 - time.gif (Pixabay)
 - check.jpg (Freep!k)
 - 404fp.jpg (Freep!k)
+- userF.jpg (Freep!k)
 
 ### Polices utilisées
 
