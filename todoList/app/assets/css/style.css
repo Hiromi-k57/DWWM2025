@@ -137,7 +137,8 @@ h1{
   background: rgb(139, 97, 93);
   color: #fff;
 }
-  
+
+/* 打消し線 */
 .todo-item h2.checked {
   color: #999 ;
   text-decoration: line-through;
