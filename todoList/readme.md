@@ -35,10 +35,11 @@ Pour configurer le projet en local, suivez ces étapes :
    git checkout
    ```
 
-2.Créer un fichier `.env` et y ajouter `DB_USER, DB_PASSWORD, DB_NAME`.
+2.Créer un fichier `.env` et y ajouter `DB_HOST, DB_USER, DB_PASSWORD, DB_NAME`.
 Exemple :
 
 ```bash
+   DB_HOST=test
    DB_USER=test
    DB_PASSWORD=test
    DB_NAME=to_do_list

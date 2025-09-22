@@ -20,13 +20,15 @@
             <p class="success"><?= htmlspecialchars($_GET['success'], ENT_QUOTES, 'UTF-8') ?></p>
         <?php } ?>
 
-        <label>Nom d'utilisateur</label>
-        <input type="text" 
+        <label for="uname">Nom d'utilisateur</label>
+        <input id="uname" 
+               type="text" 
                name="uname" 
                placeholder="Nom d’utilisateur"><br>
 
-        <label>Mot de passe</label>
-        <input type="password" 
+        <label for="password">Mot de passe</label>
+        <input id="password"
+               type="password" 
                name="password" 
                placeholder="Votre mot de passe"><br>
 

@@ -1,5 +1,5 @@
 <?php
-/* Vérification d’authentification（認証チェック） */
+/* Vérification d’authentification（認証チェック,ログインしていなければ強制的に/loginへ） */
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
     header("Location: /signup");
     exit();

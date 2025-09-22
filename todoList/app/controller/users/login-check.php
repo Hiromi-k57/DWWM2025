@@ -11,7 +11,7 @@ if (!isset($_SESSION['last_attempt_time'])) {
 }
 
 /* 1) Vérifier le verrouillage (brute force simple) 
-   （1) ロックアウト判定：単純ブルートフォース対策） */
+   (1) ロックアウト判定：単純ブルートフォース対策） */
 $lockout_time = 30; // secondes（秒）
 $max_attempts = 3;
 
@@ -28,7 +28,7 @@ if ($_SESSION['login_attempts'] >= $max_attempts) {
 }
 
 /* 2) Vérifier les champs du formulaire 
-   （2) フォーム入力の確認） */
+   (2) フォーム入力の確認） */
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
     $uname = validate($_POST['uname']);
@@ -41,7 +41,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: /login?error=Mot de passe requis");
         exit();
     } else {
-        $user = getUserByName($uname);
+        $user = getUserByName($uname); //DBからユーザーを探す処理
 
         if ($user) {
 

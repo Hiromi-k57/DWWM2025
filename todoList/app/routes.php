@@ -1,5 +1,6 @@
 <?php
-
+# Ce fichier définit les routes de l’application (URL → fichier PHP)
+# URLごとに実行するPHPファイルを割り当てるルーティング設定。(左 URL, 右 実行ファイル)
 require_once __DIR__.'/router.php';
 
 # USER

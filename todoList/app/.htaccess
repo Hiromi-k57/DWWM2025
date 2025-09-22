@@ -1,3 +1,14 @@
+# Redirige tout sauf fichiers statiques vers routes.php
+# 静的ファイル以外は全部routes.phpに渡す
+
 RewriteEngine On
+# Activer la réécriture d’URL (mod_rewrite)
+# （URL書き換えを有効化）
+
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf)$
+# Condition : ignorer les fichiers statiques
+# （条件：画像やCSS/JSなどの静的ファイルは除外）
+
 RewriteRule (.*) routes.php [QSA,L]
+# Règle : envoyer toutes les autres requêtes vers routes.php
+# （ルール：どんなURL(.*)でもroutes.phpに回す。ただしGETパラメータ[QSA]は残し、ここでルール処理を終了[L]）

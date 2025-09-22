@@ -4,7 +4,6 @@ function connexionDatabase()
 {
     $sname = $_ENV["DB_HOST"];
     $uname = $_ENV["DB_USER"];
-    // $pass = "root";
     $pass = $_ENV["DB_PASSWORD"];
     $db_name = $_ENV["DB_NAME"];
     

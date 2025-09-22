@@ -2,7 +2,7 @@
 include __DIR__."/../../model/users.php";
 
 // Vérifier la présence des champs requis envoyés par POST
-// （必須POST項目が揃っているか確認）
+// （必須POST項目が揃っているか確認,どれか欠けていたら後段に行かず最終のelseで/signup に戻す）
 if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_password'], $_POST['captcha'])) {
 
     // Récupération et nettoyage
@@ -16,7 +16,7 @@ if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_passwo
     // （エラー時に値を保持して再表示）
     $user_data = 'uname=' . urlencode($uname) . '&name=' . urlencode($name);
     $error = "";
-    // Contrôles de base
+    // Contrôles de base どれかに引っかかるたびに最後に引っかかった理由が$error表示される
     if ($uname === '') {
         $error ="Le nom d’utilisateur est requis";
     }
@@ -39,7 +39,7 @@ if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_passwo
         $error = "Veuillez utiliser au moins 6 caractères incluant minuscule, majuscule, chiffre et caractère spécial";
     }
 
-    // Vérification du CAPTCHA（大文字小文字の揺れ対策で大文字化）
+    // Vérification du CAPTCHA（strtoupperで大文字化してから比較）
     if (!isset($_SESSION['captcha']) || strtoupper($captcha) !== $_SESSION['captcha']) {
         $error = "Le captcha est incorrect";
     }
@@ -50,18 +50,19 @@ if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_passwo
         $error = "Ce nom d’utilisateur est déjà pris";
     }
 
-    if(!empty($error))
+    if(!empty($error)) //$errorが空でない(つまり何かエラーが発生した)場合に処理,エラーurl
     {
-        redirectTo("/signup?$user_data","error", $error);
+        redirectTo("/signup?$user_data","error", $error); //サインアップ画面に戻る,エラー,実際のエラーメッセージ
     }
     // Hacher le mot de passe
+    // パスワードハッシュ bcrypt(元のパスに戻せない,同じでもハッシュ結果毎回違う)
     $hashed = password_hash($pass, PASSWORD_DEFAULT);
 
     // Insérer l’utilisateur
     $id = addUser($uname, $hashed, $name);
 
     if ($id !== 0) {
-        // Sécurité : régénérer l’ID de session après l’inscription（セッション固定対策）
+        // Sécurité : régénérer l’ID de session après l’inscription（セッション固定攻撃対策）
         session_regenerate_id(true);
 
         // Démarrer la session applicative
@@ -75,6 +76,6 @@ if (isset($_POST['uname'], $_POST['password'], $_POST['name'], $_POST['re_passwo
         redirectTo("/signup?$user_data", "error", "Une erreur inconnue est survenue");
     }
 } else {
-    // Accès direct sans formulaire
+    // Accès direct sans formulaire　フォームを経由しない直アクセス
     redirectTo("/signup");
 }
