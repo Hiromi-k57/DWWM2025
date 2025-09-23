@@ -61,7 +61,7 @@ Exemple :
   
 5.Exécuter l’application
 
-Importer le fichier `app/_database/to_do_list0905.sql` via phpMyAdmin pour créer la base `to_do_list`.
+Importer le fichier `app/_database/to_do_list0918.sql` via phpMyAdmin pour créer la base `to_do_list`.
 
 - Application : [http://localhost:8080/signup](http://localhost:8080/signup)
 - phpMyAdmin : [http://localhost:8081/](http://localhost:8081/)
