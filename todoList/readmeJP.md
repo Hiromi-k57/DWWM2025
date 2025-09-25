@@ -53,7 +53,7 @@ DB_NAME=to_do_list
 
 5.アプリケーションを実行
 
-phpMyAdminにアクセスし、app/_database/``to_do_list0905.sql`` をインポートしてデータベース ``to_do_list`` を作成します。
+phpMyAdminにアクセスし、app/_database/``to_do_list0918.sql`` をインポートしてデータベース ``to_do_list`` を作成します。
 
 アプリ:  [http://localhost:8080/signup](http://localhost:8080/signup)
 
