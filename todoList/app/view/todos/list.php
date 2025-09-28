@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ajoutez, modifiez et supprimez vos tâches dans votre liste ToDo.">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Liste de tâches</title>
     <script src="/assets/js/script.js" defer></script>
@@ -55,11 +56,11 @@
                     <span class="remove-to-do" data-todo-id="<?= (int)$todo['id'] ?>">x</span>
 
                     <?php if ($todo['checked']) { ?>
-                        <input type="checkbox" class="check-box"
+                        <input type="checkbox" class="check-box" name="checkbox"
                                data-todo-id ="<?= (int)$todo['id'] ?>" checked /> 
                         <h2 class="checked"><?= htmlspecialchars($todo['title'], ENT_QUOTES, 'UTF-8') ?></h2>
                     <?php } else { ?>
-                        <input type="checkbox" class="check-box"
+                        <input type="checkbox" class="check-box" name="checkbox"
                                data-todo-id ="<?= (int)$todo['id'] ?>" />
                         <h2><?= htmlspecialchars($todo['title'], ENT_QUOTES, 'UTF-8') ?></h2>
                         <!-- htmlspecialcharsでXSS攻撃（<script>...）が文字列のまま表示 -->

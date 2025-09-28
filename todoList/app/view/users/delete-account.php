@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Supprimer mon compte</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Supprimez votre compte ToDo List et toutes vos données associées.">
+    <title>Supprimer mon compte</title>
     <link rel="stylesheet" href="/assets/css/signup.css">
 </head>
 <body>

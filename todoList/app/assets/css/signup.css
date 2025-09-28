@@ -144,10 +144,15 @@ a.ca:focus-visible {
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
-	padding: 3rem 0 5rem 0;
+	padding: 2rem 0 5rem 0;
+	overflow: hidden;
+}
+.page_non{
+	padding: 0 1rem;
+	
 }
 .userImg{
-	width: 50%;
+	width: 50dvw;
 	height: auto;
 	padding-bottom: 2rem;
 }
@@ -157,9 +162,9 @@ a.ca:focus-visible {
 	padding-top: 1rem;
 }
 .notFoundImg{
-	padding-bottom: 3rem;
+	padding-bottom:3rem;
 	width: auto;
-	height: 30em;
+	height: 50vh;
 }
 .return_linkDiv{
 	display: flex;
@@ -175,7 +180,8 @@ a.ca:focus-visible {
 }
 .return_link {
 	/* display: inline-block; */
-	font-size: 1.5rem;
+	font-size: 1rem;
+	font-weight: bold;
 	padding: 10px;
 	text-decoration: none;
 	color: #444;

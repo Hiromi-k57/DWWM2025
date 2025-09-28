@@ -31,7 +31,7 @@ function addUser($uname, $hashed, $name)
     $ok = $stmt->execute([$uname, $hashed, $name]); 
     if($ok)
     {
-        return $conn->lastInsertId(); // 登録成功 → 新しいユーザーIDを返す
+        return $conn->lastInsertId(); // Inscription réussie登録成功 → 新しいユーザーIDを返す
     }
     else
     {

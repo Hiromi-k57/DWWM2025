@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connectez-vous à votre compte ToDo List pour gérer vos tâches.">
 	<link rel="stylesheet" href="/assets/css/signup.css">
     <title>Connexion</title>
 </head>

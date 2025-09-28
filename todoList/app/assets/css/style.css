@@ -109,7 +109,7 @@ h1{
   display: block;
   width: 100%;
   padding: 5px 0px;
-  color: #888;
+  color: #555;
   padding-left: 30px;
   font-size: 14px;
   font-family: sans-serif;
@@ -140,7 +140,7 @@ h1{
 
 /* 打消し線 */
 .todo-item h2.checked {
-  color: #999 ;
+  color: #555 ;
   text-decoration: line-through;
 }
   
