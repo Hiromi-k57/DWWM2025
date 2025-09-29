@@ -95,4 +95,55 @@ Importer le fichier `app/_database/to_do_list0918.sql` via phpMyAdmin pour crée
 - arial.ttf
 - BlakaHollow-Regular.ttf
 - typewriter.ttf
-  
+
+---
+
+## PHP TODO List Web Application
+
+### Overview
+
+A simple and intuitive task management application built with HTML, CSS, JavaScript, PHP and MySQL.
+It allows user registration and deletion, as well as adding, deleting, and updating tasks.
+
+### Installation Instructions
+
+1.Clone the repository
+
+```bash
+   git clone --filter=blob:none --no-checkout https://github.com/Hiromi-k57/DWWM2025.git todolist
+   cd todolist
+   git sparse-checkout init --no-cone
+   git sparse-checkout set "todoList/" "todoList/*"
+   git checkout
+   ```
+
+2.Create a  `.env`  file and add `DB_HOST, DB_USER, DB_PASSWORD, DB_NAME`.
+
+Example:
+
+```bash
+   DB_HOST=test
+   DB_USER=test
+   DB_PASSWORD=test
+   DB_NAME=to_do_list
+```
+
+3.Start Docker
+
+```bash
+   docker compose up -d --build
+   ```
+
+4.Environment customization
+
+- The port can be changed in compose.yaml → ports (e.g., "8080:80" → "9090:80").
+- The timezone can be changed in compose.yaml → mysql: environment - TZ (default: Europe/Paris).
+- Database connection uses variables defined in the `.env` file.
+
+5.Run the application
+
+Import the file`app/_database/to_do_list0918.sql`via phpMyAdmin to create the `to_do_list` database.
+(use the user and password defined in `.env`)
+
+6.Customization
+Change styles in `signup.css`, `style.css`.
