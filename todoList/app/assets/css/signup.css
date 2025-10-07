@@ -146,6 +146,7 @@ a.ca:focus-visible {
 	align-items: center;
 	padding: 2rem 0 5rem 0;
 	overflow: hidden;
+	width: 100%;
 }
 .page_non{
 	padding: 0 1rem;
@@ -188,4 +189,21 @@ a.ca:focus-visible {
 }
 .return_link_p span {
   line-height: 1; /* | の縦位置フォントサイズの1倍 */
+}
+
+@media (max-width: 480px) {
+  .notFoundImg {
+    width: 90%;
+    height: auto;
+  }
+
+  .page_non {
+    padding: 0 1rem;
+    overflow-x: hidden;
+  }
+
+  .imgDiv {
+    overflow-x: hidden;
+	padding: 1rem;
+  }
 }
