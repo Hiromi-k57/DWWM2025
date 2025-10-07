@@ -153,7 +153,7 @@ a.ca:focus-visible {
 	
 }
 .userImg{
-	width: 50dvw;
+	width: 40dvw;
 	height: auto;
 	padding-bottom: 2rem;
 }
@@ -206,4 +206,9 @@ a.ca:focus-visible {
     overflow-x: hidden;
 	padding: 1rem;
   }
+  .userImg{
+	width: 70dvw;
+	height: auto;
+	padding: 2rem 0;
+}
 }
